@@ -131,7 +131,7 @@ function Homepage() {
       <form
         action=""
         onSubmit={(e) => e.preventDefault()}
-        className="pb-12 pt-24 bg-[#EBEDF3]"
+        className="pb-12 pt-10 md:pt-24 bg-[#EBEDF3]"
       >
         <div className="container">
           <div className="grid grid-cols-12  gap-[10px] ">

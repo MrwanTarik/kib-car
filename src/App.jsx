@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useState } from "react";
 const HomePage = React.lazy(() => import("./pages/Homepage"));
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from "./components/layout/Nav";
@@ -15,6 +15,7 @@ import EditAdvertisement from "./pages/EditAdvertisement";
 import AppLayout from "./components/layout/AppLayout";
 import MobileFooter from "./components/layout/MobileFooter";
 import MobileFixedFooter from "./components/layout/MobileFixedFooter";
+
 import MobileNav from "./components/layout/MobileNav";
 
 function App() {
