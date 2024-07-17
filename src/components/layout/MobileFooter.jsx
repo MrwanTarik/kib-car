@@ -57,7 +57,7 @@ function MobileFooter() {
               </a>
             </div>
           </div>
-          <div className="pt-[25px] pb-[85px] border-b border-[#eceaf6]">
+          <div className="pt-[25px] pb-[50px] border-b border-[#eceaf6]">
             <div className="container">
               <div className="flex flex-col">
                 <h2 className="font-primary text-[12px] font-normal leading-7 text-secondary">

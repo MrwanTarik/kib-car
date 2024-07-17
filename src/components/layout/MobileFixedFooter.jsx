@@ -63,7 +63,7 @@ function MobileFixedFooter() {
   }, [lastScrollY]);
   return (
     <>
-      <div className="pb-[67px] bg-[#f6f7fa]">
+      <div className="bg-[#f6f7fa]">
         <div
           className={`fixed left-0 right-0 px-2 border-t border-gray-200 z-[60] bg-white transition-all duration-500 ${
             !isScrollingUp ? "-bottom-60" : "bottom-0"
