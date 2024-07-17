@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const links = [
   {
@@ -41,10 +41,34 @@ function MobileFixedFooter() {
   function handleMenuClick() {
     setShowMenu((show) => !show);
   }
+  const [isScrollingUp, setIsScrollingUp] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY < lastScrollY) {
+      setIsScrollingUp(true);
+    } else {
+      setIsScrollingUp(false);
+    }
+
+    setLastScrollY(currentScrollY);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
   return (
     <>
       <div className="pb-[67px] bg-[#f6f7fa]">
-        <div className="fixed bottom-0 left-0 right-0 px-2 border-t border-gray-200 z-[60] bg-white transition-transform duration-200">
+        <div
+          className={`fixed bottom-0 left-0 right-0 px-2 border-t border-gray-200 z-[60] bg-white transition-all duration-500 ${
+            !isScrollingUp ? "-bottom-60" : "bottom-0"
+          }`}
+        >
           <ul className="m-0 p-0 list-none flex items-center justify-around">
             <li className="relative w-1/5 text-center">
               <Link

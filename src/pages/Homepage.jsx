@@ -7,7 +7,7 @@ import Type from "../components/filters/Type";
 import Price from "../components/filters/Price";
 import PaymentCurrency from "../components/filters/PaymentCurrency";
 import PaymentType from "../components/filters/PaymentType";
-import { Link } from "react-router-dom";
+import { Link, unstable_HistoryRouter, useNavigate } from "react-router-dom";
 import BanType from "../components/filters/BanType";
 import YearManufacturer from "../components/filters/YearManufacturer";
 import MaxYearManufacturer from "../components/filters/MaxYearManufacturer";
@@ -32,16 +32,35 @@ import VipAnnouncement from "../components/cars/VipAnnouncement";
 import RecentAnnouncement from "../components/cars/RecentAnnouncement";
 import PremiumAds from "../components/cars/PremiumAds";
 import VehicleFeatures from "../components/cars/VehicleFeatures";
-function Homepage() {
+function Homepage({ handleReset }) {
   const [premiumAds, setPremiumAds] = useState([]);
   const [ads, setAds] = useState([]);
   const [adsCount, setAdsCount] = useState(0);
 
   const { newAds, moreFilters, handleMoreFilters, setPaymentOptions } =
     useContext(FilterContext);
+  const { resetFilters } = useContext(FilterContext);
+  const [key, setKey] = useState(0);
 
   const filterContextData = useContext(FilterContext);
 
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      document.querySelectorAll(".dropdown").forEach((dropdown) => {
+        if (!dropdown.contains(e.target)) {
+          // Click was outside the dropdown, close it
+          dropdown.open = false;
+        }
+      });
+    };
+
+    window.addEventListener("click", handleClickOutside);
+
+    // Cleanup function to remove the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
   useEffect(() => {
     async function getAds() {
       try {
@@ -125,9 +144,12 @@ function Homepage() {
       console.log(error);
     }
   };
-
+  function handleResetForm() {
+    resetFilters();
+    setKey((prevKey) => prevKey + 1);
+  }
   return (
-    <main className="flex-1">
+    <main key={key} className="flex-1">
       <form
         action=""
         onSubmit={(e) => e.preventDefault()}
@@ -271,7 +293,10 @@ function Homepage() {
                 </span>
                 <div className="flex flex-wrap items-center md:flex-nowrap md:gy-0 gap-y-4 ">
                   <div className="flex items-center">
-                    <button className="font-primary text-[14px] font-normal mr-7 text-[#8D94AD]">
+                    <button
+                      onClick={handleResetForm}
+                      className="font-primary text-[14px] font-normal mr-7 text-[#8D94AD]"
+                    >
                       Rest
                     </button>
                     <button

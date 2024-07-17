@@ -1,6 +1,6 @@
 import React, { Suspense, useState } from "react";
 const HomePage = React.lazy(() => import("./pages/Homepage"));
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Nav from "./components/layout/Nav";
 // import Homepage from "./pages/Homepage";
 import { FilterProvider } from "./context/filterContext/FilterContext";
@@ -44,7 +44,7 @@ function App() {
                 path="/edit-advertisement/:id"
                 element={<EditAdvertisement />}
               />
-              <Route path="/car-details/:id" element={<CarDetails />} />
+              <Route path="/car-details/:id" element={<CarDetails />} />{" "}
             </Routes>
           </Suspense>
           {showMobileCom ? <MobileFooter /> : <Footer />}

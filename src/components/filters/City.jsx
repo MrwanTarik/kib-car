@@ -38,7 +38,6 @@ function City() {
     }
     getCities();
   }, []);
-
   const selectedOptions = Object.keys(checkedCity).filter(
     (item) => checkedCity[item]
   );

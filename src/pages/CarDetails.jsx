@@ -476,10 +476,10 @@ function CarDetails() {
                         {car.brand_model.name}
                       </p>
                       <p className="font-primary text-[14px] text-secondary">
-                        {car.vehicle_year.name}
+                        {car.vehicle_year?.name}
                       </p>
                       <p className="font-primary text-[14px] text-secondary">
-                        {car.vehicle_category.name}
+                        {car.vehicle_category?.name}
                       </p>
                       <p className="font-primary text-[14px] text-secondary">
                         {car.vehicle_color.name}

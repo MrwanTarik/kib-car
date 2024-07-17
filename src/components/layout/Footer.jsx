@@ -72,7 +72,7 @@ function Footer() {
       <div className="bg-red py-[15px]">
         <div className="container">
           <div className="flex items-center footer justify-between">
-            <h2 className="font-primary text-[14px] font-bold leading-7 text-white max-w-[528px]">
+            <h2 className="font-primary text-[14px] font-normal leading-7 text-white max-w-[528px]">
               The Site Administration is not responsible for the content of
               advertising banners and posted announcements.
             </h2>
