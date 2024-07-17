@@ -322,7 +322,7 @@ function NewAdvertisement() {
       return (
         <div
           key={index}
-          className="md:w-[48%] lg:w-[23%] w-full h-[180px] inline-block m-2"
+          className="col-span-6  md:w-[185px] h-[140px] relative rounded-[25px]  m-2"
         >
           <img
             src={image.src}
@@ -334,20 +334,26 @@ function NewAdvertisement() {
             <div className="flex justify-between">
               <button
                 onClick={() => removeImage(index)}
-                className="!text-[35px] text-red"
+                className="!text-[35px] text-red z-40"
               >
                 <IoIosClose />
               </button>
               <div className="flex gap-x-3">
                 <button
-                  onClick={() => rotateImage(index, "clockwise")}
-                  className=" text-red !text-[24px]"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    rotateImage(index, "clockwise");
+                  }}
+                  className=" text-red !text-[24px] z-40"
                 >
                   ↻
                 </button>
                 <button
-                  onClick={() => rotateImage(index, "counterclockwise")}
-                  className=" text-red !text-[24px]"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    rotateImage(index, "counterclockwise");
+                  }}
+                  className=" text-red !text-[24px] z-40"
                 >
                   ↺
                 </button>
@@ -369,10 +375,10 @@ function NewAdvertisement() {
       imageSlots.splice(
         index,
         0,
-        <div>
+        <div className="col-span-6">
           <div
             key={`placeholder-${index}`}
-            className="w-[185px] h-[140px] relative flex rounded-[25px] items-center justify-center bg-[#F6F7FA] m-2  hover:border hover:border-[#3273ec]"
+            className="md:w-[185px] h-[140px] relative flex rounded-[25px] items-center justify-center bg-[#F6F7FA] m-2  hover:border hover:border-[#3273ec]"
           >
             <input
               type="file"
@@ -385,7 +391,7 @@ function NewAdvertisement() {
               <img
                 src={placeholder.src}
                 alt={`Placeholder ${index}`}
-                className="w-[140px] m-auto cursor-pointer lg:m-0"
+                className="md:w-[140px] m-auto cursor-pointer lg:m-0"
                 onClick={() =>
                   document.getElementById(`file-upload-${index}`).click()
                 }
@@ -402,7 +408,7 @@ function NewAdvertisement() {
   imageSlots.push(
     <div
       key="add-more"
-      className="cursor-pointer w-[185px] h-[140px] relative flex rounded-[25px] items-center justify-center bg-[#F6F7FA] m-2  hover:border hover:border-[#3273ec]"
+      className="col-span-6 cursor-pointer md:w-[185px] h-[140px] relative flex rounded-[25px] items-center justify-center bg-[#F6F7FA] m-2  hover:border hover:border-[#3273ec]"
       onClick={() => document.getElementById("file-upload-add-more").click()}
     >
       <input
@@ -562,7 +568,7 @@ function NewAdvertisement() {
               site
             </li>
           </ul>
-          <div className="grid grid-cols-12 gap-[30px] ml-6">
+          <div className="grid grid-cols-12 gap-[30px] md:ml-6">
             <div className="col-span-12 md:col-span-6">
               <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[50px] md:flex-row flex-col">
                 <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative ">
@@ -853,7 +859,7 @@ function NewAdvertisement() {
                       required
                     />
                   </div>
-                  <div className="md:max-w-[220px] flex space-x-4 items-center w-1/2">
+                  <div className="md:max-w-[220px] flex space-x-4 items-center w-[55%]">
                     <div className="flex items-center gap-x-2">
                       <input
                         className="w-4 h-4 accent-red"
@@ -1071,7 +1077,7 @@ function NewAdvertisement() {
                 <label className="font-primary text-[14px] font-normal md:min-w-[12%]">
                   Car Status
                 </label>
-                <div className="md:flex-nowrap  flex-wrap gap-y-3 md:gap-y-0  md:min-w-[452px] w-full space-x-5 flex md:ml-2">
+                <div className="md:flex-nowrap  flex-wrap gap-y-3 md:gap-y-0  md:min-w-[452px] w-full gap-x-5 flex md:ml-2">
                   <div className="relative flex items-center gap-x-1">
                     <input
                       className="absolute w-4 h-4 opacity-0 accent-red "
@@ -1120,7 +1126,7 @@ function NewAdvertisement() {
                 <label className="font-primary text-[14px] font-normal md:min-w-[12%]">
                   Number of seats
                 </label>
-                <div className="md:flex-nowrap  flex-wrap gap-y-3 md:gap-y-0  md:min-w-[452px] w-full space-x-5 flex md:ml-2">
+                <div className="md:flex-nowrap  flex-wrap gap-y-3 md:gap-y-0  md:min-w-[452px] w-full gap-x-5 flex md:ml-2">
                   <div className="relative flex items-center gap-x-1">
                     <input
                       className="absolute opacity-0 w-4 h-4 accent-red"
@@ -1427,6 +1433,10 @@ function NewAdvertisement() {
                 <h2 className="uppercase mt-6 mb-[30px] font-secondary text-[26px] font-bold leading-8 text-primary">
                   Pictures
                 </h2>
+                <div className="bg-[#f6f7fa] p-4 rounded-lg mb-6">
+                  <p className="text-[14] text-[#ff586d]">Prohibited</p>
+                  <p className="font-semibold mt-2">Screenshots, photos with frames and screenshots.</p>
+                </div>
                 <p
                   id="error"
                   className="font-secondary text-[14px] font-bold leading-8 text-red hidden"
@@ -1434,7 +1444,9 @@ function NewAdvertisement() {
                   {PictureErrorMsg}
                 </p>
                 <div>
-                  <div className="flex lg:gap-x-6 ">{imageSlots}</div>
+                  <div className="grid grid-cols-12 md:flex gap-y-6 lg:gap-x-6 ">
+                    {imageSlots}
+                  </div>
                 </div>
               </div>
             </div>
