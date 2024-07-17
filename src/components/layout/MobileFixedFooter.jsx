@@ -41,7 +41,7 @@ function MobileFixedFooter() {
   function handleMenuClick() {
     setShowMenu((show) => !show);
   }
-  const [isScrollingUp, setIsScrollingUp] = useState(false);
+  const [isScrollingUp, setIsScrollingUp] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const handleScroll = () => {
@@ -65,7 +65,7 @@ function MobileFixedFooter() {
     <>
       <div className="pb-[67px] bg-[#f6f7fa]">
         <div
-          className={`fixed bottom-0 left-0 right-0 px-2 border-t border-gray-200 z-[60] bg-white transition-all duration-500 ${
+          className={`fixed left-0 right-0 px-2 border-t border-gray-200 z-[60] bg-white transition-all duration-500 ${
             !isScrollingUp ? "-bottom-60" : "bottom-0"
           }`}
         >
