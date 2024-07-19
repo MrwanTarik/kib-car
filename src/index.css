@@ -10,6 +10,25 @@
   padding: 0;
   box-sizing: border-box;
 }
+.small-slider .slick-list {
+  max-height: 480px !important;
+  border-radius: 8px;
+}
+.full-slider .slick-list {
+  max-height: calc(100vh - 120px) !important;
+}
+.slick-dots li {
+  width: auto;
+}
+
+.fixed-nav-container {
+  border-bottom: 1px solid #eaebf2;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 58;
+}
+
 favourite-sec input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;

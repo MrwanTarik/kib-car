@@ -31,7 +31,7 @@ function Footer() {
         }`} */}
       <div className={`py-5`}>
         <div className="container">
-          <div className="flex justify-between items-center pb-[80px]">
+          <div className="flex justify-between items-center pb-[20px] border-b-[2px] border-[#eaebf2]">
             <a href="#">
               <p>Place an Ad</p>
             </a>
@@ -56,7 +56,7 @@ function Footer() {
               </a>
             </div>
           </div>
-          <div className="flex flex-wrap gap-[30px] items-center pb-[50px] ">
+          <div className="flex flex-wrap gap-[30px] items-center py-[20px] ">
             {links.map((link) => (
               <Link
                 className="font-primary text-[14px] font-normal"

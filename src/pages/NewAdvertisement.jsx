@@ -1435,7 +1435,9 @@ function NewAdvertisement() {
                 </h2>
                 <div className="bg-[#f6f7fa] p-4 rounded-lg mb-6">
                   <p className="text-[14] text-[#ff586d]">Prohibited</p>
-                  <p className="font-semibold mt-2">Screenshots, photos with frames and screenshots.</p>
+                  <p className="font-semibold mt-2">
+                    Screenshots, photos with frames and screenshots.
+                  </p>
                 </div>
                 <p
                   id="error"
@@ -1524,7 +1526,7 @@ function NewAdvertisement() {
                   >
                     <option value="Select">Select</option>
                     {cities.map((item) => (
-                      <option key={item.id} value={item.name}>
+                      <option key={item.id} value={item.id}>
                         {item.name}
                       </option>
                     ))}
