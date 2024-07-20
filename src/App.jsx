@@ -1,6 +1,12 @@
 import React, { Suspense, useState } from "react";
 const HomePage = React.lazy(() => import("./pages/Homepage"));
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
 import Nav from "./components/layout/Nav";
 // import Homepage from "./pages/Homepage";
 import { FilterProvider } from "./context/filterContext/FilterContext";
@@ -20,8 +26,8 @@ import MobileNav from "./components/layout/MobileNav";
 
 function App() {
   const [width] = useState(window.innerWidth);
-
   const showMobileCom = width < 769;
+
 
   return (
     <BrowserRouter>
@@ -47,6 +53,7 @@ function App() {
               <Route path="/car-details/:id" element={<CarDetails />} />{" "}
             </Routes>
           </Suspense>
+          
           {showMobileCom ? <MobileFooter /> : <Footer />}
           {showMobileCom && <MobileFixedFooter />}
         </AppLayout>

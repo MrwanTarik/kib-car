@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const links = [
@@ -36,6 +36,8 @@ const links = [
   },
 ];
 function MobileFixedFooter() {
+  const location = useLocation();
+  const hide = location.pathname != "/";
   const [showMenu, setShowMenu] = useState(false);
 
   function handleMenuClick() {
@@ -63,7 +65,7 @@ function MobileFixedFooter() {
   }, [lastScrollY]);
   return (
     <>
-      <div className="bg-[#f6f7fa]">
+      <div className={`bg-[#f6f7fa] ${hide ? "hidden" : ""}`}>
         <div
           className={`fixed left-0 right-0 px-2 border-t border-gray-200 z-[60] bg-white transition-all duration-200 ${
             !isScrollingUp ? "-bottom-60" : "bottom-0"
