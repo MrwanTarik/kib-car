@@ -23,7 +23,7 @@ const NextArrow = ({ onClick }) => {
   );
 };
 function CarSlider({ carImages, showFullSlider, setShowFullSlider }) {
-  const [currentSlide, setCurrentSlide] = useState(1);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const settings = {
     customPaging: function (i) {
       if (i < 8)
@@ -38,7 +38,7 @@ function CarSlider({ carImages, showFullSlider, setShowFullSlider }) {
       return <></>;
     },
     dots: true,
-    dotsClass: "slick-dots slick-thumb",
+    dotsClass: "slick-dots slick-thumb relative top-0",
     infinite: true,
     arrows: true,
     speed: 500,

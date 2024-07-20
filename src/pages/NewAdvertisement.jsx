@@ -570,8 +570,8 @@ function NewAdvertisement() {
           </ul>
           <div className="grid grid-cols-12 gap-[30px] md:ml-6">
             <div className="col-span-12 md:col-span-6">
-              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[50px] md:flex-row flex-col">
-                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative ">
+              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[10px] md:flex-row flex-col">
+                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative min-w-[165px] max-w-[165px]">
                   Brand
                 </label>
                 <select
@@ -595,8 +595,8 @@ function NewAdvertisement() {
               </div>
             </div>
             <div className="col-span-12 md:col-span-6">
-              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[50px] md:flex-row flex-col">
-                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative ">
+              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[10px] md:flex-row flex-col">
+                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative min-w-[165px] max-w-[165px]">
                   Fuel type
                 </label>
                 <select
@@ -619,8 +619,8 @@ function NewAdvertisement() {
               </div>
             </div>
             <div className="col-span-12 md:col-span-6">
-              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[50px] md:flex-row flex-col">
-                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative ">
+              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[10px] md:flex-row flex-col">
+                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative min-w-[165px] max-w-[165px]">
                   Model
                 </label>
                 <select
@@ -643,8 +643,8 @@ function NewAdvertisement() {
               </div>
             </div>
             <div className="col-span-12 md:col-span-6">
-              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[50px] md:flex-row flex-col">
-                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative ">
+              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[10px] md:flex-row flex-col">
+                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative min-w-[165px] max-w-[165px]">
                   Gear
                 </label>
                 <select
@@ -667,8 +667,8 @@ function NewAdvertisement() {
               </div>
             </div>
             <div className="col-span-12 md:col-span-6">
-              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[50px] md:flex-row flex-col">
-                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative ">
+              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[10px] md:flex-row flex-col">
+                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative min-w-[165px] max-w-[165px]">
                   Ban Type
                 </label>
                 <select
@@ -691,8 +691,8 @@ function NewAdvertisement() {
               </div>
             </div>
             <div className="col-span-12 md:col-span-6">
-              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[50px] md:flex-row flex-col">
-                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative ">
+              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[10px] md:flex-row flex-col">
+                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative min-w-[165px] max-w-[165px]">
                   Gear Box
                 </label>
                 <select
@@ -715,8 +715,8 @@ function NewAdvertisement() {
               </div>
             </div>
             <div className="col-span-12 md:col-span-6">
-              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[50px] md:flex-row flex-col">
-                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative ">
+              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[10px] md:flex-row flex-col">
+                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative min-w-[165px] max-w-[165px]">
                   March
                 </label>
                 <div className="flex items-center justify-between gap-x-8 md:max-w-[452px] w-full">
@@ -771,8 +771,8 @@ function NewAdvertisement() {
               </div>
             </div>
             <div className="col-span-12 md:col-span-6">
-              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[50px] md:flex-row flex-col">
-                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative ">
+              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[10px] md:flex-row flex-col">
+                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative min-w-[165px] max-w-[165px]">
                   Year
                 </label>
                 <select
@@ -795,8 +795,8 @@ function NewAdvertisement() {
               </div>
             </div>
             <div className="col-span-12 md:col-span-6">
-              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[50px] md:flex-row flex-col">
-                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative ">
+              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[10px] md:flex-row flex-col">
+                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative min-w-[165px] max-w-[165px]">
                   Color
                 </label>
                 <select
@@ -819,8 +819,8 @@ function NewAdvertisement() {
               </div>
             </div>
             <div className="col-span-12 md:col-span-6">
-              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[50px] md:flex-row flex-col">
-                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative ">
+              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[10px] md:flex-row flex-col">
+                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative min-w-[165px] max-w-[165px]">
                   Engine volume.cm 3
                 </label>
                 <select
@@ -843,8 +843,8 @@ function NewAdvertisement() {
               </div>
             </div>
             <div className="col-span-12 md:col-span-6">
-              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[50px] md:flex-row flex-col">
-                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative ">
+              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[10px] md:flex-row flex-col">
+                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative min-w-[165px] max-w-[165px]">
                   Price
                 </label>
                 <div className="flex items-center justify-between gap-x-8 md:max-w-[452px] w-full">
@@ -916,8 +916,8 @@ function NewAdvertisement() {
               </div>
             </div>
             <div className="col-span-12 md:col-span-6">
-              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[50px] md:flex-row flex-col">
-                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative ">
+              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[10px] md:flex-row flex-col">
+                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative min-w-[165px] max-w-[165px]">
                   Engine power.ag
                 </label>
                 <input
@@ -933,8 +933,8 @@ function NewAdvertisement() {
               </div>
             </div>
             <div className="col-span-12 md:col-span-6">
-              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[50px] md:flex-row flex-col">
-                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative ">
+              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[10px] md:flex-row flex-col">
+                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative min-w-[165px] max-w-[165px]">
                   How many do you own?
                 </label>
                 <select
@@ -957,8 +957,8 @@ function NewAdvertisement() {
               </div>
             </div>
             <div className="col-span-12 md:col-span-6">
-              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[50px] md:flex-row flex-col">
-                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative ">
+              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[10px] md:flex-row flex-col">
+                <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative min-w-[165px] max-w-[165px]">
                   For which market it is assem
                 </label>
                 <select
@@ -981,8 +981,8 @@ function NewAdvertisement() {
               </div>
             </div>
             <div className="col-span-12 md:col-span-6">
-              <div className="flex space-y-2 md:space-y-0  justify-between md:gap-[50px] md:flex-row flex-col">
-                <label className="font-primary text-[14px] font-normal">
+              <div className="flex space-y-2 md:space-y-0  justify-between md:gap-[10px] md:flex-row flex-col">
+                <label className="font-primary text-[14px] font-normal min-w-[165px] max-w-[165px]">
                   The Situation
                 </label>
                 <div className="flex w-full md:max-w-[452px] gap-x-5 ">
@@ -1010,8 +1010,8 @@ function NewAdvertisement() {
                   </div>
                 </div>
               </div>
-              <div className="flex space-y-2 md:space-y-0  justify-between md:gap-[50px] md:flex-row flex-col mt-6">
-                <label className="font-primary text-[14px] font-normal invisible">
+              <div className="flex space-y-2 md:space-y-0  justify-between md:gap-[10px] md:flex-row flex-col mt-6">
+                <label className="font-primary text-[14px] font-normal invisible min-w-[165px] max-w-[165px]">
                   The Situation
                 </label>
                 <div className="flex w-full md:max-w-[452px] gap-x-5 ">
@@ -1041,10 +1041,7 @@ function NewAdvertisement() {
               </div>
             </div>
             <div className="col-span-12 md:col-span-6">
-              <div className="flex space-y-2 md:space-y-0  justify-between md:gap-[50px] md:flex-row flex-col ">
-                <label className="font-primary text-[14px] font-normal invisible">
-                  The Situation
-                </label>
+              <div className="flex space-y-2 md:space-y-0  justify-between md:gap-[10px] md:flex-row flex-col ">
                 <div className="flex w-full md:max-w-[452px] gap-x-5 ">
                   <div className="mt-[2px]">
                     <label className="custom-checkbox">
@@ -1070,6 +1067,9 @@ function NewAdvertisement() {
                     </label>
                   </div>
                 </div>
+                <label className="font-primary text-[14px] font-normal invisible min-w-[165px] max-w-[165px]">
+                  The Situation
+                </label>
               </div>
             </div>
             <div className="col-span-12">
@@ -1311,9 +1311,9 @@ function NewAdvertisement() {
               </div>
             </div>
             <div className="col-span-12 md:col-span-6">
-              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[50px] md:flex-row flex-col">
-                <label className="font-primary text-[14px] font-normal  "></label>
-                <div className="md:max-w-[452px] w-full space-x-5 flex md:ml-2">
+              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[10px] md:flex-row flex-col">
+                <label className="font-primary text-[14px] font-normal min-w-[165px] max-w-[165px]"></label>
+                <div className="md:max-w-[452px] w-full space-x-5 flex">
                   <div className="mt-[2px] ">
                     <label className="custom-checkbox">
                       <input
@@ -1335,9 +1335,9 @@ function NewAdvertisement() {
                   </div>
                 </div>
               </div>
-              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[50px] md:flex-row flex-col">
-                <label className="font-primary text-[14px] font-normal "></label>
-                <div className="md:max-w-[452px] w-full space-x-5 flex md:ml-2">
+              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[10px] md:flex-row flex-col">
+                <label className="font-primary text-[14px] font-normal min-w-[165px] max-w-[165px] "></label>
+                <div className="md:max-w-[452px] w-full space-x-5 flex">
                   <div className="mt-[2px] ">
                     <label className="custom-checkbox">
                       <input
@@ -1363,8 +1363,8 @@ function NewAdvertisement() {
           </div>
           <div className="grid grid-cols-12 gap-[30px] mt-[80px]">
             <div className="col-span-12 md:col-span-6">
-              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[50px] md:flex-row flex-col">
-                <label className="font-primary text-[14px] font-normal">
+              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[10px] md:flex-row flex-col">
+                <label className="font-primary text-[14px] font-normal min-w-[165px] max-w-[165px]">
                   VIN code
                 </label>
                 <input
@@ -1379,8 +1379,8 @@ function NewAdvertisement() {
               </div>
             </div>
             <div className="col-span-12">
-              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between lg:gap-[50px] xl:gap-[53mt-[117px]px] md:flex-row flex-col">
-                <label className="font-primary min-w-[170px] text-[14px] font-normal">
+              <div className="flex space-y-2 md:space-y-0 md:items-center justify-between lg:gap-[10px] xl:gap-[53mt-[117px]px] md:flex-row flex-col">
+                <label className="font-primary text-[14px] font-normal min-w-[165px] max-w-[165px]">
                   Additional Information
                 </label>
                 <div className="w-full min-h-[132px] md:min-w-[452px] ">

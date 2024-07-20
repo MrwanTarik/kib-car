@@ -10,7 +10,7 @@ function VipAnnouncement({ announcements, title }) {
       </h1>
       <div className="pb-[120px] pt-[60px] bg-[#F6F7FA]">
         <div className="container">
-          <div className="grid grid-cols-12  gap-[30px] ">
+          <div className="grid grid-cols-12  gap-[18px] ">
             {announcements.map((car) => (
               <CarCard key={car.id} car={car} id={car.id} />
             ))}

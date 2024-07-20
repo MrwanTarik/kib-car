@@ -34,7 +34,7 @@ function YearManufacturer() {
   return (
     <div className="h-full">
       <details ref={detailsRef} className="w-full h-full dropdown">
-        <summary className="flex items-center justify-between w-full h-full px-5 bg-white border-none rounded-lg shadow-md btn shadow-input hover:bg-stone-100">
+        <summary className="flex items-center justify-between w-full h-full px-[10px] bg-white border-none rounded-lg shadow-md btn shadow-input hover:bg-stone-100">
           <div>
             {selectedYearManufactured && (
               <p className="font-primary mb-1 text-[12px] opacity-70 text-secondary text-start">

@@ -25,7 +25,7 @@ const PaymentType = ({ label, type, setPaymentOptions, name }) => {
           onChange={() => handleChange(type)}
         />
         <span
-          className={`py-[15px] px-[20px] shadow-md rounded-lg cursor-pointer flex flex-1 justify-center items-center border ${
+          className={`py-[15px] px-[10px] shadow-md rounded-lg cursor-pointer flex flex-1 justify-center items-center border ${
             !isChecked && "border-transparent"
           } h-full ${isChecked ? "text-red  border-red bg-[#ffe6e5]" : ""}`}
         >

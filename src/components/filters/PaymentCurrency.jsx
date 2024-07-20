@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import chivronBottom from "../../assets/icons/chivron-bottom-gray.svg";
 import { useContext } from "react";
 import FilterContext from "../../context/filterContext/FilterContext";
@@ -18,11 +18,13 @@ function PaymentCurrency() {
     { id: 2, name: "EUR" },
     { id: 3, name: "TR" },
   ];
-
+  useEffect(() => {
+    setSelectedCurrency("USD");
+  }, []);
   return (
     <div className="w-[40%] h-full">
       <details ref={detailsRef} className="w-full h-full dropdown">
-        <summary className="flex items-center justify-between w-full h-full px-5 bg-white border-none rounded-lg shadow-md btn shadow-input hover:bg-stone-100">
+        <summary className="flex items-center justify-between w-full h-full px-[10px] bg-white border-none rounded-lg shadow-md btn shadow-input hover:bg-stone-100">
           <div>
             <p className="font-primary text-[14px] font-normal">
               {selectedCurrency || "Currency"}

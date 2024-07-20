@@ -18,7 +18,7 @@ const Price = () => {
         />
         <label
           htmlFor="minPrice"
-          className="absolute cursor-pointer left-0 -top-1.5 px-4  text-sm transition-all w-full text-start peer-placeholder-shown:text-base peer-placeholder-shown:text-secondary peer-placeholder-shown:top-2 peer-focus:-top-1.5  peer-focus:text-sm font-primary text-secondary"
+          className="absolute cursor-pointer left-0 -top-1.5 px-[10px]  text-[14px] transition-all w-full text-start peer-placeholder-shown:text-[14px]  peer-placeholder-shown:top-2 peer-focus:-top-1.5  peer-focus:text-[12px] font-primary text-secondary"
         >
           Price thousand
         </label>
@@ -35,7 +35,7 @@ const Price = () => {
         />
         <label
           htmlFor="maxPrice"
-          className="absolute cursor-pointer left-0 -top-1.5 px-4  text-sm transition-all w-full text-start peer-placeholder-shown:text-base peer-placeholder-shown:text-secondary peer-placeholder-shown:top-2 peer-focus:-top-1.5  peer-focus:text-sm font-primary text-secondary"
+          className="absolute cursor-pointer left-0 -top-1.5 px-[10px]   text-sm transition-all w-full text-start peer-placeholder-shown:text-[14px] peer-placeholder-shown:top-2 peer-focus:-top-1.5  peer-focus:text-[12px] font-primary text-secondary"
         >
           Max
         </label>

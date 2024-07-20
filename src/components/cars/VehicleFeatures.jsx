@@ -59,7 +59,7 @@ function VehicleFeatures() {
             onChange={() => handleChange(feature.id)} // Pass feature.id to handleChange
           />
           <span
-            className={`py-[15px] px-[20px] shadow-md rounded-lg cursor-pointer flex flex-1 justify-center items-center border ${
+            className={`py-[15px] px-[10px] shadow-md rounded-lg cursor-pointer flex flex-1 justify-center items-center border ${
               !isChecked
                 ? "border-transparent"
                 : "text-red border-red bg-[#ffe6e5]"

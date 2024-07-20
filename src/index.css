@@ -107,7 +107,7 @@ textarea {
 }
 @layer components {
   .container {
-    @apply max-w-[1380px];
+    @apply max-w-[1010px];
   }
   input[type="radio"]:checked + span .custom-checkmark {
     display: block;

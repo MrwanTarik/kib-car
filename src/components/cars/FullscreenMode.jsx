@@ -24,7 +24,7 @@ const NextArrow = ({ onClick }) => {
 };
 
 function FullscreenMode({ showFullSlider, setShowFullSlider, carImages }) {
-  const [currentSlide, setCurrentSlide] = useState(1);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const settings = {
     customPaging: function (i) {
       return (

@@ -193,7 +193,7 @@ function Homepage({ handleReset }) {
               <BanType />
             </div>
             <div className="xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px]">
-              <div className="flex justify-between h-full gap-6">
+              <div className="flex justify-between h-full gap-3">
                 <div className="flex-1">
                   <YearManufacturer />
                 </div>
