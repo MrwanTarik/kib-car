@@ -38,7 +38,7 @@ function Nav() {
                 Salons
               </Link>
               <Link
-                to={"/dealership-owners"}
+                to={"/help"}
                 className="font-primary text-[14px]  font-normal leading-5  text-white"
               >
                 Motorcyle

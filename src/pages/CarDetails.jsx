@@ -65,7 +65,7 @@ function CarDetails() {
   const [showFullSlider, setShowFullSlider] = useState(false);
   const [width] = useState(window.innerWidth);
 
-  const showMobileCom = width < 769;
+  const showMobileCom = width < 971;
   const { id } = useParams();
   const [correctAd, setCorrectAd] = useState(false);
   const [deleteAd, setDeleteAd] = useState(false);

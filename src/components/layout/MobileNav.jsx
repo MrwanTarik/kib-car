@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function MobileNav({ title }) {
   return (
-    <header className="py-5 bg-[#F6F7FA]">
+    <header className="py-5 bg-[#F6F7FA] border-b border-[#eaebf2]">
       <nav className="container">
         <div className="flex nav-holder justify-center items-center">
           <Link

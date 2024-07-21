@@ -56,7 +56,7 @@ function BanType() {
                 Ban Type
               </p>
             )}
-            <p className="font-primary text-[14px] font-normal text-secondary text-start overflow-hidden whitespace-nowrap overflow-ellipsis">
+            <p className="font-primary text-[14px] font-normal text-secondary text-start overflow-hidden whitespace-nowrap overflow-ellipsis w-full">
               {summaryText}
             </p>
           </div>

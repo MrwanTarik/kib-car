@@ -26,7 +26,7 @@ import MobileNav from "./components/layout/MobileNav";
 
 function App() {
   const [width] = useState(window.innerWidth);
-  const showMobileCom = width < 769;
+  const showMobileCom = width < 971;
 
 
   return (
