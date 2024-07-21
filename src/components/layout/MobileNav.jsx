@@ -6,7 +6,7 @@ function MobileNav({ title }) {
       <nav className="container">
         <div className="flex nav-holder justify-center items-center">
           <Link
-            to={"/"}
+            to={"/dealership-owners"}
             className="text-black font-bold text-lg tracking-wider font-primary"
           >
             {title}
