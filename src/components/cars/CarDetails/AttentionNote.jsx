@@ -22,7 +22,7 @@ function AttentionNote() {
           <path
             d="M12 13.801v-8"
             stroke="#FF586D"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke-linecap="round"
             stroke-linejoin="round"
           />

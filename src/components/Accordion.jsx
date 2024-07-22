@@ -1,6 +1,6 @@
 function Accordion({ id, isOpen, onToggle, title, content }) {
   return (
-    <div className="collapse collapse-plus bg-white border border-solid rounded-md border-[#6b6b6b]]">
+    <div className="collapse collapse-plus bg-white border-b border-solid rounded-md border-[#6b6b6b]]">
       <input
         type="checkbox"
         id={id}
@@ -10,11 +10,15 @@ function Accordion({ id, isOpen, onToggle, title, content }) {
       />
       <label
         htmlFor={id}
-        className="collapse-title font-primary text-[14px] font-bold leading-8 text-secondary"
+        className="collapse-title font-primary text-[15px] font-bold leading-8 text-[#212C3A]"
       >
         {title}
       </label>
-      <div className="collapse-content">
+      <div
+        className={`collapse-content border-l-[3px] border-[#ca1016] bg-[#f6f7fa] ${
+          isOpen ? "py-[20px] px-[25px]" : ""
+        }`}
+      >
         <p>{content}</p>
       </div>
     </div>

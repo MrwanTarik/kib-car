@@ -109,7 +109,7 @@ function MobileFixedFooter() {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="#8d94ad"
                   >
-                    <g fill-rule="evenodd">
+                    <g fillRule="evenodd">
                       <g>
                         <path
                           d="M19.787.83C18.85.311 17.773.014 16.625.014c-2.026 0-3.84.923-5.037 2.37C10.384.938 8.572.015 6.544.015c-1.145 0-2.22.297-3.16.814C1.367 1.946 0 4.094 0 6.563 0 7.27.115 7.947.323 8.58 1.447 13.631 11.588 20 11.588 20S21.722 13.63 22.848 8.58c.207-.634.324-1.312.324-2.018 0-2.468-1.367-4.615-3.385-5.734z"
@@ -142,16 +142,12 @@ function MobileFixedFooter() {
                         y1="0%"
                         y2="98.965%"
                       >
-                        <stop offset="0%" stop-color="#CA1016"></stop>
-                        <stop offset="43.571%" stop-color="#C01817"></stop>
-                        <stop offset="100%" stop-color="#B41312"></stop>
+                        <stop offset="0%" stopColor="#CA1016"></stop>
+                        <stop offset="43.571%" stopColor="#C01817"></stop>
+                        <stop offset="100%" stopColor="#B41312"></stop>
                       </linearGradient>
                     </defs>
-                    <g
-                      fill="none"
-                      fill-rule="evenodd"
-                      transform="translate(.5)"
-                    >
+                    <g fill="none" fillRule="evenodd" transform="translate(.5)">
                       <circle
                         cx="22.5"
                         cy="22.5"
@@ -161,9 +157,9 @@ function MobileFixedFooter() {
                       <path
                         d="M32.619 21.286h-9.31V12.38a.81.81 0 1 0-1.619 0v8.905h-9.309a.81.81 0 1 0 0 1.619h9.31v9.714a.81.81 0 1 0 1.619 0v-9.714h9.309a.81.81 0 1 0 0-1.62z"
                         fill="#FFF"
-                        fill-rule="nonzero"
+                        fillRule="nonzero"
                         stroke="#FFF"
-                        stroke-width="1.171"
+                        strokeWidth="1.171"
                       ></path>
                     </g>
                   </svg>
@@ -184,7 +180,7 @@ function MobileFixedFooter() {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="#8d94ad"
                   >
-                    <g fill-rule="evenodd">
+                    <g fillRule="evenodd">
                       <path
                         d="M9.898 0C4.432 0 0 4.431 0 9.898c0 5.466 4.432 9.898 9.898 9.898 5.467 0 9.899-4.432 9.899-9.898C19.797 4.43 15.365 0 9.898 0zm0 2.96c1.809 0 3.275 1.466 3.275 3.273 0 1.809-1.466 3.274-3.275 3.274-1.808 0-3.273-1.465-3.273-3.274 0-1.807 1.465-3.273 3.273-3.273zm-.002 14.248c-1.804 0-3.456-.657-4.73-1.745-.31-.264-.49-.653-.49-1.06 0-1.833 1.484-3.3 3.318-3.3h3.81c1.834 0 3.312 1.467 3.312 3.3 0 .408-.178.795-.489 1.06-1.274 1.088-2.927 1.745-4.73 1.745z"
                         transform="translate(-326 -680) translate(0 655) translate(306 25) translate(20)"
@@ -208,7 +204,7 @@ function MobileFixedFooter() {
                     >
                       <path
                         d="M25.917 18.005c.598 0 1.083.56 1.083 1.25s-.485 1.25-1.083 1.25H2.083c-.598 0-1.083-.56-1.083-1.25s.485-1.25 1.083-1.25zm0-8c.598 0 1.083.56 1.083 1.25s-.485 1.25-1.083 1.25H2.083c-.598 0-1.083-.56-1.083-1.25s.485-1.25 1.083-1.25zm0-9c.598 0 1.083.56 1.083 1.25s-.485 1.25-1.083 1.25H2.083C1.485 3.505 1 2.945 1 2.255s.485-1.25 1.083-1.25z"
-                        fill-rule="nonzero"
+                        fillRule="nonzero"
                       ></path>
                     </svg>
                   </i>

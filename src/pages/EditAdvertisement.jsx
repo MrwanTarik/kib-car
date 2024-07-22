@@ -366,7 +366,7 @@ function EditAdvertisement() {
     if (image) {
       return (
         <div
-          key={index}
+          key={Math.random() * 1000}
           className="col-span-6  md:w-[185px] h-[140px] relative rounded-[25px]  m-2"
         >
           <img

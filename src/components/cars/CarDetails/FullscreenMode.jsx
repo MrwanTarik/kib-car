@@ -79,8 +79,8 @@ function FullscreenMode({ showFullSlider, setShowFullSlider, carImages }) {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M14.625 11.515l3.31 1.84c.476.263.684.823.497 1.333-.95 2.593-3.73 3.962-6.345 3.007C6.73 15.74 2.76 11.77.805 6.413-.15 3.797 1.219 1.017 3.812.068c.51-.187 1.07.021 1.334.496.612 1.104 1.226 2.208 1.839 3.31.287.518.22 1.133-.174 1.575L5.266 7.187c1.1 2.678 3.369 4.947 6.047 6.047l1.738-1.545a1.349 1.349 0 011.574-.174z"
                 fill="#fff"
               />
@@ -101,7 +101,7 @@ function FullscreenMode({ showFullSlider, setShowFullSlider, carImages }) {
             >
               <path
                 d="M17.725 2.193a5.204 5.204 0 00-2.593-.693c-1.66 0-3.148.785-4.13 2.016C10.015 2.286 8.529 1.5 6.866 1.5c-.94 0-1.82.253-2.591.693C2.62 3.143 1.5 4.97 1.5 7.07c0 .601.094 1.178.265 1.717.921 4.296 9.237 9.713 9.237 9.713s8.31-5.417 9.232-9.713c.17-.539.266-1.116.266-1.717 0-2.099-1.12-3.926-2.775-4.877z"
-                stroke-width="1.5"
+                strokeWidth="1.5"
               />
             </svg>
             <Link to="#" className="underline font-bold">
@@ -122,7 +122,7 @@ function FullscreenMode({ showFullSlider, setShowFullSlider, carImages }) {
                 <path
                   d="M18.51 6.99L6.49 19.01M18.51 19.01L6.49 6.99"
                   stroke="#fff"
-                  stroke-width="1.7"
+                  strokeWidth="1.7"
                 />
               </svg>
             </button>
