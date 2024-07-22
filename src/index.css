@@ -156,7 +156,6 @@ textarea {
 }
 @media (max-width: 1120px) {
   .nav-holder {
-    flex-direction: column;
     gap: 20px;
   }
 }

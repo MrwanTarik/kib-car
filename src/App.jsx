@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 const HomePage = React.lazy(() => import("./pages/Homepage"));
 import {
   BrowserRouter,
@@ -28,7 +28,6 @@ function App() {
   const [width] = useState(window.innerWidth);
   const showMobileCom = width < 971;
 
-
   return (
     <BrowserRouter>
       <FilterProvider>
@@ -53,7 +52,7 @@ function App() {
               <Route path="/car-details/:id" element={<CarDetails />} />{" "}
             </Routes>
           </Suspense>
-          
+
           {showMobileCom ? <MobileFooter /> : <Footer />}
           {showMobileCom && <MobileFixedFooter />}
         </AppLayout>
