@@ -13,6 +13,10 @@ import CreativeButton from "./CreativeButton";
 import SliderMobile from "./SliderMobile";
 import { formatPhoneNumber, hideLastTwoDigits } from "../../../utils/help";
 import ReadMore from "../../ReadMore";
+import Modal from "../../Modal";
+import EditAdForm from "../../EditAdForm";
+import DeleteAdForm from "../../DeleteAdForm";
+import ForgetPinForm from "../../ForgetPinForm";
 function DetailsMobile({
   car,
   showFullSlider,
@@ -144,25 +148,32 @@ function DetailsMobile({
             </div>
             <div className="flex items-center justify-between mt-[20px]">
               <div className="flex gap-x-[20px]">
-                <Link
-                  // onClick={handleCorrectAd}
-                  to={`/edit-advertisement/${id}`}
-                  className="font-primary text-[16px] underline text-[#212c3a] hover:text-link"
-                >
-                  Correct it
-                </Link>
-                <Link
-                  onClick={handleDeleteAd}
-                  className="font-primary text-[16px] underline text-[#212c3a] hover:text-link"
-                >
-                  Delete Announcement
-                </Link>
-                <Link
-                  onClick={handleForgetPin}
-                  className="font-primary text-[16px] underline text-[#212c3a] hover:text-link"
-                >
-                  Forget pin
-                </Link>
+                <Modal>
+                  <Modal.Open windowName="edit">
+                    <button className="font-primary text-[14px] underline text-[#212c3a] hover:text-link">
+                      Correct it
+                    </button>
+                  </Modal.Open>
+                  <Modal.Window name="edit">
+                    <EditAdForm />
+                  </Modal.Window>
+                  <Modal.Open windowName="delete">
+                    <button className="font-primary text-[14px] underline text-[#212c3a] hover:text-link">
+                      Delete Announcement
+                    </button>
+                  </Modal.Open>
+                  <Modal.Window name="delete">
+                    <DeleteAdForm />
+                  </Modal.Window>
+                  <Modal.Open windowName="forget-pin">
+                    <button className="font-primary text-[14px] underline text-[#212c3a] hover:text-link">
+                      Forget pin
+                    </button>
+                  </Modal.Open>
+                  <Modal.Window name="forget-pin">
+                    <ForgetPinForm car={car} />
+                  </Modal.Window>
+                </Modal>
               </div>
             </div>
           </div>

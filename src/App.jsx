@@ -23,6 +23,7 @@ import MobileFooter from "./components/layout/MobileFooter";
 import MobileFixedFooter from "./components/layout/MobileFixedFooter";
 
 import MobileNav from "./components/layout/MobileNav";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const [width] = useState(window.innerWidth);
@@ -30,33 +31,41 @@ function App() {
 
   return (
     <BrowserRouter>
-      <FilterProvider>
-        <AppLayout>
-          {showMobileCom ? <MobileNav title="KIBCAR" /> : <Nav />}
+      <ScrollToTop>
+        <FilterProvider>
+          <AppLayout>
+            {showMobileCom ? <MobileNav title="KIBCAR" /> : <Nav />}
 
-          <Suspense fallback={<div>loading</div>}>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/dealership-owners" element={<DealershipOwners />} />
-              <Route
-                path="/dealership/:dealershipId"
-                element={<DealershipDetails />}
-              />
-              <Route path="/help" element={<Faq />} />
-              <Route path="/favorite" element={<Favorite />} />
-              <Route path="/new-advertisement" element={<NewAdvertisement />} />
-              <Route
-                path="/edit-advertisement/:id"
-                element={<EditAdvertisement />}
-              />
-              <Route path="/car-details/:id" element={<CarDetails />} />
-            </Routes>
-          </Suspense>
+            <Suspense fallback={<div>loading</div>}>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route
+                  path="/dealership-owners"
+                  element={<DealershipOwners />}
+                />
+                <Route
+                  path="/dealership/:dealershipId"
+                  element={<DealershipDetails />}
+                />
+                <Route path="/help" element={<Faq />} />
+                <Route path="/favorite" element={<Favorite />} />
+                <Route
+                  path="/new-advertisement"
+                  element={<NewAdvertisement />}
+                />
+                <Route
+                  path="/edit-advertisement/:id"
+                  element={<EditAdvertisement />}
+                />
+                <Route path="/car-details/:id" element={<CarDetails />} />
+              </Routes>
+            </Suspense>
 
-          {showMobileCom ? <MobileFooter /> : <Footer />}
-          {showMobileCom && <MobileFixedFooter />}
-        </AppLayout>
-      </FilterProvider>
+            {showMobileCom ? <MobileFooter /> : <Footer />}
+            {showMobileCom && <MobileFixedFooter />}
+          </AppLayout>
+        </FilterProvider>
+      </ScrollToTop>
     </BrowserRouter>
   );
 }

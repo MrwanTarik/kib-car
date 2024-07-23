@@ -23,8 +23,8 @@ function AttentionNote() {
             d="M12 13.801v-8"
             stroke="#FF586D"
             strokeWidth="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </div>
