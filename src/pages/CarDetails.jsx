@@ -6,6 +6,7 @@ import OtpCloseModal from "../assets/icons/close-modal.svg";
 
 import DetailsPC from "../components/cars/CarDetails/DetailsPC";
 import DetailsMobile from "../components/cars/CarDetails/DetailsMobile";
+import Spinner from "../components/Spinner";
 
 function CarDetails() {
   // slider logic
@@ -20,6 +21,7 @@ function CarDetails() {
   const [moveForward, setMoveForward] = useState(false);
 
   const [iframeSrc, setIframeSrc] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   // const navigate = useNavigate();
 
@@ -71,6 +73,7 @@ function CarDetails() {
   useEffect(() => {
     async function getCar() {
       try {
+        setIsLoading(true);
         const response = await axios.get(
           `${import.meta.env.VITE_REACT_APP_API_URL}/api/announcements/${id}`
         );
@@ -101,6 +104,8 @@ function CarDetails() {
         console.log(response.data);
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     }
     getCar();
@@ -126,6 +131,7 @@ function CarDetails() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   if (car) {
     return (
       <>
@@ -215,6 +221,7 @@ function CarDetails() {
           </div>
 
           <div className="fix"></div>
+
           {showMobileCom ? (
             <DetailsMobile
               car={car}
@@ -235,6 +242,8 @@ function CarDetails() {
         </div>
       </>
     );
+  } else {
+    return <Spinner />;
   }
 }
 

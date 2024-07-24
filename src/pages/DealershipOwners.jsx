@@ -1,12 +1,12 @@
 import { useState } from "react";
 import useFetchDealership from "../components/cars/useFetchDealership";
 import DealershipCard from "../components/dealership/DealershipCard";
+import Spinner from "../components/Spinner";
 function DealershipOwners() {
   const { data, loading, error } = useFetchDealership(`car-dealerships`);
   const [width] = useState(window.innerWidth);
   const showMobileCom = width < 971;
-  if (loading) return <div>Loading...</div>;
-  console.log(data);
+  if (loading) return <Spinner />;
   return (
     <div className="">
       <div className={`${!showMobileCom ? "container" : ""}`}>

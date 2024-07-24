@@ -4,12 +4,15 @@ import { useParams } from "react-router-dom";
 import CarCard from "../cars/CarCard";
 import AdDetails from "./AdDetails";
 import phoneDetails from "../../assets/images/phone-details.png";
+import Spinner from "../Spinner";
 function DealershipDetails() {
   const [dealership, setDealership] = useState(null);
   const { dealershipId } = useParams();
   const [adContent, setAdContent] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     async function fetchDealershipDetails() {
+      setIsLoading(true);
       try {
         const response = await fetch(
           `${
@@ -24,9 +27,12 @@ function DealershipDetails() {
         console.log(data);
       } catch (error) {
         console.error("Error fetching dealership details:", error);
+      } finally {
+        setIsLoading(false);
       }
     }
     const fetchAdContent = async () => {
+      setIsLoading(true);
       try {
         const response = await fetch(
           `${
@@ -40,15 +46,16 @@ function DealershipDetails() {
         setAdContent(adData);
       } catch (error) {
         console.error("Error fetching ad content:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchAdContent();
     fetchDealershipDetails();
   }, [dealershipId]);
 
-  if (adContent === null || adContent?.data.length === 0) {
-    console.log(dealership?.data);
-    return <div>Loading...</div>;
+  if (adContent === null || adContent?.data.length === 0 || isLoading) {
+    return <Spinner />;
   }
 
   return (
