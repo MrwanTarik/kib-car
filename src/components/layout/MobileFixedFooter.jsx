@@ -1,47 +1,43 @@
 import { Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { FaFacebook, FaInstagram, FaPhoneAlt } from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
+import { HiXMark } from "react-icons/hi2";
 
 const links = [
   {
     name: "Russian Language",
-    href: "",
+    href: "/",
   },
   {
     name: "Help",
-    href: "",
-  },
-  {
-    name: "Motorcycle",
-    href: "",
+    href: "/help",
   },
   {
     name: "All Ads",
-    href: "",
+    href: "/",
   },
   {
     name: "Salons",
-    href: "",
-  },
-  {
-    name: "Spare Parts and Accessories",
-    href: "",
+    href: "/dealership-owners",
   },
   {
     name: "Lease",
-    href: "",
-  },
-  {
-    name: "Contact Us",
-    href: "",
+    href: "/",
   },
 ];
 function MobileFixedFooter() {
   const location = useLocation();
-  const hide = location.pathname != "/";
+  const show = location.pathname == "/" || location.pathname == "/favorite";
   const [showMenu, setShowMenu] = useState(false);
+  const [showContact, setShowContact] = useState(false);
+  const contactRef = useRef();
 
   function handleMenuClick() {
     setShowMenu((show) => !show);
+  }
+  function handleContact() {
+    // Show Contact menu modal
   }
   const [isScrollingUp, setIsScrollingUp] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -57,15 +53,36 @@ function MobileFixedFooter() {
 
     setLastScrollY(currentScrollY);
   };
+  const handleMenuLinkClick = () => {
+    // close the menu
+    setShowMenu(false);
+  };
+  const handleClickOutside = (event) => {
+    if (contactRef.current && !contactRef.current.contains(event.target)) {
+      setShowContact(false);
+    }
+  };
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollY]);
+  useEffect(() => {
+    console.log(showMenu);
+    if (showMenu) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [showMenu]);
+
   return (
     <>
-      <div className={`bg-[#f6f7fa] ${hide ? "hidden" : ""}`}>
+      <div className={`bg-[#f6f7fa] ${show ? "" : "hidden"}`}>
         <div
           className={`fixed left-0 right-0 px-2 border-t border-gray-200 z-[60] bg-white transition-all duration-200 ${
             !isScrollingUp ? "-bottom-60" : "bottom-0"
@@ -76,6 +93,7 @@ function MobileFixedFooter() {
               <Link
                 className="block text-[8px] py-[9px] pb-[4px] text-[#8d94ad] no-underline tracking-[0.44px] whitespace-nowrap"
                 to="/"
+                onClick={handleMenuLinkClick}
               >
                 <i className="inline-block w-[26px] h-[20px]">
                   <svg
@@ -99,7 +117,8 @@ function MobileFixedFooter() {
             <li className="relative w-1/5 text-center">
               <Link
                 className="block text-[8px] py-[9px] pb-[4px] text-[#8d94ad] no-underline tracking-[0.44px] whitespace-nowrap"
-                to="/favourite"
+                to="/favorite"
+                onClick={handleMenuLinkClick}
               >
                 <i className="inline-block w-[26px] h-[20px]">
                   <svg
@@ -126,6 +145,7 @@ function MobileFixedFooter() {
               <Link
                 className="block text-[8px] py-[9px] pb-[4px] text-[#8d94ad] no-underline tracking-[0.44px] whitespace-nowrap absolute p-0 left-1/2 top-[-58px] transform -translate-x-1/2"
                 to="/new-advertisement"
+                onClick={handleMenuLinkClick}
               >
                 <i className="inline-block w-[45px] h-[45px]">
                   <svg
@@ -170,7 +190,8 @@ function MobileFixedFooter() {
             <li className="relative w-1/5 text-center">
               <Link
                 className="block text-[8px] py-[9px] pb-[4px] text-[#8d94ad] no-underline tracking-[0.44px] whitespace-nowrap js-auth-link"
-                to="#"
+                to="/"
+                onClick={handleMenuLinkClick}
               >
                 <i className="inline-block w-[26px] h-[20px]">
                   <svg
@@ -224,12 +245,62 @@ function MobileFixedFooter() {
 
         <div className="flex flex-col gap-4 mt-8 px-4">
           {links.map((link) => (
-            <Link className="bg-white py-4" key={link.name} to={link.href}>
+            <Link
+              onClick={handleMenuLinkClick}
+              className="bg-white py-4"
+              key={link.name}
+              to={link.href}
+            >
               <span className="container font-primary text-[14px] font-normal">
                 {link.name}
               </span>
             </Link>
           ))}
+          <button onClick={handleContact} className="bg-white py-4">
+            <div
+              onClick={() => setShowContact(true)}
+              className="container text-start font-primary text-[14px] font-normal"
+            >
+              Contact Us
+            </div>
+          </button>
+        </div>
+      </div>
+      <div
+        className={`absolute h-screen w-full top-0 left-0 bg-black bg-opacity-25 z-[600] transition-all duration-200 ${
+          showContact ? "visible opacity-100" : "invisible opacity-0"
+        }`}
+        onClick={handleClickOutside}
+      >
+        <div
+          className={`absolute bottom-0 left-0 z-[400] w-full bg-white rounded-tr-lg rounded-tl-lg `}
+          ref={contactRef}
+        >
+          <div className="relative px-4 py-5 rounded-tr-lg rounded-tl-lg border-y-2 border-[#eaebf2]">
+            Contact Us
+            <button
+              onClick={() => setShowContact(false)}
+              className="absolute top-[22px] right-[10px]"
+            >
+              <HiXMark size="20px" color="#8D94AD" />
+            </button>
+          </div>
+          <div className="flex items-center px-4 py-5 border-b border-[#eaebf2]">
+            <FaPhoneAlt className="mr-3" />
+            <a href="#">Call</a>
+          </div>
+          <div className="flex items-center px-4 py-5 border-b border-[#eaebf2]">
+            <IoMdMail className="mr-3" />
+            <a href="#">Write a letter</a>
+          </div>
+          <div className="flex items-center px-4 py-5 border-b border-[#eaebf2]">
+            <FaFacebook className="mr-3" />
+            <a href="#">Facebook</a>
+          </div>
+          <div className="flex items-center px-4 py-5 border-b border-[#eaebf2]">
+            <FaInstagram className="mr-3" />
+            <a href="#">Instagram</a>
+          </div>
         </div>
       </div>
     </>

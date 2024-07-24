@@ -13,7 +13,7 @@ const Price = () => {
           id="minPrice"
           value={minPrice}
           onChange={(e) => setMinPrice(e.target.value)}
-          className="peer cursor-pointer placeholder-transparent h-10 px-4 border-gray-300 text-gray-900 focus:outline-none "
+          className="peer cursor-pointer placeholder-transparent h-10 pl-4 border-gray-300 text-gray-900 focus:outline-none "
           placeholder="Minimum Price"
         />
         <label

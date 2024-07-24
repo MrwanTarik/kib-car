@@ -45,7 +45,7 @@ function Model() {
         const response = await axios.get(
           `${
             import.meta.env.VITE_REACT_APP_API_URL
-          }/api/brand-models?brand_id=${brandId.brand}`
+          }/api/brand-models?brand_id=${brandId?.brand}`
         );
         setModels(response.data);
       } catch (error) {

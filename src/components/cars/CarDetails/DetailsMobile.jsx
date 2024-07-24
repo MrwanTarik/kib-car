@@ -1,17 +1,15 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 import phoneDetails from "../../../assets/images/phone-details.png";
-import clockGray from "../../../assets/icons/clock-gray.png";
 import vipIcon from "../../../assets/icons/vip-icon.png";
-import FullscreenMode from "./FullscreenMode";
+
 import ProfileCard from "./ProfileCard";
 import AttentionNote from "./AttentionNote";
 import CarDetailsCom from "./CarDetailsCom";
 import CreativeButton from "./CreativeButton";
 import SliderMobile from "./SliderMobile";
-import { formatPhoneNumber, hideLastTwoDigits } from "../../../utils/help";
+import { formatPhoneNumber } from "../../../utils/help";
 import ReadMore from "../../ReadMore";
 import Modal from "../../Modal";
 import EditAdForm from "../../EditAdForm";
@@ -23,10 +21,7 @@ function DetailsMobile({
   setShowFullSlider,
   carImages,
   id,
-  handleDeleteAd,
-  handleForgetPin,
 }) {
-  const [number, setNumber] = useState(false);
   return (
     <div className="relative">
       <button className="fixed h-[48px] justify-center flex items-center gap-x-2 bg-[#3db460] rounded-xl hover:bg-[#269547] w-[calc(100%-32px)] right-4 left-4  bottom-4">

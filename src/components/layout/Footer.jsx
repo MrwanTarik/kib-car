@@ -32,9 +32,9 @@ function Footer() {
       <div className={`py-5`}>
         <div className="container">
           <div className="flex justify-between items-center pb-[20px] border-b-[2px] border-[#eaebf2]">
-            <a href="#">
+            <Link to="/new-advertisement">
               <p>Place an Ad</p>
-            </a>
+            </Link>
             <div className="flex gap-x-5">
               <a href="#">
                 <img src={facebookIcon} alt="facebook" />

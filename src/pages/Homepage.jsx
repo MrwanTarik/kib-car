@@ -7,7 +7,7 @@ import Type from "../components/filters/Type";
 import Price from "../components/filters/Price";
 import PaymentCurrency from "../components/filters/PaymentCurrency";
 import PaymentType from "../components/filters/PaymentType";
-import { Link, unstable_HistoryRouter, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import BanType from "../components/filters/BanType";
 import YearManufacturer from "../components/filters/YearManufacturer";
 import MaxYearManufacturer from "../components/filters/MaxYearManufacturer";
@@ -32,7 +32,13 @@ import VipAnnouncement from "../components/cars/VipAnnouncement";
 import RecentAnnouncement from "../components/cars/RecentAnnouncement";
 import PremiumAds from "../components/cars/PremiumAds";
 import VehicleFeatures from "../components/cars/VehicleFeatures";
-function Homepage({ handleReset }) {
+import NoAds from "../components/NoAds";
+import Spinner from "../components/Spinner";
+
+function Homepage() {
+  const [width] = useState(window.innerWidth);
+  const hideMoreMobile = width < 971;
+  const [isLoading, setIsLoading] = useState(false);
   const [premiumAds, setPremiumAds] = useState([]);
   const [ads, setAds] = useState([]);
   const [adsCount, setAdsCount] = useState(0);
@@ -63,6 +69,7 @@ function Homepage({ handleReset }) {
   }, []);
   useEffect(() => {
     async function getAds() {
+      setIsLoading(true);
       try {
         const response = await axios.get(
           `${import.meta.env.VITE_REACT_APP_API_URL}/api/announcements/filter`
@@ -75,6 +82,8 @@ function Homepage({ handleReset }) {
         );
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     }
     getAds();
@@ -153,26 +162,44 @@ function Homepage({ handleReset }) {
       <form
         action=""
         onSubmit={(e) => e.preventDefault()}
-        className="pb-12 pt-10 md:pt-24 bg-[#EBEDF3]"
+        className="py-[30px] bg-[#EBEDF3]"
       >
         <div className="container">
           <div className="grid grid-cols-12  gap-[10px] ">
             <div className="xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px]">
               <Brand />
             </div>
-            <div className="xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px]">
+            <div
+              className={`xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px]`}
+            >
               <Model />
             </div>
-            <div className="xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px]">
+            <div
+              className={`xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px] ${
+                hideMoreMobile && !moreFilters ? "hidden" : ""
+              }`}
+            >
               <Type />
             </div>
-            <div className="xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px]">
+            <div
+              className={`xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px] ${
+                hideMoreMobile && !moreFilters ? "hidden" : ""
+              }`}
+            >
               <City />
             </div>
-            <div className="xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px]">
+            <div
+              className={`xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px] ${
+                hideMoreMobile && !moreFilters ? "hidden" : ""
+              }`}
+            >
               <Price />
             </div>
-            <div className="xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px]">
+            <div
+              className={`xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px] ${
+                hideMoreMobile && !moreFilters ? "hidden" : ""
+              }`}
+            >
               <div className="flex justify-between h-full ">
                 <PaymentCurrency />
                 <PaymentType
@@ -189,10 +216,18 @@ function Homepage({ handleReset }) {
                 />
               </div>
             </div>
-            <div className="xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px]">
+            <div
+              className={`xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px] ${
+                hideMoreMobile && !moreFilters ? "hidden" : ""
+              }`}
+            >
               <BanType />
             </div>
-            <div className="xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px]">
+            <div
+              className={`xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px] ${
+                hideMoreMobile && !moreFilters ? "hidden" : ""
+              }`}
+            >
               <div className="flex justify-between h-full gap-3">
                 <div className="flex-1">
                   <YearManufacturer />
@@ -281,7 +316,7 @@ function Homepage({ handleReset }) {
             </div>
           </div>
           <div className="grid grid-cols-12 gap-[30px]">
-            <div className="col-span-12  mt-[70px] ">
+            <div className="col-span-12  mt-[20px] ">
               <div className="flex flex-wrap items-center justify-between md:flex-nowrap md:gy-0 gap-y-4 ">
                 <span className="font-primary text-primary text-[14px] inline-block ">
                   <h2 className="flex items-center font-normal text-primary text-[14px] md:text-[14px] font-primary">
@@ -336,7 +371,8 @@ function Homepage({ handleReset }) {
       {ads.length && (
         <VipAnnouncement announcements={ads} title={"Advertisements"} />
       )}
-
+      {isLoading && <Spinner />}
+      {!isLoading && ads.length === 0 && <NoAds />}
       {/* {ads && <RecentAnnouncement announcements={ads} />} */}
       {/* {premiumAds && <PremiumAds premiumAds={premiumAds} />} */}
     </main>

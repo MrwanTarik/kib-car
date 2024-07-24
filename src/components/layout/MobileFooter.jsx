@@ -14,7 +14,7 @@ const links = [
   },
   {
     name: "Place an Ad",
-    href: "/ads",
+    href: "/new-advertisement",
   },
 ];
 function MobileFooter() {
