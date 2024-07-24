@@ -317,7 +317,7 @@ function Homepage() {
           </div>
           <div className="grid grid-cols-12 gap-[30px]">
             <div className="col-span-12  mt-[20px] ">
-              <div className="flex flex-wrap items-center justify-between md:flex-nowrap md:gy-0 gap-y-4 ">
+              <div className="flex flex-wrap items-center justify-between md:flex-nowrap md:gy-0 ">
                 <span className="font-primary text-primary text-[14px] inline-block ">
                   <h2 className="flex items-center font-normal text-primary text-[14px] md:text-[14px] font-primary">
                     Today :{" "}
