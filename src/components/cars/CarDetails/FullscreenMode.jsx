@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -25,6 +25,7 @@ const NextArrow = ({ onClick }) => {
 
 function FullscreenMode({ showFullSlider, setShowFullSlider, carImages }) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const sliderRef = useRef(null);
   const settings = {
     customPaging: function (i) {
       return (
@@ -33,6 +34,10 @@ function FullscreenMode({ showFullSlider, setShowFullSlider, carImages }) {
             className="w-full h-full bg-cover bg-center bg-no-repeat rounded-[4px]"
             style={{ backgroundImage: `url(${carImages[i].original})` }}
           ></div>
+          <div
+            onMouseMove={() => handleMouseEnter(i)}
+            className="absolute top-0 left-0 w-[70px] h-[50px] mt-2 rounded-[4px] hover:bg-none bg-[linear-gradient(0deg,rgba(255,255,255,0.25),rgba(255,255,255,0.25))]"
+          ></div>
         </a>
       );
     },
@@ -40,7 +45,7 @@ function FullscreenMode({ showFullSlider, setShowFullSlider, carImages }) {
     dotsClass: "slick-dots slick-thumb",
     infinite: true,
     arrows: true,
-    speed: 500,
+    speed: 200,
     slidesToShow: 1,
     slidesToScroll: 1,
     afterChange: setCurrentSlide,
@@ -58,6 +63,11 @@ function FullscreenMode({ showFullSlider, setShowFullSlider, carImages }) {
       document.body.style.overflow = "auto";
     };
   }, [showFullSlider]);
+  const handleMouseEnter = (index) => {
+    if (index !== currentSlide) {
+      sliderRef.current.slickGoTo(index);
+    }
+  };
   return (
     <div className="fixed top-0 left-0 w-screen h-screen bg-black z-50 overflow-hidden">
       <nav className="flex justify-between items-center h-[60px] font-medium text-base leading-5 text-white px-7 bg-white bg-opacity-10">
@@ -131,7 +141,7 @@ function FullscreenMode({ showFullSlider, setShowFullSlider, carImages }) {
       </nav>
       {/* Slider */}
       <div className={`${styles["slider-container"]} relative full-slider`}>
-        <Slider {...settings}>
+        <Slider {...settings} ref={sliderRef}>
           {carImages.map((item, index) => (
             <div
               className="relative p-4 text-center h-[calc(100vh-120px)]"

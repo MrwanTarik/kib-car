@@ -200,12 +200,7 @@ textarea {
     width: 100%;
     justify-content: space-between;
   }
-  body p,
-  body label,
-  body input,
-  body button {
-    font-size: 14px !important;
-  }
+
   .footer {
     display: flex;
     flex-direction: column;

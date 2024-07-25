@@ -60,14 +60,14 @@ function DealershipDetails() {
 
   return (
     <div className="bg-[#F2F2F2] lg:bg-transparent">
-      <button className="fixed h-[48px] justify-center flex lg:hidden items-center gap-x-2 bg-[#3db460] rounded-xl hover:bg-[#269547] w-[calc(100%-32px)] right-4 left-4  bottom-4  ">
+      {/* <button className="fixed h-[48px] justify-center flex lg:hidden items-center gap-x-2 bg-[#3db460] rounded-xl hover:bg-[#269547] w-[calc(100%-32px)] right-4 left-4  bottom-4  ">
         <img
           className="w-[18px] h-[18px]"
           src={phoneDetails}
           alt="phoneDetails"
         />
         <p className="text-[15px] text-white">Call</p>
-      </button>
+      </button> */}
       <div className="lg:container">
         <div className="lg:pt-[15px]">
           <AdDetails ad={adContent?.data} />

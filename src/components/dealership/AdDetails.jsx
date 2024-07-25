@@ -1,7 +1,7 @@
 import locationLogo from "../../assets/icons/location-logo.png";
 import figureIcon from "../../assets/icons/figure-icon.png";
 import cellularLogo from "../../assets/icons/cellur-logo.png";
-import { FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+import { FaClock, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import ReadMore from "../ReadMore";
 function AdDetails({
@@ -75,20 +75,26 @@ function AdDetails({
                   </div>
                   <div className="pt-[33px] min-w-[200px] hidden lg:block">
                     <div className="flex items-start">
-                      <div className="flex flex-col gap-4">
+                      <FaPhoneAlt
+                        className="mx-4"
+                        size="24px"
+                        color="#4989E0"
+                      />
+                      <div className="flex flex-col gap-1">
                         {Object.keys(phone).map((key) => (
                           <div key={key} className="flex">
-                            <FaPhoneAlt
-                              className="mx-4"
-                              size="24px"
-                              color="#4989E0"
-                            />
                             <p className="font-primary text-white text-[15px]">
                               {phone[key]}
                             </p>
                           </div>
                         ))}
                       </div>
+                    </div>
+                    <div className="flex items-center mt-3">
+                      <FaClock className="mx-4" size="24px" color="#4989E0" />
+                      <p className="font-primary text-white text-[15px]">
+                        Daily: 09:00-19:00
+                      </p>
                     </div>
                   </div>
                 </div>

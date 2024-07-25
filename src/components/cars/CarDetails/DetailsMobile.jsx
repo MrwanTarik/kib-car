@@ -3,6 +3,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 
 import phoneDetails from "../../../assets/images/phone-details.png";
 import vipIcon from "../../../assets/icons/vip-icon.png";
+import { MdOutlineArrowForwardIos } from "react-icons/md";
 
 import ProfileCard from "./ProfileCard";
 import AttentionNote from "./AttentionNote";
@@ -15,6 +16,8 @@ import Modal from "../../Modal";
 import EditAdForm from "../../EditAdForm";
 import DeleteAdForm from "../../DeleteAdForm";
 import ForgetPinForm from "../../ForgetPinForm";
+import { IoFlagOutline } from "react-icons/io5";
+import ComplainForm from "../../ComplainForm";
 function DetailsMobile({
   car,
   showFullSlider,
@@ -37,7 +40,25 @@ function DetailsMobile({
         <li>{car.brand_model.name}</li>
       </ul>
       {/* fixed while scrolling */}
-
+      {car.car_dealership && (
+        <Link
+          to={`/dealership/${car.car_dealership.id}`}
+          className="container flex items-center  mb-[15px]  pt-4 border-t border-[#eaebf2]"
+        >
+          <img
+            className="w-[50px] h-[50px] rounded-xl mr-3 "
+            src={car.car_dealership_logo}
+            alt="brandImg"
+          />
+          <div className="flex-1">
+            <p>{car.car_dealership.name}</p>
+            <p className="text-[15px] font-primary text-[#8d94ad]">
+              {car.car_dealership_announcement_count} ads
+            </p>
+          </div>
+          <MdOutlineArrowForwardIos />
+        </Link>
+      )}
       <div className="sliderX flex lg:flex-row flex-col  justify-between items-start lg:gap-x-[30px] lg:g-y-0 gap-y-8">
         <div className="w-full">
           <SliderMobile
@@ -60,10 +81,49 @@ function DetailsMobile({
                 <>
                   <Link className="col-span-4">
                     <CreativeButton
-                      title="Premium"
-                      price="7"
+                      title="Move forward"
+                      price="3"
                       icon={
-                        <img className="w-4 h-4" src={vipIcon} alt="vipIcon" />
+                        <svg
+                          width="26"
+                          height="24"
+                          fill="none"
+                          viewBox="-5 -5 26 24"
+                          x="307"
+                          y="312"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M4.786 13.5h6.428v-6H15.5L8 .5l-7.5 7h4.286v6z"
+                            fill="#77C81D"
+                          />
+                        </svg>
+                      }
+                    />
+                  </Link>
+                  <Link className="col-span-4">
+                    <CreativeButton
+                      title="Vip"
+                      price="5"
+                      icon={
+                        <svg
+                          width="26"
+                          height="24"
+                          fill="none"
+                          viewBox="-5 -5 26 24"
+                          x="333"
+                          y="312"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M11.75.5h-7.5L.5 5.143 8 13.5l7.5-8.357L11.75.5zM7.39 8.53L5.374 3.177l1.535-.002 1.128 3.96 1.175-3.96 1.413.002-2.02 5.35-1.215.001z"
+                            fill="#FF3D00"
+                          />
+                        </svg>
                       }
                     />
                   </Link>
@@ -72,16 +132,20 @@ function DetailsMobile({
                       title="Premium"
                       price="7"
                       icon={
-                        <img className="w-4 h-4" src={vipIcon} alt="vipIcon" />
-                      }
-                    />
-                  </Link>
-                  <Link className="col-span-4">
-                    <CreativeButton
-                      title="Premium"
-                      price="7"
-                      icon={
-                        <img className="w-4 h-4" src={vipIcon} alt="vipIcon" />
+                        <svg
+                          width="25"
+                          height="24"
+                          fill="none"
+                          viewBox="-5 -5 25 24"
+                          x="359"
+                          y="312"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10.56 5.7L7.5.5 4.44 5.7 0 3.1l1.875 7.15v3.25h11.25v-3.25L15 3.1l-4.44 2.6z"
+                            fill="#FF9F2B"
+                          />
+                        </svg>
                       }
                     />
                   </Link>
@@ -89,10 +153,46 @@ function DetailsMobile({
               )}
             </div>{" "}
             <CarDetailsCom car={car} />
-            {car.additional_information && (
-              <ReadMore text={car.additional_information} maxLength={200} />
+            <div className="py-[15px]">
+              {car.additional_information && (
+                <ReadMore text={car.additional_information} maxLength={200} />
+              )}
+            </div>
+            <div className="flex flex-row flex-wrap gap-x-[20px] gap-y-3 pt-[15px] border-t border-solid border-[#e2e2e2]">
+              {car.features.map((feature) => {
+                return (
+                  <p
+                    key={feature.id}
+                    className="bg-[#F6F7FA] p-[10px] rounded-[35px] leading-[17px] text-[15px] font-secondary"
+                  >
+                    {feature.name}
+                  </p>
+                );
+              })}
+            </div>
+            {!car.car_dealership ? (
+              <ProfileCard />
+            ) : (
+              <>
+                <div className="flex items-center justify-between mb-[15px] mt-4 pt-4 border-t border-[#eaebf2]">
+                  <div>
+                    <p>{car.car_dealership.name}</p>
+                    <p className="text-[15px] font-primary  uppercase text-[#8d94ad]">
+                      Daily: 09:00-19:00
+                    </p>
+                  </div>
+
+                  <img
+                    className="w-[50px] h-[50px] rounded-full "
+                    src={car.car_dealership_logo}
+                    alt="brandImg"
+                  />
+                </div>
+                <p className="text-[15px]  uppercase text-primary underline">
+                  {car.car_dealership.address}
+                </p>
+              </>
             )}
-            <ProfileCard />
             <div className="flex justify-between items-center  p-[10px] bg-[#f8f9fd] rounded-[7px]">
               <a
                 href={`tel:+${
@@ -125,7 +225,16 @@ function DetailsMobile({
               {/* <AttentionNote /> */}
             </div>
             <div className="pb-[15px] border-b border-solid border-[#E2E2E2]">
-              <AttentionNote />
+              {!car.car_dealership ? (
+                <AttentionNote />
+              ) : (
+                <Link
+                  to={`/dealership/${car.car_dealership.id}`}
+                  className="flex flex-col mt-[15px] py-[15px] text-white px-[40px] text-center font-primary bg-link rounded-md leading-[17px]"
+                >
+                  Go to the salon
+                </Link>
+              )}
             </div>
             <div className="grid grid-cols-12 space-x-1 pt-[15px]">
               <p className="col-span-6 text-[15px] text-[#8d94ad]">
@@ -142,7 +251,7 @@ function DetailsMobile({
               </p>
             </div>
             <div className="flex items-center justify-between mt-[20px]">
-              <div className="flex gap-x-[20px]">
+              <div className="flex gap-x-[20px] pb-[15px] border-b border-[#E2E2E2]">
                 <Modal>
                   <Modal.Open windowName="edit">
                     <button className="font-primary text-[14px] underline text-[#212c3a] hover:text-link">
@@ -170,6 +279,21 @@ function DetailsMobile({
                   </Modal.Window>
                 </Modal>
               </div>
+            </div>
+            <div className="py-[15px]">
+              <Modal>
+                <Modal.Open windowName="complain">
+                  <button className="group flex items-center space-x-[4px]  rounded-md justify-center bg-white ">
+                    <IoFlagOutline size="22px" className="mr-[2px]" />
+                    <p className="font-primary text-[14px] font-medium leading-[21px] text-[#212c3a] group-hover:text-rose-600  ">
+                      Complain
+                    </p>
+                  </button>
+                </Modal.Open>
+                <Modal.Window name="complain" svgColor="#B1B8C6">
+                  <ComplainForm />
+                </Modal.Window>
+              </Modal>
             </div>
           </div>
         </div>

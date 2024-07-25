@@ -142,7 +142,7 @@ function CarDetails() {
               : "invisible  bg-opacity-0 -z-10"
           }`}
         ></div>
-        <div className=" pb-[30px] ">
+        <div className=" lg:pb-[30px] ">
           <div
             className={`fixed  top-0 left-0 right-0 bottom-0 h-[250px] m-auto bg-white rounded-lg shadow-lg  w-full max-w-[450px] ${
               correctAd

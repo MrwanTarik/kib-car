@@ -16,6 +16,10 @@ import Modal from "../../Modal";
 import DeleteAdForm from "../../DeleteAdForm";
 import EditAdForm from "../../EditAdForm";
 import ForgetPinForm from "../../ForgetPinForm";
+import { IoFlagOutline } from "react-icons/io5";
+import ComplainForm from "../../ComplainForm";
+import ReadMore from "../../ReadMore";
+import { FaClock, FaMapMarkerAlt } from "react-icons/fa";
 
 function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
   const [number, setNumber] = useState(false);
@@ -57,9 +61,29 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                 />
               </svg>
               <p className="font-primary text-[14px] font-medium leading-[21px] text-[#212c3a] group-hover:text-rose-600  ">
-                Save to favourites
+                Save to favorites
               </p>
             </Link>
+
+            <Modal>
+              <Modal.Open windowName="complain">
+                <button
+                  className="group flex items-center space-x-[4px]  rounded-md justify-center bg-white "
+                  to={""}
+                >
+                  <IoFlagOutline
+                    size="22px"
+                    className="mr-[2px] group-hover:text-rose-600"
+                  />
+                  <p className="font-primary text-[14px] font-medium leading-[21px] text-[#212c3a] group-hover:text-rose-600  ">
+                    Complain
+                  </p>
+                </button>
+              </Modal.Open>
+              <Modal.Window name="complain" svgColor="#B1B8C6">
+                <ComplainForm />
+              </Modal.Window>
+            </Modal>
             {/* <Link
                     className="flex items-center space-x-[10px] rounded-md justify-center bg-white "
                     to={""}
@@ -102,7 +126,7 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
             setShowFullSlider={setShowFullSlider}
             carImages={carImages}
           /> */}
-          <ul className="mt-[65px] pt-[20px] pb-[20px] picture-list pl-[20px] border-b border-solid border-[#E2E2E2]">
+          <ul className=" pt-[20px] pb-[20px] picture-list pl-[20px] border-b border-solid border-[#E2E2E2]">
             <li>Updated: {car.updated_date}</li>
           </ul>
           <CarDetailsCom car={car} />
@@ -118,7 +142,7 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                 return (
                   <p
                     key={feature.id}
-                    className="bg-[#F6F7FA] py-[14px] px-[20px] font-secondary"
+                    className="bg-[#F6F7FA] p-[10px] rounded-[35px] leading-[17px] text-[15px] font-secondary"
                   >
                     {feature.name}
                   </p>
@@ -165,12 +189,12 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
             <h2 className="text-[26px] font-bold leading-8 text-primary ">
               {Number(car.price).toLocaleString()} {car.price_currency}
             </h2>
-            <ProfileCard />
+            {!car.car_dealership && <ProfileCard />}
             <div className="flex gap-x-5">
-              {car.user && (
-                <div className="p-[20px]">
+              {car.car_dealership && (
+                <div className="flex items-center my-4">
                   <img
-                    className="w-[60px] h-[60px]"
+                    className="w-[50px] h-[50px] rounded-lg mr-3"
                     src={car.car_dealership_logo}
                     alt="brandImg"
                   />
@@ -202,14 +226,14 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                   : hideLastTwoDigits(formatPhoneNumber(car.creator.phone))}
               </div>
             </div>
-            <div className={number ? "block" : "hidden"}>
-              <a
+            <div className={number ? "flex items-center" : "hidden"}>
+              <div
                 href={`tel:+${
                   car.user
                     ? formatPhoneNumber(car.car_dealership.phone1)
                     : formatPhoneNumber(car.creator.phone)
                 }`}
-                className={`flex items-center gap-x-[10px]  text-[22px] font-bold leading-7 text-[#212c3a] visible h-8 hover:text-[#ca1016]`}
+                className={`flex items-start gap-x-[10px]  text-[22px] font-bold leading-7 text-[#212c3a] visible`}
               >
                 {/* make it red*/}
                 <svg
@@ -228,50 +252,75 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                     fill="#CA1016"
                   />
                 </svg>
-                {car.user
-                  ? formatPhoneNumber(car.car_dealership.phone1)
-                  : formatPhoneNumber(car.creator.phone)}
-              </a>
-              <AttentionNote />
+                <div>
+                  {car.car_dealership ? (
+                    <div className="flex flex-col space-y-[8px]">
+                      <a className="hover:text-[#ca1016]">
+                        {formatPhoneNumber(car.car_dealership.phone1)}
+                      </a>
+                      <a className="hover:text-[#ca1016]">
+                        {formatPhoneNumber(car.car_dealership.phone2)}
+                      </a>
+                      <a className="hover:text-[#ca1016]">
+                        {formatPhoneNumber(car.car_dealership.phone3)}
+                      </a>
+                    </div>
+                  ) : (
+                    <a className="hover:text-[#ca1016]">
+                      {formatPhoneNumber(car.creator.phone)}
+                    </a>
+                  )}
+                </div>
+              </div>
             </div>
-            {car.user && (
+            <div className={number ? "flex items-center" : "hidden"}>
+              {!car.car_dealership && <AttentionNote />}
+            </div>
+
+            {car.car_dealership && (
               <>
                 <div className="pt-[17px] mt-[15px] border-t border-solid border-[#E2E2E2] flex-col flex gap-y-[20px]">
                   <p className="text-black font-primary text-[14px] font-normal">
                     {car.car_dealership.slogan}
                   </p>
                   <p className="text-secondary font-primary text-[14px] font-normal">
-                    {car.car_dealership.description}
+                    <ReadMore
+                      text={car.car_dealership.description}
+                      maxLength={220}
+                    />
                   </p>
-                  <p className="text-secondary font-primary text-[14px] font-normal underline pb-[20px]">
+                  <Link
+                    to={`/dealership/${car.car_dealership.id}`}
+                    className="text-secondary font-primary text-[14px] font-normal underline pb-[20px]"
+                  >
                     {car.car_dealership_announcement_count} announcements
-                  </p>
+                  </Link>
                 </div>
 
                 <div className="pt-[17px] border-t border-solid border-[#E2E2E2] flex flex-col gap-y-[11px]">
-                  {/* <div className="flex gap-x-[20px] items-center">
-                      <img
-                        className="w-6 h-6"
-                        src={locationGray}
-                        alt="locationGray"
-                      />
-                      <p className="text-[17px] font-primary font-medium leading-7 uppercase text-primary">
-                        Daily: 09:00-19:00
-                      </p>
-                    </div> */}
-                  <div className="flex gap-x-[10px] items-center">
-                    <img className="w-6 h-6" src={clockGray} alt="clockGray" />
-                    <p className="text-[17px] font-primary font-medium leading-7 uppercase text-primary underline">
+                  <div className="flex items-center">
+                    <FaClock size="18px" color="#B1B8C6" className="mr-2" />
+                    <p className="text-[15px] font-primary  uppercase text-primary">
+                      Daily: 09:00-19:00
+                    </p>
+                  </div>
+                  <div className="flex  items-center">
+                    <FaMapMarkerAlt
+                      size="18px"
+                      color="#B1B8C6"
+                      className="mr-2"
+                    />
+                    <p className="text-[15px]  uppercase text-primary underline">
                       {car.car_dealership.address}
                     </p>
                   </div>
                 </div>
 
                 <Link
-                  to={"/"}
-                  className="flex flex-col mt-[25px] py-[18px] text-white px-[20px] text-center font-primary bg-link rounded-md"
+                  to={`/dealership/${car.car_dealership.id}`}
+                  className="flex flex-col mt-[25px] py-[15px] text-white px-[40px] text-center font-primary bg-link rounded-md leading-[17px]"
                 >
-                  Go to the hall
+                  Go to the salon
                 </Link>
               </>
             )}
@@ -297,10 +346,49 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                       </Link> */}
                 <Link className="col-span-4">
                   <CreativeButton
-                    title="Premium"
-                    price="7"
+                    title="Move forward"
+                    price="3"
                     icon={
-                      <img className="w-4 h-4" src={vipIcon} alt="vipIcon" />
+                      <svg
+                        width="26"
+                        height="24"
+                        fill="none"
+                        viewBox="-5 -5 26 24"
+                        x="307"
+                        y="312"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                          d="M4.786 13.5h6.428v-6H15.5L8 .5l-7.5 7h4.286v6z"
+                          fill="#77C81D"
+                        />
+                      </svg>
+                    }
+                  />
+                </Link>
+                <Link className="col-span-4">
+                  <CreativeButton
+                    title="Vip"
+                    price="5"
+                    icon={
+                      <svg
+                        width="26"
+                        height="24"
+                        fill="none"
+                        viewBox="-5 -5 26 24"
+                        x="333"
+                        y="312"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                          d="M11.75.5h-7.5L.5 5.143 8 13.5l7.5-8.357L11.75.5zM7.39 8.53L5.374 3.177l1.535-.002 1.128 3.96 1.175-3.96 1.413.002-2.02 5.35-1.215.001z"
+                          fill="#FF3D00"
+                        />
+                      </svg>
                     }
                   />
                 </Link>
@@ -309,16 +397,20 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                     title="Premium"
                     price="7"
                     icon={
-                      <img className="w-4 h-4" src={vipIcon} alt="vipIcon" />
-                    }
-                  />
-                </Link>
-                <Link className="col-span-4">
-                  <CreativeButton
-                    title="Premium"
-                    price="7"
-                    icon={
-                      <img className="w-4 h-4" src={vipIcon} alt="vipIcon" />
+                      <svg
+                        width="25"
+                        height="24"
+                        fill="none"
+                        viewBox="-5 -5 25 24"
+                        x="359"
+                        y="312"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M10.56 5.7L7.5.5 4.44 5.7 0 3.1l1.875 7.15v3.25h11.25v-3.25L15 3.1l-4.44 2.6z"
+                          fill="#FF9F2B"
+                        />
+                      </svg>
                     }
                   />
                 </Link>

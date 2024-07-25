@@ -1,4 +1,10 @@
-import { cloneElement, createContext, useContext, useRef, useState } from "react";
+import {
+  cloneElement,
+  createContext,
+  useContext,
+  useRef,
+  useState,
+} from "react";
 import { HiXMark } from "react-icons/hi2";
 import styled from "styled-components";
 
@@ -36,10 +42,6 @@ const Button = styled.button`
   top: 18px;
   right: 25px;
 
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-
   & svg {
     width: 30px;
     height: 30px;
@@ -67,7 +69,7 @@ function Open({ children, windowName }) {
   const openWindowByName = () => open(windowName);
   return cloneElement(children, { onClick: openWindowByName });
 }
-function Window({ children, name }) {
+function Window({ children, name, svgColor = "#f8f8f8" }) {
   const { showModalName, close } = useContext(ModalContext);
 
   const hide = name !== showModalName;
@@ -87,7 +89,7 @@ function Window({ children, name }) {
     >
       <StyledModal ref={modalRef}>
         <Button onClick={close}>
-          <HiXMark />
+          <HiXMark color={svgColor} />
         </Button>
         <div>{cloneElement(children, { onCloseModal: close })}</div>
       </StyledModal>
