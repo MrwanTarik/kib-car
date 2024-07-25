@@ -68,17 +68,17 @@ function MobileFixedFooter() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollY]);
-  useEffect(() => {
-    console.log(showMenu);
-    if (showMenu) {
-      document.body.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
-    }
-    return () => {
-      document.body.classList.remove("overflow-hidden");
-    };
-  }, [showMenu]);
+  // useEffect(() => {
+  //   console.log(showMenu);
+  //   if (showMenu) {
+  //     document.body.classList.add("overflow-hidden");
+  //   } else {
+  //     document.body.classList.remove("overflow-hidden");
+  //   }
+  //   return () => {
+  //     document.body.classList.remove("overflow-hidden");
+  //   };
+  // }, [showMenu]);
 
   return (
     <>
@@ -273,7 +273,7 @@ function MobileFixedFooter() {
         onClick={handleClickOutside}
       >
         <div
-          className={`absolute bottom-0 left-0 z-[400] w-full bg-white rounded-tr-lg rounded-tl-lg `}
+          className={`absolute  bottom-0 left-0 z-[400] w-full bg-white rounded-tr-lg rounded-tl-lg `}
           ref={contactRef}
         >
           <div className="relative px-4 py-5 rounded-tr-lg rounded-tl-lg border-y-2 border-[#eaebf2]">
