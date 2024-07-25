@@ -81,7 +81,7 @@ function MobileFixedFooter() {
   }, [showMenu]);
 
   return (
-    <div className="relative h-screen w-full">
+    <div className="relative h-[100dvh] w-full">
       <div className={`h-screen bg-[#f6f7fa] ${show ? "" : "hidden"}`}>
         <div
           className={`fixed left-0 right-0 px-2 border-t border-gray-200 z-[60] bg-white transition-all duration-200 ${
@@ -267,7 +267,7 @@ function MobileFixedFooter() {
         </div>
       </div>
       <div
-        className={`fixed h-screen w-full top-0 left-0 bg-black bg-opacity-25 z-[600] transition-all duration-200 ${
+        className={`fixed h-[100dvh] w-full top-0 left-0 bg-black bg-opacity-25 z-[600] transition-all duration-200 ${
           showContact ? "visible opacity-100" : "invisible opacity-0"
         }`}
         onClick={handleClickOutside}
