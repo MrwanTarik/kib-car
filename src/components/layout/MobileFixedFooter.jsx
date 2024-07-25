@@ -267,7 +267,7 @@ function MobileFixedFooter() {
         </div>
       </div>
       <div
-        className={`absolute h-screen w-full top-0 left-0 bg-black bg-opacity-25 z-[600] transition-all duration-200 ${
+        className={`fixed h-screen w-full top-0 left-0 bg-black bg-opacity-25 z-[600] transition-all duration-200 ${
           showContact ? "visible opacity-100" : "invisible opacity-0"
         }`}
         onClick={handleClickOutside}
