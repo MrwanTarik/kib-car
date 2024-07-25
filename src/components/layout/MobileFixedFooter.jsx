@@ -81,7 +81,7 @@ function MobileFixedFooter() {
   }, [showMenu]);
 
   return (
-    <div className={`${show ? "" : "hidden"} relative h-[100dvh] w-full`}>
+    <div className={`${showMenu ? "relative h-[100dvh]" : ""}  w-full`}>
       <div className={`h-full bg-[#f6f7fa] ${show ? "" : "hidden"}`}>
         <div
           className={`fixed left-0 right-0 px-2 border-t border-gray-200 z-[60] bg-white transition-all duration-200 ${
