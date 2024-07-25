@@ -11,10 +11,10 @@ function CarType() {
   useEffect(() => setSelectedCarType("all"), []);
   return (
     <div className="flex justify-between border-none rounded-lg shadow-md h-full">
-      {options.map((option) => (
+      {options.map((option, index) => (
         <label
           key={option}
-          className={`first:rounded-l-lg  even:border-r-[#6B6B6B] last:rounded-r-lg py-[15px] px-[20px] cursor-pointer flex flex-1 justify-center items-center text-center ${
+          className={`first:rounded-l-lg  even:border-r-[#6B6B6B] last:rounded-r-lg py-[15px]  cursor-pointer flex flex-1 justify-center items-center text-center px-[10px] ${
             selectedCarType === option
               ? "bg-red text-white"
               : "bg-white text-secondary "
