@@ -68,17 +68,17 @@ function MobileFixedFooter() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollY]);
-  useEffect(() => {
-    console.log(showMenu);
-    if (showMenu) {
-      document.body.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
-    }
-    return () => {
-      document.body.classList.remove("overflow-hidden");
-    };
-  }, [showMenu]);
+  // useEffect(() => {
+  //   console.log(showMenu);
+  //   if (showMenu) {
+  //     document.body.classList.add("overflow-hidden");
+  //   } else {
+  //     document.body.classList.remove("overflow-hidden");
+  //   }
+  //   return () => {
+  //     document.body.classList.remove("overflow-hidden");
+  //   };
+  // }, [showMenu]);
 
   return (
     <div className="relative h-[100dvh] w-full">
@@ -267,7 +267,7 @@ function MobileFixedFooter() {
         </div>
       </div>
       <div
-        className={`fixed h-[100dvh] w-full top-0 left-0 bg-black bg-opacity-25 z-[600] transition-all duration-200 ${
+        className={`fixed h-full w-full top-0 left-0 bg-black bg-opacity-25 z-[600] transition-all duration-200 ${
           showContact ? "visible opacity-100" : "invisible opacity-0"
         }`}
         onClick={handleClickOutside}
