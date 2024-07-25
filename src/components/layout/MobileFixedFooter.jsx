@@ -68,21 +68,21 @@ function MobileFixedFooter() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollY]);
-  // useEffect(() => {
-  //   console.log(showMenu);
-  //   if (showMenu) {
-  //     document.body.classList.add("overflow-hidden");
-  //   } else {
-  //     document.body.classList.remove("overflow-hidden");
-  //   }
-  //   return () => {
-  //     document.body.classList.remove("overflow-hidden");
-  //   };
-  // }, [showMenu]);
+  useEffect(() => {
+    console.log(showMenu);
+    if (showMenu) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [showMenu]);
 
   return (
-    <div className="relative h-[100dvh] w-full">
-      <div className={`h-screen bg-[#f6f7fa] ${show ? "" : "hidden"}`}>
+    <div className={`${show ? "" : "hidden"} relative h-[100dvh] w-full`}>
+      <div className={`h-full bg-[#f6f7fa] ${show ? "" : "hidden"}`}>
         <div
           className={`fixed left-0 right-0 px-2 border-t border-gray-200 z-[60] bg-white transition-all duration-200 ${
             !isScrollingUp ? "-bottom-60" : "bottom-0"
