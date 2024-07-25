@@ -82,7 +82,7 @@ function MobileFixedFooter() {
 
   return (
     <>
-      <div className={`bg-[#f6f7fa] ${show ? "" : "hidden"}`}>
+      <div className={`h-screen bg-[#f6f7fa] ${show ? "" : "hidden"}`}>
         <div
           className={`fixed left-0 right-0 px-2 border-t border-gray-200 z-[60] bg-white transition-all duration-200 ${
             !isScrollingUp ? "-bottom-60" : "bottom-0"
