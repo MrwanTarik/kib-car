@@ -62,9 +62,9 @@ function DealershipCard({
             </p>
           </div>
           <div className="lg:leading-normal leading-[0.7]">
-            <a href="#" className="text-link text-[12px] ">
+            <div className="text-link text-[12px] ">
               {number_of_announcment} Announcements
-            </a>
+            </div>
           </div>
         </div>
       </div>
