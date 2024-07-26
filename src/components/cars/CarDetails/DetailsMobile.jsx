@@ -29,7 +29,11 @@ function DetailsMobile({
   return (
     <div className="relative">
       <a
-        href={`tel:${clearFormatPhoneNumber(car.creator.phone)}`}
+        href={`tel:${
+          car.car_dealership
+            ? clearFormatPhoneNumber(car.car_dealership.phone1)
+            : clearFormatPhoneNumber(car.creator.phone)
+        }`}
         className="fixed h-[48px] justify-center flex items-center gap-x-2 bg-[#3db460] rounded-xl hover:bg-[#269547] w-[calc(100%-32px)] right-4 left-4  bottom-4"
       >
         <img
