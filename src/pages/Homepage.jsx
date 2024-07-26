@@ -87,7 +87,7 @@ function Homepage() {
       }
     }
     getAds();
-  }, []);
+  }, [key]);
 
   const showFilterPayload = async () => {
     try {
@@ -368,7 +368,7 @@ function Homepage() {
       {premiumAds.length > 0 && (
         <VipAnnouncement announcements={premiumAds} title={"Premium Ads"} />
       )}
-      {ads.length && (
+      {ads.length > 0 && (
         <VipAnnouncement announcements={ads} title={"Advertisements"} />
       )}
       {isLoading && <Spinner />}
