@@ -12,7 +12,7 @@ function MobileNav({ title }) {
           >
             {title}
           </Link>
-          <Link className="text-red">
+          <Link to={"/new-advertisement"} className="text-red">
             <BsPlusCircleFill size="26px" />
           </Link>
         </div>
