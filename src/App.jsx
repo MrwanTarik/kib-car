@@ -24,6 +24,7 @@ import MobileFixedFooter from "./components/layout/MobileFixedFooter";
 
 import MobileNav from "./components/layout/MobileNav";
 import ScrollToTop from "./components/ScrollToTop";
+import Lease from "./pages/Lease";
 
 function App() {
   const [width] = useState(window.innerWidth);
@@ -48,6 +49,7 @@ function App() {
                   element={<DealershipDetails />}
                 />
                 <Route path="/help" element={<Faq />} />
+                <Route path="/lease" element={<Lease />} />
                 <Route path="/favorite" element={<Favorite />} />
                 <Route
                   path="/new-advertisement"

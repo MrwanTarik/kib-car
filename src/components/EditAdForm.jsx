@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-function EditAdForm({ onCloseModal }) {
+function EditAdForm({ onCloseModal, showNewModal }) {
   const navigate = useNavigate();
 
   const { id } = useParams();
@@ -59,6 +59,12 @@ function EditAdForm({ onCloseModal }) {
             Confirm it
           </button>
         </div>
+        <button
+          onClick={() => showNewModal("forget-pin")}
+          className="mt-2 ml-1 text-[15px] underline text-link"
+        >
+          Forgot your PIN?
+        </button>
         <p className="mt-1 ml-1 text-[14px] error text-red">{errorMsg}</p>
       </div>
     </div>

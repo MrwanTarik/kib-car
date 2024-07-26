@@ -58,8 +58,11 @@ function Modal({ children }) {
   const [showModalName, setShowModalName] = useState("");
   const close = () => setShowModalName("");
   const open = setShowModalName;
+  const showNewModal = (modalName) => {
+    setShowModalName(modalName);
+  };
   return (
-    <ModalContext.Provider value={{ showModalName, close, open }}>
+    <ModalContext.Provider value={{ showModalName, close, open, showNewModal }}>
       {children}
     </ModalContext.Provider>
   );
@@ -70,7 +73,7 @@ function Open({ children, windowName }) {
   return cloneElement(children, { onClick: openWindowByName });
 }
 function Window({ children, name, svgColor = "#f8f8f8" }) {
-  const { showModalName, close } = useContext(ModalContext);
+  const { showModalName, close, showNewModal } = useContext(ModalContext);
 
   const hide = name !== showModalName;
   const modalRef = useRef();
@@ -91,7 +94,9 @@ function Window({ children, name, svgColor = "#f8f8f8" }) {
         <Button onClick={close}>
           <HiXMark color={svgColor} />
         </Button>
-        <div>{cloneElement(children, { onCloseModal: close })}</div>
+        <div>
+          {cloneElement(children, { onCloseModal: close, showNewModal })}
+        </div>
       </StyledModal>
     </Overlay>
   );

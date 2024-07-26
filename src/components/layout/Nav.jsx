@@ -73,7 +73,7 @@ function Nav() {
                   Salons
                 </Link>
                 <Link
-                  to={"/"}
+                  to={"/lease"}
                   className="font-primary text-[14px]  font-normal leading-5  text-white"
                 >
                   Lease

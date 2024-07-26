@@ -1,8 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
+import Modal from "./Modal";
+import ForgetPinForm from "./ForgetPinForm";
 
-function DeleteAdForm({ onCloseModal }) {
+function DeleteAdForm({ onCloseModal, showNewModal }) {
   const [deleteAdErrorMsg, setDeleteAdErrorMsg] = useState("");
   const [deletePin, setDeletePin] = useState("");
   const handleDeleteApi = async () => {
@@ -68,6 +70,12 @@ function DeleteAdForm({ onCloseModal }) {
             Confirm it
           </button>
         </div>
+        <button
+          onClick={() => showNewModal("forget-pin")}
+          className="mt-2 ml-1 text-[15px] underline text-link"
+        >
+          Forgot your PIN?
+        </button>
         <p className="mt-1 ml-1 text-[14px] error text-red">
           {deleteAdErrorMsg}
         </p>

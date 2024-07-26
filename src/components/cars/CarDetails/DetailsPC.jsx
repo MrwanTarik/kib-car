@@ -167,7 +167,7 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                     </button>
                   </Modal.Open>
                   <Modal.Window name="delete">
-                    <DeleteAdForm />
+                    <DeleteAdForm car={car} />
                   </Modal.Window>
                   <Modal.Open windowName="forget-pin">
                     <button className="font-primary text-[14px] underline text-[#212c3a] hover:text-link">
