@@ -45,6 +45,7 @@ function CarSlider({ carImages, showFullSlider, setShowFullSlider }) {
             ) : (
               <div
                 onMouseMove={() => handleMouseEnter(i)}
+                onClick={() => setShowFullSlider(i)}
                 className="absolute top-0 left-0 w-[70px] h-[50px] mt-2 rounded-[4px] hover:bg-none bg-[linear-gradient(0deg,rgba(255,255,255,0.25),rgba(255,255,255,0.25))]"
               ></div>
             )}
@@ -68,6 +69,7 @@ function CarSlider({ carImages, showFullSlider, setShowFullSlider }) {
       sliderRef.current.slickGoTo(index);
     }
   };
+
   return (
     <div className={`${styles["slider-container"]} relative small-slider`}>
       <Slider {...settings} ref={sliderRef}>
@@ -88,7 +90,7 @@ function CarSlider({ carImages, showFullSlider, setShowFullSlider }) {
         {currentSlide + 1} / {carImages.length}
       </div>
       <div
-        onClick={() => setShowFullSlider(!showFullSlider)}
+        onClick={() => setShowFullSlider(currentSlide)}
         className={`${styles.topZoom}`}
       ></div>
     </div>

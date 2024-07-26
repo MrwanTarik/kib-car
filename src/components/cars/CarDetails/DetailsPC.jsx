@@ -109,11 +109,12 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                   slideInterval={3000}
                   items={carImages}
                 /> */}
-          {showFullSlider && (
+          {showFullSlider != null && (
             <FullscreenMode
               showFullSlider={showFullSlider}
               setShowFullSlider={setShowFullSlider}
               carImages={carImages}
+              slideIndex={1}
             />
           )}
           <CarSlider

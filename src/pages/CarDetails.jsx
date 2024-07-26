@@ -10,7 +10,7 @@ import Spinner from "../components/Spinner";
 
 function CarDetails() {
   // slider logic
-  const [showFullSlider, setShowFullSlider] = useState(false);
+  const [showFullSlider, setShowFullSlider] = useState(null);
   const [width] = useState(window.innerWidth);
 
   const showMobileCom = width < 971;

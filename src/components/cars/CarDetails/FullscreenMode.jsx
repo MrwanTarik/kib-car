@@ -42,6 +42,7 @@ function FullscreenMode({ showFullSlider, setShowFullSlider, carImages }) {
       );
     },
     dots: true,
+    initialSlide: showFullSlider,
     dotsClass: "slick-dots slick-thumb",
     infinite: true,
     arrows: true,
@@ -63,6 +64,9 @@ function FullscreenMode({ showFullSlider, setShowFullSlider, carImages }) {
       document.body.style.overflow = "auto";
     };
   }, [showFullSlider]);
+  useEffect(() => {
+    setCurrentSlide(showFullSlider);
+  }, []);
   const handleMouseEnter = (index) => {
     if (index !== currentSlide) {
       sliderRef.current.slickGoTo(index);
@@ -119,7 +123,7 @@ function FullscreenMode({ showFullSlider, setShowFullSlider, carImages }) {
             </Link>
           </li>
           <li className="hover:bg-[#FFFFFF26] rounded-lg">
-            <button onClick={() => setShowFullSlider(!showFullSlider)}>
+            <button onClick={() => setShowFullSlider(null)}>
               <svg
                 width="35"
                 height="36"

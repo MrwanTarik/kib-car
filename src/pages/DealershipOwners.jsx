@@ -51,13 +51,14 @@ function DealershipOwners() {
             OFFICIAL REPRESENTATIVES
           </h2>
         </div>
-        <div className="flex justify-end items-center lg:mt-5 lg:mb-0 lg:mr-6 mx-[10px] mb-3">
+        <div className="grid grid-cols-12 gap-[15px] lg:mt-5 lg:mb-0 lg:px-[25px]  px-[10px] mb-3">
+          <div className="lg:col-span-6 hidden lg:block"></div>
           <input
             type="text"
             placeholder="search.."
             value={search}
             onChange={onSearch}
-            className="w-full lg:w-[350px] px-5 py-3 border border-[#e5e7eb] rounded-lg focus-visible:border-[#cfcfcf] focus-visible:outline-none"
+            className="lg:col-span-6 col-span-12 px-5 py-3 border border-[#e5e7eb] rounded-lg focus-visible:border-[#cfcfcf] focus-visible:outline-none"
           />
         </div>
         {filteredData.length === 0 ? (

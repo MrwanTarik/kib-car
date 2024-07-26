@@ -10,7 +10,7 @@ import AttentionNote from "./AttentionNote";
 import CarDetailsCom from "./CarDetailsCom";
 import CreativeButton from "./CreativeButton";
 import SliderMobile from "./SliderMobile";
-import { formatPhoneNumber } from "../../../utils/help";
+import { formatPhoneNumber, clearFormatPhoneNumber } from "../../../utils/help";
 import ReadMore from "../../ReadMore";
 import Modal from "../../Modal";
 import EditAdForm from "../../EditAdForm";
@@ -18,6 +18,7 @@ import DeleteAdForm from "../../DeleteAdForm";
 import ForgetPinForm from "../../ForgetPinForm";
 import { IoFlagOutline } from "react-icons/io5";
 import ComplainForm from "../../ComplainForm";
+
 function DetailsMobile({
   car,
   showFullSlider,
@@ -27,14 +28,17 @@ function DetailsMobile({
 }) {
   return (
     <div className="relative">
-      <button className="fixed h-[48px] justify-center flex items-center gap-x-2 bg-[#3db460] rounded-xl hover:bg-[#269547] w-[calc(100%-32px)] right-4 left-4  bottom-4">
+      <a
+        href={`tel:${clearFormatPhoneNumber(car.creator.phone)}`}
+        className="fixed h-[48px] justify-center flex items-center gap-x-2 bg-[#3db460] rounded-xl hover:bg-[#269547] w-[calc(100%-32px)] right-4 left-4  bottom-4"
+      >
         <img
           className="w-[18px] h-[18px]"
           src={phoneDetails}
           alt="phoneDetails"
         />
         <p className="text-[15px] text-white">Call</p>
-      </button>
+      </a>
       <ul className="container flex items-center gap-[10px] py-[8px] font-primary  uppercase text-[14px] text-[#b4b5b9]">
         <li>{car.brand.name}</li> •<li>{car.brand_model.name}</li> •
         <li>{car.brand_model.name}</li>

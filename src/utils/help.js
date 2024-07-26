@@ -28,3 +28,14 @@ export function hideLastTwoDigits(formattedNumber) {
   // Replace the last two digits with bullets
   return formattedNumber.slice(0, -2) + "••";
 }
+export function clearFormatPhoneNumber(phoneNumber) {
+  // Remove all non-digit characters except the plus sign
+  let cleaned = phoneNumber.replace(/[^0-9+]/g, "");
+
+  // Check if the number starts with a plus sign, if not add it
+  if (cleaned[0] !== "+") {
+    cleaned = "+" + cleaned;
+  }
+
+  return cleaned;
+}
