@@ -514,7 +514,25 @@ function NewAdvertisement() {
           // setPaymentToken(response.data.token);
           // setShowPaymentModal(true);
           // send the ad data to get  payment token && show payment modal with the token
-          console.log(response.data.action);
+          try {
+            console.log(response.data.action);
+            const res = await axios.post(
+              `${
+                import.meta.env.VITE_REACT_APP_API_URL
+              }/api/announcements/extra-slot`,
+              params,
+              {
+                headers: headers,
+              }
+            );
+            if (res.status == "200") {
+              console.log(res.data.token);
+              setPaymentToken(res.data.token);
+              setShowPaymentModal(true);
+            }
+          } catch (error) {
+            console.log(error);
+          }
         }
 
         if (response.data.action == "show-otp-verification") {
