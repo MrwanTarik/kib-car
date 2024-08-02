@@ -57,16 +57,33 @@ function NewAdvertisement() {
       if (response.data.success == true) {
         setShowOtpModal(false);
 
-        formRef.current.dispatchEvent(
-          new Event("submit", { cancelable: true, bubbles: true })
-        );
+        // formRef.current.dispatchEvent(
+        //   new Event("submit", { cancelable: true, bubbles: true })
+        // );
       }
     } catch (error) {
       console.log(error);
     }
   };
 
-  const resendOtp = () => {};
+  const resendOtp = async () => {
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_REACT_APP_API_URL}/api/guests/otp/resend`,
+        {
+          phone: formData.userTel,
+        }
+      );
+
+      if (response.data.success == true) {
+        console.log("otp resent check your mobile");
+        return true;
+      }
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  };
 
   const handlePaymentResult = (status) => {
     console.log(status);
@@ -493,12 +510,17 @@ function NewAdvertisement() {
           }
         );
 
-        if (response.data.action == "premium") {
-          setPaymentToken(response.data.token);
-          setShowPaymentModal(true);
+        if (response.data.action == "extra-slot") {
+          // setPaymentToken(response.data.token);
+          // setShowPaymentModal(true);
+          // send the ad data to get  payment token && show payment modal with the token
+          console.log(response.data.action);
         }
 
-        if (response.data.action == "otp") {
+        if (response.data.action == "show-otp-verification") {
+          // show otp modal &&
+          // setShowOtpModal(true);
+          console.log(response.data.action);
           setShowOtpModal(true);
         }
 

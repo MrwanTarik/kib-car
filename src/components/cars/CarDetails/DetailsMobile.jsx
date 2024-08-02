@@ -32,7 +32,7 @@ function DetailsMobile({
         href={`tel:${
           car.car_dealership
             ? clearFormatPhoneNumber(car.car_dealership.phone1)
-            : clearFormatPhoneNumber(car.creator.phone)
+            : clearFormatPhoneNumber(car.creator.guest_phone.phone)
         }`}
         className="fixed h-[48px] justify-center flex items-center gap-x-2 bg-[#3db460] rounded-xl hover:bg-[#269547] w-[calc(100%-32px)] right-4 left-4  bottom-4"
       >
@@ -206,7 +206,7 @@ function DetailsMobile({
                 href={`tel:+${
                   car.user
                     ? formatPhoneNumber(car.car_dealership.phone1)
-                    : formatPhoneNumber(car.creator.phone)
+                    : formatPhoneNumber(car.creator.guest_phone.phone)
                 }`}
                 className={`flex items-center gap-x-[10px]  text-[15px]  text-link`}
               >
@@ -227,7 +227,7 @@ function DetailsMobile({
                 </svg>
                 {car.user
                   ? formatPhoneNumber(car.car_dealership.phone1)
-                  : formatPhoneNumber(car.creator.phone)}
+                  : formatPhoneNumber(car.creator.guest_phone.phone)}
               </a>
               <a className="text-[15px]  text-link underline">Call</a>
               {/* <AttentionNote /> */}

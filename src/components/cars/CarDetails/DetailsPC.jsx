@@ -224,7 +224,7 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                   ? hideLastTwoDigits(
                       formatPhoneNumber(car.car_dealership.phone1)
                     )
-                  : hideLastTwoDigits(formatPhoneNumber(car.creator.phone))}
+                  : hideLastTwoDigits(formatPhoneNumber(car.creator.guest_phone.phone))}
               </div>
             </div>
             <div className={number ? "flex items-center" : "hidden"}>
@@ -232,7 +232,7 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                 href={`tel:+${
                   car.user
                     ? formatPhoneNumber(car.car_dealership.phone1)
-                    : formatPhoneNumber(car.creator.phone)
+                    : formatPhoneNumber(car.creator.guest_phone.phone)
                 }`}
                 className={`flex items-start gap-x-[10px]  text-[22px] font-bold leading-7 text-[#212c3a] visible`}
               >
@@ -268,7 +268,7 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                     </div>
                   ) : (
                     <a className="hover:text-[#ca1016]">
-                      {formatPhoneNumber(car.creator.phone)}
+                      {formatPhoneNumber(car.creator.guest_phone.phone)}
                     </a>
                   )}
                 </div>
