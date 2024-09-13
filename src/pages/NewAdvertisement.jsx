@@ -511,8 +511,6 @@ function NewAdvertisement() {
         );
 
         if (response.data.action == "extra-slot") {
-          // setPaymentToken(response.data.token);
-          // setShowPaymentModal(true);
           // send the ad data to get  payment token && show payment modal with the token
           try {
             console.log(response.data.action);

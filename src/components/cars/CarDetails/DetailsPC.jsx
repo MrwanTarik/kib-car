@@ -20,6 +20,7 @@ import { IoFlagOutline } from "react-icons/io5";
 import ComplainForm from "../../ComplainForm";
 import ReadMore from "../../ReadMore";
 import { FaClock, FaMapMarkerAlt } from "react-icons/fa";
+import GetPinMethods from "../../GetPinMethods";
 
 function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
   const [number, setNumber] = useState(false);
@@ -169,13 +170,16 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                   <Modal.Window name="delete">
                     <DeleteAdForm car={car} />
                   </Modal.Window>
-                  <Modal.Open windowName="forget-pin">
+                  <Modal.Open windowName="pin-methods">
                     <button className="font-primary text-[14px] underline text-[#212c3a] hover:text-link">
                       Forget pin
                     </button>
                   </Modal.Open>
                   <Modal.Window name="forget-pin">
                     <ForgetPinForm car={car} />
+                  </Modal.Window>
+                  <Modal.Window name="pin-methods">
+                    <GetPinMethods />
                   </Modal.Window>
                 </Modal>
               </div>
@@ -224,7 +228,9 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                   ? hideLastTwoDigits(
                       formatPhoneNumber(car.car_dealership.phone1)
                     )
-                  : hideLastTwoDigits(formatPhoneNumber(car.creator.guest_phone.phone))}
+                  : hideLastTwoDigits(
+                      formatPhoneNumber(car.creator.guest_phone.phone)
+                    )}
               </div>
             </div>
             <div className={number ? "flex items-center" : "hidden"}>

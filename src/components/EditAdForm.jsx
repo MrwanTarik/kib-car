@@ -60,7 +60,7 @@ function EditAdForm({ onCloseModal, showNewModal }) {
           </button>
         </div>
         <button
-          onClick={() => showNewModal("forget-pin")}
+          onClick={() => showNewModal("pin-methods")}
           className="mt-2 ml-1 text-[15px] underline text-link"
         >
           Forgot your PIN?

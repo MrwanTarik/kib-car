@@ -33,6 +33,7 @@ function PaymentModal({ onClose, onPaymentResult, token }) {
           frameBorder="0"
           scrolling="no"
           style={{ width: "100%", height: "100%", overflowY: "auto" }}
+          onChange={() => console.log("fuck you body")}
         ></iframe>
         <div className="flex justify-between mt-4">
           <button
