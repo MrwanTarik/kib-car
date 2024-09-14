@@ -11,7 +11,11 @@ import AttentionNote from "./AttentionNote";
 import CarDetailsCom from "./CarDetailsCom";
 import CreativeButton from "./CreativeButton";
 import CarSlider from "./CarSlider";
-import { clearFormatPhoneNumber, formatPhoneNumber, hideLastTwoDigits } from "../../../utils/help";
+import {
+  clearFormatPhoneNumber,
+  formatPhoneNumber,
+  hideLastTwoDigits,
+} from "../../../utils/help";
 import Modal from "../../Modal";
 import DeleteAdForm from "../../DeleteAdForm";
 import EditAdForm from "../../EditAdForm";
@@ -235,11 +239,6 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
             </div>
             <div className={number ? "flex items-center" : "hidden"}>
               <div
-                href={`tel:${
-                  car.user
-                    ? clearFormatPhoneNumber(car.car_dealership.phone1)
-                    : clearFormatPhoneNumber(car.creator.guest_phone.phone)
-                }`}
                 className={`flex items-start gap-x-[10px]  text-[22px] font-bold leading-7 text-[#212c3a] visible`}
               >
                 {/* make it red*/}
@@ -262,18 +261,38 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                 <div>
                   {car.car_dealership ? (
                     <div className="flex flex-col space-y-[8px]">
-                      <a className="hover:text-[#ca1016]">
+                      <a
+                        href={`tel:${clearFormatPhoneNumber(
+                          car.car_dealership.phone1
+                        )}`}
+                        className="hover:text-[#ca1016]"
+                      >
                         {formatPhoneNumber(car.car_dealership.phone1)}
                       </a>
-                      <a className="hover:text-[#ca1016]">
+                      <a
+                        href={`tel:${clearFormatPhoneNumber(
+                          car.car_dealership.phone2
+                        )}`}
+                        className="hover:text-[#ca1016]"
+                      >
                         {formatPhoneNumber(car.car_dealership.phone2)}
                       </a>
-                      <a className="hover:text-[#ca1016]">
+                      <a
+                        href={`tel:${clearFormatPhoneNumber(
+                          car.car_dealership.phone3
+                        )}`}
+                        className="hover:text-[#ca1016]"
+                      >
                         {formatPhoneNumber(car.car_dealership.phone3)}
                       </a>
                     </div>
                   ) : (
-                    <a className="hover:text-[#ca1016]">
+                    <a
+                      href={`tel:${clearFormatPhoneNumber(
+                        car.creator.guest_phone.phone
+                      )}`}
+                      className="hover:text-[#ca1016]"
+                    >
                       {formatPhoneNumber(car.creator.guest_phone.phone)}
                     </a>
                   )}
