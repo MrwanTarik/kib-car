@@ -29,7 +29,7 @@ function DetailsMobile({
   return (
     <div className="relative">
       <a
-        href={`tel:+90${
+        href={`tel:${
           car.car_dealership
             ? clearFormatPhoneNumber(car.car_dealership.phone1)
             : clearFormatPhoneNumber(car.creator.guest_phone.phone)
@@ -203,7 +203,7 @@ function DetailsMobile({
             )}
             <div className="flex justify-between items-center  p-[10px] bg-[#f8f9fd] rounded-[7px]">
               <a
-                href={`tel:+90${
+                href={`tel:${
                   car.user
                     ? formatPhoneNumber(car.car_dealership.phone1)
                     : formatPhoneNumber(car.creator.guest_phone.phone)

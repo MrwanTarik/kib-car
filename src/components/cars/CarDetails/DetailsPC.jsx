@@ -235,7 +235,7 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
             </div>
             <div className={number ? "flex items-center" : "hidden"}>
               <div
-                href={`tel:+90${
+                href={`tel:${
                   car.user
                     ? clearFormatPhoneNumber(car.car_dealership.phone1)
                     : clearFormatPhoneNumber(car.creator.guest_phone.phone)

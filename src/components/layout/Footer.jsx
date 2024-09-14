@@ -48,7 +48,7 @@ function Footer() {
                   <p>kibcar@kibcar.com</p>
                 </div>
               </a>
-              <a href="tel:012-505-7755">
+              <a href="tel:+900125057755">
                 <div className="flex items-center gap-x-2">
                   <img src={phoneIcon} alt="phone" />
                   <p>(012) 505-77-55</p>
