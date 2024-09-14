@@ -34,7 +34,7 @@ export function clearFormatPhoneNumber(phoneNumber) {
 
   // Check if the number starts with a plus sign, if not add it
   if (cleaned[0] !== "+") {
-    cleaned = "+90" + cleaned;
+    cleaned = "%2B90" + cleaned;
   }
 
   return cleaned;
