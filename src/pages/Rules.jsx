@@ -27,14 +27,11 @@ function Rules() {
           <h1 className="font-bold leading-normal my-5">General Rules</h1>
           <p className="mb-[10px]">
             Advertisement placement on{" "}
-            <a href="https://turbo.az/" className="text-link underline">
+            <a href="/" className="text-link underline">
               Turbo.az
             </a>{" "}
             is governed by this{" "}
-            <a
-              href="https://turbo.az/pages/terms-and-conditions"
-              className="text-link underline"
-            >
+            <a href="/" className="text-link underline">
               User Agreement
             </a>{" "}
             (hereinafter - the Agreement). Violation of the Rules established on
@@ -42,27 +39,18 @@ function Rules() {
             in the blocking of the ad and the registration accounts of their
             owners. Please note that all ads must comply with the rules,
             regardless of whether additional services (
-            <a
-              href="https://turbo.az/pages/paid-services#featured"
-              className="text-link underline"
-            >
+            <a href="/" className="text-link underline">
               Premium
             </a>
             ,{" "}
-            <a
-              href="https://turbo.az/pages/paid-services#vip"
-              className="text-link underline"
-            >
+            <a href="/" className="text-link underline">
               VIP
             </a>
             , etc.) are applied to them. Even paid ads can be blocked or removed
             if the rules are violated. In order to ensure equal conditions for
             all users of the trading platform, everyone should familiarize
             themselves with and follow the rules of{" "}
-            <a
-              href="https://turbo.az/pages/paid-services#vip"
-              className="text-link underline"
-            >
+            <a href="/" className="text-link underline">
               Turbo.az before posting an ad.
             </a>
           </p>
@@ -115,28 +103,19 @@ function Rules() {
             </p>
             <ol className="list-decimal pl-10 my-[10px]">
               <li className="my-[10px]">
-                <a
-                  href="https://turbo.az/pages/order-requirements"
-                  className="text-link underline"
-                >
+                <a href="/" className="text-link underline">
                   Requirements to ensure the possibility of publishing an ad
                   with the status "On order".
                 </a>
               </li>
               <li className="my-[10px]">
-                <a
-                  href="https://turbo.az/pages/order-responsibilities"
-                  className="text-link underline"
-                >
+                <a href="/" className="text-link underline">
                   Obligations of companies providing cars with "on order"
                   status.
                 </a>
               </li>
               <li className="my-[10px]">
-                <a
-                  href="https://turbo.az/pages/order-recommendations"
-                  className="text-link underline"
-                >
+                <a href="/" className="text-link underline">
                   Recommendations for the buyer buying a car on order.
                 </a>
               </li>
@@ -182,8 +161,8 @@ function Rules() {
               of the Republic of Azerbaijan.
             </p>
             <p className="my-[10px]">
-              <strong>2.7.</strong> Images must not contain the turbo.az logo or
-              any other logo.
+              <strong>2.7.</strong> Images must not contain the kibcar.com logo
+              or any other logo.
             </p>
             <p className="my-[10px]">
               <strong>2.8.</strong> The horizon line in the images should be
@@ -268,13 +247,13 @@ function Rules() {
               should be as close as possible to the final price, including
               customs clearance, delivery to the Republic of Azerbaijan, as well
               as other costs.{" "}
-              <a href="https://turbo.az" className="text-link underline">
+              <a href="/" className="text-link underline">
                 Turbo.az
               </a>{" "}
               may take restrictive measures in accordance with its rules in case
               of intentional misinformation and price manipulation by the seller
               . This also includes restriction of access to place ads on the{" "}
-              <a href="https://turbo.az" className="text-link underline">
+              <a href="/" className="text-link underline">
                 Turbo.az
               </a>{" "}
               website and non-return of funds for unused services.
@@ -359,7 +338,7 @@ function Rules() {
               <strong>7.1.</strong>The user who disrespects the operator or
               moderator will have his communication tools blocked and he will
               not be able to post an ad on{" "}
-              <a href="https://turbo.az/" className="text-link underline">
+              <a href="/" className="text-link underline">
                 the Turbo.az
               </a>{" "}
               website!
@@ -369,7 +348,7 @@ function Rules() {
               ad and later tells a different price on the phone, posts pictures
               of another NV or violates any other rules, will be blacklisted and
               will no longer be able to post an ad on{" "}
-              <a href="https://turbo.az/" className="text-link underline">
+              <a href="/" className="text-link underline">
                 the Turbo.az
               </a>{" "}
               website!
@@ -428,7 +407,7 @@ function Rules() {
             <p className="my-[10px]">
               <strong>8.6.</strong> Official representatives cannot create a
               multi-brand page on{" "}
-              <a href="https://turbo.az/" className="text-link underline">
+              <a href="/" className="text-link underline">
                 Turbo.az
               </a>{" "}
               . A separate page should be obtained for each vehicle brand they
@@ -443,14 +422,14 @@ function Rules() {
               manufacturers or distributors.
             </p>
             <p className="my-[10px]">
-              <a href="https://turbo.az/" className="text-link underline">
+              <a href="/" className="text-link underline">
                 The presence of official representatives on the Turbo.az
               </a>{" "}
               website gives potential buyers the opportunity to buy cars sold
               directly from the manufacturer. When buying a car from official
               representatives, the buyer gets an additional warranty and
               service. To get official representative status at{" "}
-              <a href="https://turbo.az/" className="text-link underline">
+              <a href="/" className="text-link underline">
                 Turbo.az
               </a>{" "}
               , a car dealership must meet the following criteria:
@@ -498,7 +477,7 @@ function Rules() {
             </p>
             <p className="my-[10px]">
               <strong>8.9.</strong> The administration of the{" "}
-              <a href="https://turbo.az/" className="text-link underline">
+              <a href="/" className="text-link underline">
                 Turbo.az
               </a>{" "}
               site reserves the right to cancel the contract in case of
@@ -535,7 +514,7 @@ function Rules() {
             </p>
             <p className="my-[10px]">
               {" "}
-              <a href="https://turbo.az/" className="text-link underline">
+              <a href="/" className="text-link underline">
                 The Management of the Turbo.az
               </a>{" "}
               site reserves the right to unilaterally change the Rules at any

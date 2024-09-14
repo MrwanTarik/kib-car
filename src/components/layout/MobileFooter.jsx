@@ -9,8 +9,13 @@ const links = [
     href: "/rules",
   },
   {
-    name: "User agreement",
-    href: "/user-agreement",
+    name: "Terms And Conditions",
+    href: "/terms-and-conditions",
+  },
+
+  {
+    name: "Paid Services",
+    href: "/paid-services",
   },
   {
     name: "Place an Ad",

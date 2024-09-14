@@ -27,6 +27,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import Lease from "./pages/Lease";
 import Spinner from "./components/Spinner";
 import Rules from "./pages/Rules";
+import Terms from "./pages/Terms";
+import PaidServices from "./pages/PaidServices";
 
 function App() {
   const [width] = useState(window.innerWidth);
@@ -52,6 +54,8 @@ function App() {
                 />
                 <Route path="/help" element={<Faq />} />
                 <Route path="/rules" element={<Rules />} />
+                <Route path="/terms-and-conditions" element={<Terms />} />
+                <Route path="/paid-services" element={<PaidServices />} />
                 <Route path="/lease" element={<Lease />} />
                 <Route path="/favorite" element={<Favorite />} />
                 <Route

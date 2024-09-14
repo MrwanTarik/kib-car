@@ -9,16 +9,17 @@ const links = [
     href: "/rules",
   },
   {
-    name: "Law",
-    href: "/law",
+    name: "Terms And Conditions",
+    href: "/terms-and-conditions",
+  },
+
+  {
+    name: "Paid Services",
+    href: "/paid-services",
   },
   {
-    name: "User agreement",
-    href: "/user-agreement",
-  },
-  {
-    name: "Privacy policy",
-    href: "/privacy-policy",
+    name: "Help",
+    href: "/help",
   },
 ];
 function Footer() {
