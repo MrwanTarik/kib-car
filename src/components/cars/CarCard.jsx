@@ -104,7 +104,7 @@ function CarCard({
     <Link
       to={`/car-details/${id}`}
       id={id}
-      target={showMobileCom ? "_blank" : undefined}
+      target={showMobileCom ? undefined : "_blank"}
       className="col-span-6 xl:col-span-3 lg:col-span-4 md:col-span-6"
     >
       <div className="flex-col bg-white rounded-t-[12px] shadow-md relative">
