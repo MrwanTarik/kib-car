@@ -26,6 +26,7 @@ import MobileNav from "./components/layout/MobileNav";
 import ScrollToTop from "./components/ScrollToTop";
 import Lease from "./pages/Lease";
 import Spinner from "./components/Spinner";
+import Rules from "./pages/Rules";
 
 function App() {
   const [width] = useState(window.innerWidth);
@@ -50,6 +51,7 @@ function App() {
                   element={<DealershipDetails />}
                 />
                 <Route path="/help" element={<Faq />} />
+                <Route path="/rules" element={<Rules />} />
                 <Route path="/lease" element={<Lease />} />
                 <Route path="/favorite" element={<Favorite />} />
                 <Route
