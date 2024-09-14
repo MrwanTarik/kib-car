@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import AnimatedButtonWrapper from "./AnimatedButtonWrapper";
 
 function EditAdForm({ onCloseModal, showNewModal }) {
   const navigate = useNavigate();
@@ -51,13 +52,14 @@ function EditAdForm({ onCloseModal, showNewModal }) {
             className="px-4 py-[12px] border rounded w-full lg:min-w-[220px]"
             placeholder="Enter PIN"
           />
-
-          <button
-            onClick={onConfirm}
-            className="px-[10px] py-[12px] w-full font-bold text-white bg-red rounded-md "
-          >
-            Confirm it
-          </button>
+          <AnimatedButtonWrapper>
+            <button
+              onClick={onConfirm}
+              className="px-[10px] py-[12px] w-full font-bold text-white bg-red rounded-md "
+            >
+              Confirm it
+            </button>
+          </AnimatedButtonWrapper>
         </div>
         <button
           onClick={() => showNewModal("pin-methods")}

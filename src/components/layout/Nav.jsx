@@ -28,7 +28,7 @@ function Nav() {
             <div className="flex items-center space-x-5">
               <div className="text-[#212c3a]">
                 <span>Support: </span>
-                <a className="hover:text-red" href="tel:(012) 505-77-55">
+                <a className="hover:text-red" href="tel:+900125057755">
                   (012) 505-77-55
                 </a>
               </div>
@@ -55,7 +55,7 @@ function Nav() {
             <div className="flex items-center top-nav space-x-5 md:space-x-[80px]">
               <Link
                 to={"/"}
-                className="text-white font-bold text-lg tracking-wider font-primary"
+                className="relative z-[99999] text-white font-bold text-lg tracking-wider font-primary"
               >
                 KIBCAR
               </Link>

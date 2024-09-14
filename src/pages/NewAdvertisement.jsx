@@ -11,6 +11,7 @@ import OtpModal from "../components/OtpModal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
+import AnimatedButtonWrapper from "../components/AnimatedButtonWrapper";
 
 function NewAdvertisement() {
   const navigate = useNavigate();
@@ -1605,21 +1606,23 @@ function NewAdvertisement() {
                     type="tel"
                     name="userTel"
                     id="userTel"
-                    placeholder="014656+546566+654"
+                    placeholder="1234567890"
                     value={formData.userTel}
-                    maxLength="15"
+                    maxLength="10"
                     minLength="10"
                     onChange={handleChange}
                     required
                   />
                 </div>
                 <div className="max-w-[700px] mt-30 flex justify-end">
-                  <button
-                    className="md:min-w-[452px] min-w-full text-[14px] font-primary text-white  py-[18px] px-[20px] outline-none rounded-md font-medium bg-red"
-                    type="submit"
-                  >
-                    Continue
-                  </button>
+                  <AnimatedButtonWrapper>
+                    <button
+                      className="md:min-w-[452px] min-w-full text-[14px] font-primary text-white  py-[18px] px-[20px] outline-none rounded-md font-medium bg-red"
+                      type="submit"
+                    >
+                      Continue
+                    </button>
+                  </AnimatedButtonWrapper>
                 </div>
                 <div className="text-secondary mb-10">
                   By posting an ad, you agree to{" "}

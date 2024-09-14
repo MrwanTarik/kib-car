@@ -25,6 +25,7 @@ import MobileFixedFooter from "./components/layout/MobileFixedFooter";
 import MobileNav from "./components/layout/MobileNav";
 import ScrollToTop from "./components/ScrollToTop";
 import Lease from "./pages/Lease";
+import Spinner from "./components/Spinner";
 
 function App() {
   const [width] = useState(window.innerWidth);
@@ -37,7 +38,7 @@ function App() {
           <AppLayout>
             {showMobileCom ? <MobileNav title="KIBCAR" /> : <Nav />}
 
-            <Suspense fallback={<div>loading</div>}>
+            <Suspense fallback={<Spinner />}>
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route

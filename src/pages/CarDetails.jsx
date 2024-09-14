@@ -7,6 +7,7 @@ import OtpCloseModal from "../assets/icons/close-modal.svg";
 import DetailsPC from "../components/cars/CarDetails/DetailsPC";
 import DetailsMobile from "../components/cars/CarDetails/DetailsMobile";
 import Spinner from "../components/Spinner";
+import AnimatedButtonWrapper from "../components/AnimatedButtonWrapper";
 
 function CarDetails() {
   // slider logic
@@ -182,9 +183,11 @@ function CarDetails() {
                   className="px-4 py-[12px] border rounded w-full"
                   placeholder="Enter PIN"
                 />
-                <button className="px-4 py-[12px] w-full font-bold text-white bg-red rounded-md ">
-                  Submit PIN
-                </button>
+                <AnimatedButtonWrapper>
+                  <button className="px-4 py-[12px] w-full font-bold text-white bg-red rounded-md ">
+                    Submit PIN
+                  </button>
+                </AnimatedButtonWrapper>
               </div>
             </div>
           </div>
@@ -211,12 +214,14 @@ function CarDetails() {
               ""
             )}
             <div className="flex justify-between mt-4">
-              <button
-                onClick={handleMoveClose}
-                className="px-4 py-[12px]  font-bold text-white bg-red rounded-md"
-              >
-                Close
-              </button>
+              <AnimatedButtonWrapper>
+                <button
+                  onClick={handleMoveClose}
+                  className="px-4 py-[12px]  font-bold text-white bg-red rounded-md"
+                >
+                  Close
+                </button>
+              </AnimatedButtonWrapper>
             </div>
           </div>
 

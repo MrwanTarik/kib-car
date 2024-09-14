@@ -1,5 +1,6 @@
 // PaymentModal.js
 import React, { useState, useEffect } from "react";
+import AnimatedButtonWrapper from "./AnimatedButtonWrapper";
 
 function PaymentModal({ onClose, onPaymentResult, token }) {
   const [paymentInfo, setPaymentInfo] = useState("");
@@ -36,12 +37,14 @@ function PaymentModal({ onClose, onPaymentResult, token }) {
           onChange={() => console.log("fuck you body")}
         ></iframe>
         <div className="flex justify-between mt-4">
-          <button
-            className="px-4 py-[12px]  font-bold text-white bg-red rounded-md"
-            onClick={onClose}
-          >
-            Close
-          </button>
+          <AnimatedButtonWrapper>
+            <button
+              className="px-4 py-[12px]  font-bold text-white bg-red rounded-md"
+              onClick={onClose}
+            >
+              Close
+            </button>
+          </AnimatedButtonWrapper>
         </div>
       </div>
     </div>

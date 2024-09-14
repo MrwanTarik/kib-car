@@ -3,11 +3,16 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 import Modal from "./Modal";
 import ForgetPinForm from "./ForgetPinForm";
+import AnimatedButtonWrapper from "./AnimatedButtonWrapper";
 
 function DeleteAdForm({ onCloseModal, showNewModal }) {
   const [deleteAdErrorMsg, setDeleteAdErrorMsg] = useState("");
   const [deletePin, setDeletePin] = useState("");
   const handleDeleteApi = async () => {
+    if (deletePin === "") {
+      setDeleteAdErrorMsg("Enter the pin first!");
+      return;
+    }
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_REACT_APP_API_URL}/api/announcements/delete`,
@@ -63,12 +68,14 @@ function DeleteAdForm({ onCloseModal, showNewModal }) {
             placeholder="Enter PIN"
           />
 
-          <button
-            onClick={handleDeleteApi}
-            className="px-[10px] py-[12px] w-full font-bold text-white bg-red rounded-md "
-          >
-            Confirm it
-          </button>
+          <AnimatedButtonWrapper>
+            <button
+              onClick={handleDeleteApi}
+              className="px-[10px] py-[12px] w-full font-bold text-white bg-red rounded-md "
+            >
+              Confirm it
+            </button>
+          </AnimatedButtonWrapper>
         </div>
         <button
           onClick={() => showNewModal("pin-methods")}

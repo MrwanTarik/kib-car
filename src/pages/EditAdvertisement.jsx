@@ -11,6 +11,7 @@ import OtpModal from "../components/OtpModal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import AnimatedButtonWrapper from "../components/AnimatedButtonWrapper";
 
 function EditAdvertisement() {
   const { id } = useParams();
@@ -163,7 +164,7 @@ function EditAdvertisement() {
           vehicle_back_view_image: null,
           vehicle_front_panel_image: null,
           pin_code: null,
-          city: carData.city.id,
+          city: carData.city?.id,
           carStatus: carData.vehicle_status,
           imagesFiles: [],
         });
@@ -1637,12 +1638,14 @@ function EditAdvertisement() {
                   />
                 </div> */}
                 <div className="max-w-[700px] mt-30 flex justify-end">
-                  <button
-                    className="md:min-w-[452px] min-w-full text-[14px] font-primary text-white  py-[18px] px-[20px] outline-none rounded-md font-medium bg-red"
-                    type="submit"
-                  >
-                    Continue
-                  </button>
+                  <AnimatedButtonWrapper>
+                    <button
+                      className="md:min-w-[452px] min-w-full text-[14px] font-primary text-white  py-[18px] px-[20px] outline-none rounded-md font-medium bg-red"
+                      type="submit"
+                    >
+                      Continue
+                    </button>
+                  </AnimatedButtonWrapper>
                 </div>
                 <div className="text-secondary mb-10">
                   By posting an ad, you agree to{" "}

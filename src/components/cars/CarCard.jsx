@@ -27,6 +27,8 @@ function CarCard({
   },
 }) {
   const [heart, setHeart] = useState(false);
+  const [width] = useState(window.innerWidth);
+  const showMobileCom = width < 971;
 
   function saveCarData(carData) {
     // Retrieve existing data from localStorage
@@ -102,6 +104,7 @@ function CarCard({
     <Link
       to={`/car-details/${id}`}
       id={id}
+      target={showMobileCom ? "_blank" : undefined}
       className="col-span-6 xl:col-span-3 lg:col-span-4 md:col-span-6"
     >
       <div className="flex-col bg-white rounded-t-[12px] shadow-md relative">

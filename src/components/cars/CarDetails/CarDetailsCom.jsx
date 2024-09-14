@@ -16,7 +16,7 @@ function CarDetailsCom({ car }) {
       <div className="col-span-6 md:col-span-6 xl:col-span-3 mt-[30px]">
         <div className="flex flex-col gap-y-[6px] mr-[20px]">
           <p className="font-primary text-[14px] text-[#212c3a]">
-            {car.city.name}
+            {car.city?.name}
           </p>
           <p className="font-primary text-[14px] text-[#212c3a]">
             {car.brand.name}

@@ -11,7 +11,7 @@ import AttentionNote from "./AttentionNote";
 import CarDetailsCom from "./CarDetailsCom";
 import CreativeButton from "./CreativeButton";
 import CarSlider from "./CarSlider";
-import { formatPhoneNumber, hideLastTwoDigits } from "../../../utils/help";
+import { clearFormatPhoneNumber, formatPhoneNumber, hideLastTwoDigits } from "../../../utils/help";
 import Modal from "../../Modal";
 import DeleteAdForm from "../../DeleteAdForm";
 import EditAdForm from "../../EditAdForm";
@@ -235,10 +235,10 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
             </div>
             <div className={number ? "flex items-center" : "hidden"}>
               <div
-                href={`tel:+${
+                href={`tel:+90${
                   car.user
-                    ? formatPhoneNumber(car.car_dealership.phone1)
-                    : formatPhoneNumber(car.creator.guest_phone.phone)
+                    ? clearFormatPhoneNumber(car.car_dealership.phone1)
+                    : clearFormatPhoneNumber(car.creator.guest_phone.phone)
                 }`}
                 className={`flex items-start gap-x-[10px]  text-[22px] font-bold leading-7 text-[#212c3a] visible`}
               >

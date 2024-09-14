@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import OtpCloseModal from "../assets/icons/close-modal.svg";
+import AnimatedButtonWrapper from "./AnimatedButtonWrapper";
 
 function OtpModal({ onClose, resendOtp, verifyOtp }) {
   const [otp, setOtp] = useState("");
@@ -87,12 +88,14 @@ function OtpModal({ onClose, resendOtp, verifyOtp }) {
               className="px-4 py-[12px] border rounded w-full"
               placeholder="Enter OTP"
             />
-            <button
-              className="px-4 py-[12px] w-full font-bold text-white bg-red rounded-md"
-              onClick={handleVerify}
-            >
-              Verify OTP
-            </button>
+            <AnimatedButtonWrapper>
+              <button
+                className="px-4 py-[12px] w-full font-bold text-white bg-red rounded-md"
+                onClick={handleVerify}
+              >
+                Verify OTP
+              </button>
+            </AnimatedButtonWrapper>
           </div>
           <div className="flex justify-between mt-4">
             <span className="pb-4 py-2 font-primary font-medium text-[#6B6B6B] text-[14px] rounded inline-block">

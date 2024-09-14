@@ -212,3 +212,53 @@ body {
   position: relative;
   font-family: "Inter", sans-serif;
 }
+
+
+/* AnimatedButtonWrapper.css */
+
+.animated-button {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.animated-button::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(202, 16, 22, 0.5); /* Slightly transparent red */
+  z-index: 0;
+  transition: top 2s ease; /* Adjust duration as needed */
+}
+
+.animated-button.btn-loading-state::before {
+  top: 0; /* "Water" fills the button */
+}
+
+.animated-button::after {
+  content: "Kib Car"; /* Text to display during loading */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  opacity: 0; /* Initially hidden */
+  z-index: 1;
+  font-size: 14px;
+}
+
+.animated-button.btn-loading-state::after {
+  opacity: 1; /* "Kib Car" becomes visible */
+}
+
+.animated-button.btn-loading-state {
+  opacity: 0.3; /* 30% opacity on click */
+}
+
+.animated-button:hover {
+  box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.6);
+}

@@ -34,6 +34,7 @@ import PremiumAds from "../components/cars/PremiumAds";
 import VehicleFeatures from "../components/cars/VehicleFeatures";
 import NoAds from "../components/NoAds";
 import Spinner from "../components/Spinner";
+import AnimatedButtonWrapper from "../components/AnimatedButtonWrapper";
 
 function Homepage() {
   const [width] = useState(window.innerWidth);
@@ -347,17 +348,14 @@ function Homepage() {
                     </button>
                   </div>
                   <div>
-                    <button
-                      onClick={showFilterPayload}
-                      className="text-white rounded-lg shadow-lg bg-red py-[14px] px-[35px] font-primary text-[14px] font-normal md:ml-14 ml-[20px] flex items-center"
-                    >
-                      {/* <img
-                        className="mr-[10px]"
-                        src={notifiedIcon}
-                        alt="notified icon"
-                      /> */}
-                      Shows ads
-                    </button>
+                    <AnimatedButtonWrapper>
+                      <button
+                        onClick={showFilterPayload}
+                        className="text-white rounded-lg shadow-lg bg-red py-[14px] px-[35px] font-primary text-[14px] font-normal md:ml-14 ml-[20px] flex items-center"
+                      >
+                        Shows ads
+                      </button>
+                    </AnimatedButtonWrapper>
                   </div>
                 </div>
               </div>
