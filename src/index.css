@@ -5,15 +5,48 @@
 @tailwind components;
 @tailwind utilities;
 
-.loader {
+/* .loader {
   width: 45px;
   aspect-ratio: 0.75;
   --c: no-repeat linear-gradient(theme(colors.stone.800) 0 0);
   background: var(--c) 0% 50%, var(--c) 50% 50%, var(--c) 100% 50%;
   background-size: 20% 50%;
   animation: loading 1s infinite linear;
+} */
+.loader-svg {
+  width: 250px; /* Adjust as needed */
+  height: auto;
+  display: block;
+  margin: auto;
 }
 
+.text-outline {
+  fill: none;
+  stroke: #ef4444;
+  stroke-width: 2px;
+  font-size: 100px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+.text-fill {
+  fill: #ef4444;
+  font-size: 100px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  animation: fillAnimation 2s linear infinite alternate;
+}
+
+@keyframes fillAnimation {
+  0% {
+    -webkit-clip-path: inset(0 100% 0 0);
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    -webkit-clip-path: inset(0 0 0 0);
+    clip-path: inset(0 0 0 0);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -212,7 +245,6 @@ body {
   position: relative;
   font-family: "Inter", sans-serif;
 }
-
 
 /* AnimatedButtonWrapper.css */
 

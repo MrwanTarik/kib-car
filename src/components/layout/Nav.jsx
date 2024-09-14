@@ -55,7 +55,7 @@ function Nav() {
             <div className="flex items-center top-nav space-x-5 md:space-x-[80px]">
               <Link
                 to={"/"}
-                className="relative z-[99999] text-white font-bold text-lg tracking-wider font-primary"
+                className=" text-white font-bold text-lg tracking-wider font-primary"
               >
                 KIBCAR
               </Link>
