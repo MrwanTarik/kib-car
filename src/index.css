@@ -13,6 +13,10 @@
   background-size: 20% 50%;
   animation: loading 1s infinite linear;
 } */
+
+html {
+  scroll-behavior: smooth;
+}
 .loader-svg {
   width: 250px; /* Adjust as needed */
   height: auto;
