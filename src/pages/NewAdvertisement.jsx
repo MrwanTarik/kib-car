@@ -33,7 +33,21 @@ function NewAdvertisement() {
   const [showOtpModal, setShowOtpModal] = useState(false);
   const [carFeatures, setCarFeatures] = useState([]);
   const [selectedFeatures, setSelectedFeatures] = useState([]);
+  const [error, setError] = useState("");
+  const handleInput = (e) => {
+    const value = e.target.value.replace(/[^0-9]/g, ""); // Only keep numbers
+    setFormData((prev) => ({
+      ...prev,
+      userTel: value,
+    }));
 
+    // Set error based on regex
+    if (!/^[1-9][0-9]{9}$/.test(value)) {
+      setError("Please enter a valid 10-digit phone number.");
+    } else {
+      setError("");
+    }
+  };
   const handleCheckboxChangeForCarFeatures = (featureId) => (event) => {
     if (event.target.checked) {
       setSelectedFeatures([...selectedFeatures, featureId]);
@@ -578,6 +592,8 @@ function NewAdvertisement() {
       errorMsg.classList.remove("hidden");
       picSection.scrollIntoView({ behavior: "smooth" });
       return; // Stop the request from being sent
+    } else if (error) {
+      return;
     } else {
       errorMsg.classList.add("hidden");
       saveAnnouncement();
@@ -1601,19 +1617,26 @@ function NewAdvertisement() {
                   >
                     Mobile Number
                   </label>
-                  <input
-                    className="md:max-w-[452px] w-full py-[10px] px-[15px] bg-white rounded-md border border-solid border-[#E4E4E4] font-primary text-[14px] font-normal focus:outline-0"
-                    type="tel"
-                    name="userTel"
-                    id="userTel"
-                    placeholder="1234567890"
-                    value={formData.userTel}
-                    maxLength="10"
-                    minLength="10"
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
+                  <div className="relative md:max-w-[452px] w-full">
+                    <span className="font-primary text-[14px] font-normal px-3 py-[10px] absolute  rounded-md rounded-tr-none rounded-br-none left-0 bg-slate-100">
+                      +90
+                    </span>
+                    <input
+                      className="w-full py-[10px] px-[15px] pl-14 bg-white rounded-md border border-solid border-[#E4E4E4] font-primary text-[14px] font-normal focus:outline-0"
+                      type="number"
+                      name="userTel"
+                      id="userTel"
+                      placeholder="1234567890"
+                      value={formData.userTel}
+                      maxLength="10"
+                      minLength="10"
+                      onChange={handleChange}
+                      onInput={handleInput}
+                      required
+                    />
+                  </div>
+                </div>{" "}
+                {error && <p className="text-red">{error}</p>}
                 <div className="max-w-[700px] mt-30 flex justify-end">
                   <AnimatedButtonWrapper>
                     <button
