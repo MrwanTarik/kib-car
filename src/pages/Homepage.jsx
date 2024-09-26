@@ -256,20 +256,24 @@ function Homepage() {
             <div className="xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px]">
               <GearBox />
             </div>
-            <div className="xl:col-span-4 md:col-span-6 col-span-12 h-[48px]">
-              <div className="flex justify-between h-full gap-6">
+            <div className="xl:col-span-3 md:col-span-6 col-span-12 h-[48px]">
+              <VolumeMin />
+              {/* <div className="flex justify-between h-full gap-6">
                 <div className="flex-1">
                   <VolumeMin />
                 </div>
                 <div className="flex-1">
                   <VolumeMax />
                 </div>
-              </div>
+              </div> */}
             </div>
-            <div className="xl:col-span-4 md:col-span-6 col-span-12 h-[48px]">
+            <div className="xl:col-span-3 md:col-span-6 col-span-12 h-[48px]">
+              <VolumeMax />
+            </div>
+            <div className="xl:col-span-3 md:col-span-6 col-span-12 h-[48px]">
               <Power />
             </div>
-            <div className="xl:col-span-4 md:col-span-6 col-span-12 h-[48px]">
+            <div className="xl:col-span-3 md:col-span-6 col-span-12 h-[48px]">
               <Mileage />
             </div>
             <div className="xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px]">
@@ -284,19 +288,23 @@ function Homepage() {
             <div className="xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px]">
               <Market />
             </div>
-            <div className="col-span-12 h-[48px] flex gap-x-[30px]">
+            <div className="xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px]">
               <PaymentType
                 label="There is no punctuation"
                 type="noPunctuation"
                 name="noPunctuation"
                 setPaymentOptions={setPaymentOptions}
               />
+            </div>
+            <div className="xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px]">
               <PaymentType
                 label="Not colored"
                 type="notColored"
                 name="notColored"
                 setPaymentOptions={setPaymentOptions}
               />
+            </div>
+            <div className="xl:col-span-3 lg:col-span-4 md:col-span-6 col-span-12 h-[48px]">
               <PaymentType
                 label="Accidental cars only"
                 type="accidentalCars"
@@ -304,6 +312,7 @@ function Homepage() {
                 setPaymentOptions={setPaymentOptions}
               />
             </div>
+
             <div className="col-span-12 mt-12">
               <div className="flex items-center justify-between">
                 <span className="font-primary text-primary text-[14px] inline-block min-w-[130px]">
@@ -351,7 +360,7 @@ function Homepage() {
                     <AnimatedButtonWrapper>
                       <button
                         onClick={showFilterPayload}
-                        className="text-white rounded-lg shadow-lg bg-red py-[14px] px-[35px] font-primary text-[14px] font-normal md:ml-14 ml-[20px] flex items-center"
+                        className="text-white rounded-lg shadow-lg bg-[#ca1016e3] hover:bg-red shadow-none hover:shadow-none py-[14px] px-[35px] font-primary text-[14px] font-normal md:ml-14 ml-[20px] flex items-center"
                       >
                         Shows ads
                       </button>

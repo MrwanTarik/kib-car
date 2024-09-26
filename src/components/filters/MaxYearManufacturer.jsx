@@ -7,6 +7,7 @@ function MaxYearManufacturer() {
   const { selectedMaxYearManufactured, setSelectedMaxYearManufactured } =
     useContext(FilterContext);
   const [years, setYears] = useState([]);
+  const [isOpen, setIsOpen] = useState(false); // New state to track dropdown open status
 
   const detailsRef = useRef(null);
 
@@ -14,6 +15,7 @@ function MaxYearManufacturer() {
     setSelectedMaxYearManufactured(item.name);
     if (detailsRef.current) {
       detailsRef.current.removeAttribute("open");
+      setIsOpen(false); // Close the dropdown
     }
   };
 
@@ -33,7 +35,11 @@ function MaxYearManufacturer() {
 
   return (
     <div className="h-full">
-      <details ref={detailsRef} className="w-full h-full dropdown">
+      <details
+        ref={detailsRef}
+        className="w-full h-full dropdown"
+        onToggle={(e) => setIsOpen(e.target.open)} // Update state on toggle
+      >
         <summary className="flex items-center justify-between w-full h-full px-[10px] bg-white border-none rounded-lg shadow-md btn shadow-input hover:bg-stone-100">
           <div>
             {selectedMaxYearManufactured && (
@@ -45,7 +51,13 @@ function MaxYearManufacturer() {
               {selectedMaxYearManufactured || "Max year"}
             </p>
           </div>
-          <img src={chivronBottom} alt="chivron-Bottom" />
+          <img
+            src={chivronBottom}
+            alt="chivron-Bottom"
+            className={`transition-transform duration-300 ${
+              isOpen ? "rotate-180" : ""
+            }`} // Apply rotation class based on state
+          />
         </summary>
         <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 flex justify-start w-full mt-2 rounded-none rounded-l-lg">
           {years.map((item) => (

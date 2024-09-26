@@ -9,6 +9,7 @@ function City() {
   const detailsRef = useRef(null);
 
   const [cities, setCities] = useState([]);
+  const [isOpen, setIsOpen] = useState(false); // New state to track dropdown open status
 
   const handleCheckboxChange = (event) => {
     const item = event.target.name;
@@ -47,7 +48,11 @@ function City() {
 
   return (
     <div className="w-full h-full">
-      <details ref={detailsRef} className="w-full h-full dropdown">
+      <details
+        ref={detailsRef}
+        className="w-full h-full dropdown"
+        onToggle={(e) => setIsOpen(e.target.open)} // Update state on toggle
+      >
         <summary className="flex items-center justify-between w-full h-full px-[10px] bg-white border-none rounded-lg shadow-md cursor-pointer btn shadow-input hover:bg-stone-50">
           <div className="max-w-[80%]">
             {selectedOptions.length !== 0 && (
@@ -65,7 +70,13 @@ function City() {
           </div>
 
           <div>
-            <img src={chivronBottom} alt="chivron-Bottom" />
+            <img
+              src={chivronBottom}
+              alt="chivron-Bottom"
+              className={`transition-transform duration-300 ${
+                isOpen ? "rotate-180" : ""
+              }`} // Apply rotation class based on state
+            />
           </div>
         </summary>
 

@@ -8,6 +8,7 @@ function Gear() {
   const { checkedGear, setCheckedGear, setCheckedGearIds } =
     useContext(FilterContext);
   const detailsRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false); // New state to track dropdown open status
 
   const handleCheckboxChange = (event) => {
     const item = event.target.name;
@@ -46,7 +47,11 @@ function Gear() {
 
   return (
     <div className="h-full">
-      <details ref={detailsRef} className="w-full h-full dropdown">
+      <details
+        ref={detailsRef}
+        className="w-full h-full dropdown"
+        onToggle={(e) => setIsOpen(e.target.open)} // Update state on toggle
+      >
         <summary className="flex items-center justify-between w-full h-full px-[10px] bg-white border-none rounded-lg shadow-md cursor-pointer btn shadow-input hover:bg-stone-50">
           <div className="max-w-[80%]">
             {selectedOptions.length !== 0 && (
@@ -59,7 +64,13 @@ function Gear() {
             </p>
           </div>
 
-          <img src={chivronBottom} alt="chivron-Bottom" />
+          <img
+            src={chivronBottom}
+            alt="chivron-Bottom"
+            className={`transition-transform duration-300 ${
+              isOpen ? "rotate-180" : ""
+            }`} // Apply rotation class based on state
+          />
         </summary>
 
         <ul className="p-2 z-[1] shadow menu dropdown-content bg-base-100 flex flex-col flex-nowrap justify-start w-full mt-2 rounded-lg max-h-[210px] overflow-y-auto">

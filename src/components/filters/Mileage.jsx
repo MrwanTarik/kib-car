@@ -19,7 +19,7 @@ const Mileage = () => {
         />
         <label
           htmlFor="minMileage"
-          className="absolute cursor-pointer left-0 -top-1.5 px-4  text-sm transition-all w-full text-start peer-placeholder-shown:text-[14px] peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-1.5  peer-focus:text-[12px] font-primary text-secondary"
+          className="absolute cursor-pointer left-0 -top-1.5 pl-[0.6rem] pr-[0.1rem]  text-sm transition-all w-full text-start peer-placeholder-shown:text-[14px] peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-1.5  peer-focus:text-[12px] font-primary text-secondary"
         >
           Mileage (km), min
         </label>

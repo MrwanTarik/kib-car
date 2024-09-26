@@ -15,7 +15,7 @@ const PaymentType = ({ label, type, setPaymentOptions, name }) => {
   };
   return (
     <div className="h-full bg-white rounded-lg ">
-      <label className="inline-block cursor-pointer h-full">
+      <label className="inline-block cursor-pointer h-full w-full">
         <input
           type="checkbox"
           className="sr-only"
