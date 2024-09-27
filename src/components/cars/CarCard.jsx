@@ -107,7 +107,7 @@ function CarCard({
       target={showMobileCom ? undefined : "_blank"}
       className="col-span-6 xl:col-span-3 lg:col-span-4 md:col-span-6"
     >
-      <div className="flex-col bg-white rounded-t-[12px] shadow-md relative">
+      <div className="flex-col bg-white rounded-t-[12px] relative">
         <div className="absolute bottom-[10px] left-[10px] top-[10px] right-[10px] flex flex-col justify-between">
           <div className="flex justify-between">
             <div className="flex items-center space-x-[5px]">

@@ -68,7 +68,7 @@ function Model() {
       >
         <summary
           disabled={!brandId}
-          className="flex items-center justify-between w-full h-full px-[10px] bg-white border-none rounded-lg shadow-md cursor-pointer btn shadow-input hover:bg-stone-100"
+          className="flex items-center justify-between w-full h-full px-[10px] bg-white border border-gray-300 rounded-lg cursor-pointer btn shadow-input hover:bg-stone-100"
         >
           <div className="max-w-[80%]">
             {selectedOptions.length > 0 && (

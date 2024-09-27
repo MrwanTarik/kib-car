@@ -786,7 +786,7 @@ function NewAdvertisement() {
                       required
                     />
                   </div>
-                  <div className="md:max-w-[177px] flex space-x-4 items-center w-1/2">
+                  <div className="md:max-w-[177px] flex space-x-4 items-center justify-end">
                     <div className="flex items-center gap-x-2">
                       <input
                         required
@@ -902,7 +902,7 @@ function NewAdvertisement() {
                 <label className="font-primary text-[14px] font-normal after:content-['*'] after:pl-[3px] after:top-0 after:relative after:text-red  relative min-w-[165px] max-w-[165px]">
                   Price
                 </label>
-                <div className="flex items-center justify-between gap-x-8 md:max-w-[452px] w-full">
+                <div className="flex items-center justify-between gap-x-4 md:max-w-[452px] w-full">
                   <div className="w-1/2 md:w-auto">
                     <input
                       name="price"
@@ -914,7 +914,7 @@ function NewAdvertisement() {
                       required
                     />
                   </div>
-                  <div className="md:max-w-[220px] flex space-x-4 items-center w-[55%]">
+                  <div className="md:max-w-[220px] flex space-x-4 items-center justify-end">
                     <div className="flex items-center gap-x-2">
                       <input
                         className="w-4 h-4 accent-red"
@@ -1133,9 +1133,9 @@ function NewAdvertisement() {
                   Car Status
                 </label>
                 <div className="md:flex-nowrap  flex-wrap gap-y-3 md:gap-y-0  md:min-w-[452px] w-full gap-x-5 flex md:ml-2">
-                  <div className="relative flex items-center gap-x-1">
+                  <div className=" flex items-center gap-x-2">
                     <input
-                      className="absolute w-4 h-4 opacity-0 accent-red "
+                      className="w-4 h-4 accent-red"
                       id="carStatusNew"
                       type="radio"
                       name="carStatus"
@@ -1143,9 +1143,6 @@ function NewAdvertisement() {
                       onChange={handleChange}
                       required
                     />
-                    <span className="w-4 h-4 inline-block border border-[#8d92a3] rounded-[3px] bg-white cursor-pointer">
-                      <span className="custom-checkmark hidden"></span>
-                    </span>
                     <label
                       className="text-[14px] font-normal text-primary"
                       htmlFor="carStatusNew"
@@ -1153,9 +1150,9 @@ function NewAdvertisement() {
                       New
                     </label>
                   </div>
-                  <div className="relative flex items-center gap-x-1">
+                  <div className="flex items-center gap-x-2">
                     <input
-                      className="absolute w-4 h-4 opacity-0 accent-red"
+                      className="w-4 h-4  accent-red"
                       id="carStatusUsed"
                       type="radio"
                       name="carStatus"
@@ -1163,9 +1160,7 @@ function NewAdvertisement() {
                       onChange={handleChange}
                       required
                     />
-                    <span className="w-4 h-4 inline-block border border-[#8d92a3] rounded-[3px] bg-white cursor-pointer">
-                      <span className="custom-checkmark hidden"></span>
-                    </span>
+
                     <label
                       className="text-[14px] font-normal text-primary"
                       htmlFor="carStatusUsed"
@@ -1182,9 +1177,9 @@ function NewAdvertisement() {
                   Number of seats
                 </label>
                 <div className="md:flex-nowrap  flex-wrap gap-y-3 md:gap-y-0  md:min-w-[452px] w-full gap-x-5 flex md:ml-2">
-                  <div className="relative flex items-center gap-x-1">
+                  <div className="flex items-center gap-x-2">
                     <input
-                      className="absolute opacity-0 w-4 h-4 accent-red"
+                      className="w-4 h-4 accent-red"
                       id="seatNum1"
                       type="radio"
                       name="seatNum"
@@ -1192,9 +1187,6 @@ function NewAdvertisement() {
                       onChange={handleChange}
                       required
                     />
-                    <span className="w-4 h-4 inline-block border border-[#8d92a3] rounded-[3px] bg-white cursor-pointer">
-                      <span className="custom-checkmark hidden"></span>
-                    </span>
                     <label
                       className="text-[14px] font-normal text-primary"
                       htmlFor="seatNum1"
@@ -1202,9 +1194,9 @@ function NewAdvertisement() {
                       1
                     </label>
                   </div>
-                  <div className="relative flex items-center gap-x-1">
+                  <div className="flex items-center ml-0 gap-x-2">
                     <input
-                      className="absolute opacity-0 w-4 h-4 accent-red"
+                      className="w-4 h-4 accent-red"
                       id="seatNum2"
                       type="radio"
                       name="seatNum"
@@ -1212,9 +1204,6 @@ function NewAdvertisement() {
                       onChange={handleChange}
                       required
                     />
-                    <span className="w-4 h-4 inline-block border border-[#8d92a3] rounded-[3px] bg-white cursor-pointer">
-                      <span className="custom-checkmark hidden"></span>
-                    </span>
                     <label
                       className="text-[14px] font-normal text-primary"
                       htmlFor="seatNum2"
@@ -1222,9 +1211,9 @@ function NewAdvertisement() {
                       2
                     </label>
                   </div>
-                  <div className="relative flex items-center gap-x-1">
+                  <div className="flex items-center ml-0 gap-x-2">
                     <input
-                      className="absolute opacity-0 w-4 h-4 accent-red"
+                      className="w-4 h-4 accent-red"
                       id="seatNum3"
                       type="radio"
                       name="seatNum"
@@ -1232,9 +1221,6 @@ function NewAdvertisement() {
                       onChange={handleChange}
                       required
                     />
-                    <span className="w-4 h-4 inline-block border border-[#8d92a3] rounded-[3px] bg-white cursor-pointer">
-                      <span className="custom-checkmark hidden"></span>
-                    </span>
                     <label
                       className="text-[14px] font-normal text-primary"
                       htmlFor="seatNum3"
@@ -1242,9 +1228,9 @@ function NewAdvertisement() {
                       3
                     </label>
                   </div>
-                  <div className="relative flex items-center gap-x-1">
+                  <div className="flex items-center ml-0 gap-x-2">
                     <input
-                      className="absolute opacity-0 w-4 h-4 accent-red"
+                      className="w-4 h-4 accent-red"
                       id="seatNum4"
                       type="radio"
                       name="seatNum"
@@ -1252,9 +1238,6 @@ function NewAdvertisement() {
                       onChange={handleChange}
                       required
                     />
-                    <span className="w-4 h-4 inline-block border border-[#8d92a3] rounded-[3px] bg-white cursor-pointer">
-                      <span className="custom-checkmark hidden"></span>
-                    </span>
                     <label
                       className="text-[14px] font-normal text-primary"
                       htmlFor="seatNum4"
@@ -1262,9 +1245,9 @@ function NewAdvertisement() {
                       4
                     </label>
                   </div>
-                  <div className="relative flex items-center gap-x-1">
+                  <div className="flex items-center ml-0 gap-x-2">
                     <input
-                      className="absolute opacity-0 w-4 h-4 accent-red"
+                      className="w-4 h-4 accent-red"
                       id="seatNum5"
                       type="radio"
                       name="seatNum"
@@ -1272,9 +1255,6 @@ function NewAdvertisement() {
                       onChange={handleChange}
                       required
                     />
-                    <span className="w-4 h-4 inline-block border border-[#8d92a3] rounded-[3px] bg-white cursor-pointer">
-                      <span className="custom-checkmark hidden"></span>
-                    </span>
                     <label
                       className="text-[14px] font-normal text-primary"
                       htmlFor="seatNum5"
@@ -1282,9 +1262,9 @@ function NewAdvertisement() {
                       5
                     </label>
                   </div>
-                  <div className="relative flex items-center gap-x-1">
+                  <div className="flex items-center ml-0 gap-x-2">
                     <input
-                      className="absolute opacity-0 w-4 h-4 accent-red"
+                      className="w-4 h-4 accent-red"
                       id="seatNum6"
                       type="radio"
                       name="seatNum"
@@ -1292,9 +1272,6 @@ function NewAdvertisement() {
                       onChange={handleChange}
                       required
                     />
-                    <span className="w-4 h-4 inline-block border border-[#8d92a3] rounded-[3px] bg-white cursor-pointer">
-                      <span className="custom-checkmark hidden"></span>
-                    </span>
                     <label
                       className="text-[14px] font-normal text-primary"
                       htmlFor="seatNum6"
@@ -1302,9 +1279,9 @@ function NewAdvertisement() {
                       6
                     </label>
                   </div>
-                  <div className="relative flex items-center gap-x-1">
+                  <div className="flex items-center ml-0 gap-x-2">
                     <input
-                      className="absolute opacity-0 w-4 h-4 accent-red"
+                      className="w-4 h-4 accent-red"
                       id="seatNum7"
                       type="radio"
                       name="seatNum"
@@ -1312,9 +1289,6 @@ function NewAdvertisement() {
                       onChange={handleChange}
                       required
                     />
-                    <span className="w-4 h-4 inline-block border border-[#8d92a3] rounded-[3px] bg-white cursor-pointer">
-                      <span className="custom-checkmark hidden"></span>
-                    </span>
                     <label
                       className="text-[14px] font-normal text-primary"
                       htmlFor="seatNum7"
@@ -1322,9 +1296,9 @@ function NewAdvertisement() {
                       7
                     </label>
                   </div>
-                  <div className="relative flex items-center gap-x-1">
+                  <div className="flex items-center ml-0 gap-x-2">
                     <input
-                      className="absolute opacity-0 w-4 h-4 accent-red"
+                      className="w-4 h-4 accent-red"
                       id="seatNum8"
                       type="radio"
                       name="seatNum"
@@ -1332,9 +1306,6 @@ function NewAdvertisement() {
                       onChange={handleChange}
                       required
                     />
-                    <span className="w-4 h-4 inline-block border border-[#8d92a3] rounded-[3px] bg-white cursor-pointer">
-                      <span className="custom-checkmark hidden"></span>
-                    </span>
                     <label
                       className="text-[14px] font-normal text-primary"
                       htmlFor="seatNum8"
@@ -1342,9 +1313,9 @@ function NewAdvertisement() {
                       8
                     </label>
                   </div>
-                  <div className="relative flex items-center ml-0 gap-x-1">
+                  <div className="flex items-center ml-0 gap-x-2">
                     <input
-                      className="absolute opacity-0 w-4 h-4 accent-red"
+                      className="w-4 h-4 accent-red"
                       id="seatNum8"
                       type="radio"
                       name="seatNum"
@@ -1352,9 +1323,6 @@ function NewAdvertisement() {
                       onChange={handleChange}
                       required
                     />
-                    <span className="w-4 h-4 inline-block border border-[#8d92a3] rounded-[3px] bg-white cursor-pointer">
-                      <span className="custom-checkmark hidden"></span>
-                    </span>
                     <label
                       className="text-[14px] font-normal  text-primary"
                       htmlFor="seatVal"
@@ -1416,7 +1384,7 @@ function NewAdvertisement() {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-12 gap-[30px] mt-[80px]">
+          <div className="grid grid-cols-12 gap-[30px] mt-[80px] md:ml-6">
             <div className="col-span-12 md:col-span-6">
               <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[10px] md:flex-row flex-col">
                 <label className="font-primary text-[14px] font-normal min-w-[165px] max-w-[165px]">
@@ -1447,14 +1415,14 @@ function NewAdvertisement() {
                     className="w-full min-h-[132px]  focus:outline-0 md:min-w-[452px] bg-white  py-[10px] px-[15px] rounded-md border border-solid border-[#E4E4E4] font-primary text-[14px] font-normal"
                     onChange={handleChange}
                   ></textarea>
-                  <p className="text-secondary">
+                  <p className="text-secondary text-sm">
                     It is forbidden to record phone numbers
                   </p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="mt-6">
+          <div className="mt-6 md:ml-6">
             <h2 className="uppercase font-secondary text-[26px] font-bold leading-8 text-primary mb-4">
               Vehicle supply
             </h2>
@@ -1535,7 +1503,7 @@ function NewAdvertisement() {
               </ul>
             </div>
           </div> */}
-          <div className="grid grid-cols-12 mt-[30px]">
+          <div className="grid grid-cols-12 mt-[30px] md:ml-6">
             <div className="col-span-12">
               <h2 className="uppercase font-secondary text-[26px] font-bold leading-8 text-primary">
                 Contact
@@ -1605,7 +1573,7 @@ function NewAdvertisement() {
                       onChange={handleChange}
                       required
                     />
-                    <p className="text-secondary ml-1">
+                    <p className="text-secondary ml-1 text-sm">
                       not displayed on the site
                     </p>
                   </div>

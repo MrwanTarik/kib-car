@@ -24,7 +24,7 @@ function PaymentCurrency() {
   return (
     <div className="w-[40%] h-full">
       <details ref={detailsRef} className="w-full h-full dropdown">
-        <summary className="flex items-center justify-between w-full h-full px-[10px] bg-white border-none rounded-lg shadow-md btn shadow-input hover:bg-stone-100">
+        <summary className="flex items-center justify-between w-full h-full px-[10px] bg-white border border-gray-300 rounded-lg  btn shadow-input hover:bg-stone-100">
           <div>
             <p className="font-primary text-[14px] font-normal">
               {selectedCurrency || "Currency"}

@@ -30,52 +30,56 @@ import Rules from "./pages/Rules";
 import Terms from "./pages/Terms";
 import PaidServices from "./pages/PaidServices";
 
+import { CarProvider } from './context/CarContext';
+
 function App() {
   const [width] = useState(window.innerWidth);
   const showMobileCom = width < 971;
 
   return (
-    <BrowserRouter>
-      <ScrollToTop>
-        <FilterProvider>
-          <AppLayout>
-            {showMobileCom ? <MobileNav title="KIBCAR" /> : <Nav />}
+    <CarProvider>
+      <BrowserRouter>
+        <ScrollToTop>
+          <FilterProvider>
+            <AppLayout>
+              {showMobileCom ? <MobileNav title="KIBCAR" /> : <Nav />}
 
-            <Suspense fallback={<Spinner />}>
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route
-                  path="/dealership-owners"
-                  element={<DealershipOwners />}
-                />
-                <Route
-                  path="/dealership/:dealershipId"
-                  element={<DealershipDetails />}
-                />
-                <Route path="/help" element={<Faq />} />
-                <Route path="/rules" element={<Rules />} />
-                <Route path="/terms-and-conditions" element={<Terms />} />
-                <Route path="/paid-services" element={<PaidServices />} />
-                <Route path="/lease" element={<Lease />} />
-                <Route path="/favorite" element={<Favorite />} />
-                <Route
-                  path="/new-advertisement"
-                  element={<NewAdvertisement />}
-                />
-                <Route
-                  path="/edit-advertisement/:id"
-                  element={<EditAdvertisement />}
-                />
-                <Route path="/car-details/:id" element={<CarDetails />} />
-              </Routes>
-            </Suspense>
+              <Suspense fallback={<Spinner />}>
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route
+                    path="/dealership-owners"
+                    element={<DealershipOwners />}
+                  />
+                  <Route
+                    path="/dealership/:dealershipId"
+                    element={<DealershipDetails />}
+                  />
+                  <Route path="/help" element={<Faq />} />
+                  <Route path="/rules" element={<Rules />} />
+                  <Route path="/terms-and-conditions" element={<Terms />} />
+                  <Route path="/paid-services" element={<PaidServices />} />
+                  <Route path="/lease" element={<Lease />} />
+                  <Route path="/favorite" element={<Favorite />} />
+                  <Route
+                    path="/new-advertisement"
+                    element={<NewAdvertisement />}
+                  />
+                  <Route
+                    path="/edit-advertisement/:id"
+                    element={<EditAdvertisement />}
+                  />
+                  <Route path="/car-details/:id" element={<CarDetails />} />
+                </Routes>
+              </Suspense>
 
-            {showMobileCom ? <MobileFooter /> : <Footer />}
-            {showMobileCom && <MobileFixedFooter />}
-          </AppLayout>
-        </FilterProvider>
-      </ScrollToTop>
-    </BrowserRouter>
+              {showMobileCom ? <MobileFooter /> : <Footer />}
+              {showMobileCom && <MobileFixedFooter />}
+            </AppLayout>
+          </FilterProvider>
+        </ScrollToTop>
+      </BrowserRouter>
+    </CarProvider>
   );
 }
 

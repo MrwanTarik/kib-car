@@ -5,24 +5,35 @@ import { useContext } from "react";
 import FilterContext from "../../context/filterContext/FilterContext";
 
 function Brand() {
-  const { brandId, setBrandId } = useContext(FilterContext);
+  const { setBrandId } = useContext(FilterContext);
   const [brandName, setBrandName] = useState("");
   const [brands, setBrands] = useState([]);
-  const [isOpen, setIsOpen] = useState(false); // New state to track dropdown open status
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   const detailsRef = useRef(null);
+  const inputRef = useRef(null);
 
   const handleSelection = (item) => {
     setBrandId({
       brand: item.id,
     });
     setBrandName(item.name);
+    setSearchTerm("");
     if (detailsRef.current) {
       detailsRef.current.removeAttribute("open");
-      setIsOpen(false); // Close the dropdown
+      setIsOpen(false);
     }
   };
 
-  // get brands
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+    setIsOpen(true);
+  };
+
+  const filteredBrands = brands.filter(brand =>
+    brand.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   useEffect(() => {
     async function getBrands() {
       try {
@@ -30,7 +41,6 @@ function Brand() {
           `${import.meta.env.VITE_REACT_APP_API_URL}/api/brands`
         );
         setBrands(response.data);
-        console.log(brands);
       } catch (error) {
         console.log(error);
       }
@@ -43,20 +53,16 @@ function Brand() {
       <details
         ref={detailsRef}
         className="w-full h-full dropdown"
-        onToggle={(e) => setIsOpen(e.target.open)} // Update state on toggle
+        onToggle={(e) => setIsOpen(e.target.open)}
       >
-        <summary className="flex items-center justify-between w-full h-full px-[10px] bg-white border-none rounded-lg shadow-md btn shadow-input hover:bg-stone-50">
+        <summary className="flex items-center justify-between w-full h-full px-[10px] bg-white border border-gray-300 rounded-lg btn shadow-input hover:bg-stone-50">
           <div>
             {brandName && (
               <p className="font-primary mb-1 text-[12px] opacity-70 text-secondary text-start">
                 Brand
               </p>
             )}
-            <p
-              className={`font-primary text-[14px] font-normal ${
-                !brandName && "text-secondary"
-              }`}
-            >
+            <p className="font-primary text-[14px] font-normal">
               {brandName || "Brand"}
             </p>
           </div>
@@ -65,11 +71,22 @@ function Brand() {
             alt="chivron-Bottom"
             className={`transition-transform duration-300 ${
               isOpen ? "rotate-180" : ""
-            }`} // Apply rotation class based on state
+            }`}
           />
         </summary>
         <ul className="p-2 z-[1] shadow menu dropdown-content bg-base-100 flex flex-col flex-nowrap justify-start w-full mt-2 rounded-lg max-h-[210px] overflow-y-auto">
-          {brands.map((brand) => (
+          <li className="sticky top-0 bg-white z-10">
+            <input
+              ref={inputRef}
+              type="text"
+              value={searchTerm}
+              onChange={handleInputChange}
+              onFocus={() => setIsOpen(true)}
+              placeholder="Search brand"
+              className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none active:!bg-transparent"
+            />
+          </li>
+          {filteredBrands.map((brand) => (
             <li key={brand.id} onClick={() => handleSelection(brand)}>
               <a>{brand.name}</a>
             </li>

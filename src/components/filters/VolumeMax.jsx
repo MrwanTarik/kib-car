@@ -39,7 +39,7 @@ function VolumeMax() {
         className="w-full h-full dropdown"
         onToggle={(e) => setIsOpen(e.target.open)} // Update state on toggle
       >
-        <summary className="flex items-center justify-between w-full h-full px-[10px] bg-white border-none rounded-lg shadow-md btn shadow-input hover:bg-stone-50">
+        <summary className="flex items-center justify-between w-full h-full px-[10px] bg-white border border-gray-300 rounded-lg btn shadow-input hover:bg-stone-50">
           <div>
             {selectedVolumeMax && (
               <p className="font-primary mb-1 text-[12px] opacity-70 text-secondary text-start">

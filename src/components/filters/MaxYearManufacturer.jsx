@@ -40,7 +40,7 @@ function MaxYearManufacturer() {
         className="w-full h-full dropdown"
         onToggle={(e) => setIsOpen(e.target.open)} // Update state on toggle
       >
-        <summary className="flex items-center justify-between w-full h-full px-[10px] bg-white border-none rounded-lg shadow-md btn shadow-input hover:bg-stone-100">
+        <summary className="flex items-center justify-between w-full h-full px-[10px] bg-white border border-gray-300 rounded-lg btn shadow-input hover:bg-stone-100">
           <div>
             {selectedMaxYearManufactured && (
               <p className="font-primary mb-1 text-[12px] opacity-70 text-secondary text-start">
@@ -59,7 +59,7 @@ function MaxYearManufacturer() {
             }`} // Apply rotation class based on state
           />
         </summary>
-        <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 flex justify-start w-full mt-2 rounded-none rounded-l-lg">
+        <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 flex flex-col w-full flex-nowrap mt-2 rounded-none rounded-l-lg max-h-[210px] overflow-x-auto">
           {years.map((item) => (
             <li key={item.id} onClick={() => handleSelection(item)}>
               <a>{item.name}</a>

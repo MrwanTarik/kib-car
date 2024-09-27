@@ -10,7 +10,7 @@ function CarType() {
   const options = ["all", "Salons", "Personal"];
   useEffect(() => setSelectedCarType("all"), []);
   return (
-    <div className="flex justify-between border-none rounded-lg shadow-md h-full">
+    <div className="flex justify-between border border-gray-300 rounded-lg h-full">
       {options.map((option, index) => (
         <label
           key={option}

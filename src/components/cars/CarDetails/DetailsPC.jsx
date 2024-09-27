@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "react-image-gallery/styles/css/image-gallery.css";
 
@@ -28,6 +28,44 @@ import GetPinMethods from "../../GetPinMethods";
 
 function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
   const [number, setNumber] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  useEffect(() => {
+    checkCarDataAndAct(car.id, () => setIsFavorite(true));
+  }, [car.id]);
+
+  function saveCarData(carData) {
+    const existingData = localStorage.getItem("carDataList");
+    let carDataList = existingData ? JSON.parse(existingData) : [];
+    carDataList.push(carData);
+    localStorage.setItem("carDataList", JSON.stringify(carDataList));
+  }
+
+  function removeCarData(carId) {
+    const existingData = localStorage.getItem("carDataList");
+    let carDataList = existingData ? JSON.parse(existingData) : [];
+    carDataList = carDataList.filter((car) => car.id !== carId);
+    localStorage.setItem("carDataList", JSON.stringify(carDataList));
+  }
+
+  function checkCarDataAndAct(carId, actionCallback) {
+    const data = localStorage.getItem("carDataList");
+    const carDataList = data ? JSON.parse(data) : [];
+    const foundCar = carDataList.find((car) => car.id === carId);
+    if (foundCar) {
+      actionCallback(foundCar);
+    }
+  }
+
+  const handleFavoriteClick = () => {
+    if (isFavorite) {
+      removeCarData(car.id);
+    } else {
+      saveCarData(car);
+    }
+    setIsFavorite(!isFavorite);
+  };
+
   return (
     <div className="container relative">
       <ul className="flex items-center gap-[10px] py-[16px] font-primary font-medium border-b border-solid border-[#E2E2E2] uppercase text-[16px] text-[#212c3a]">
@@ -45,30 +83,30 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
             {car.mileage_measurement_unit.toUpperCase()}
           </h2>
           <div className="flex items-center gap-x-[30px]">
-            <Link
-              className="group flex items-center space-x-[4px]  rounded-md justify-center bg-white "
-              to={""}
+            <button
+              className="group flex items-center space-x-[4px] rounded-md justify-center bg-white"
+              onClick={handleFavoriteClick}
             >
               <svg
                 width="32"
                 height="30"
-                fill="none"
+                fill={isFavorite ? "#e11d48" : "none"}
                 viewBox="-5 -5 32 30"
                 x="64"
                 y="413"
                 xmlns="http://www.w3.org/2000/svg"
-                className="group-hover:stroke-rose-600"
-                stroke="#212c3a"
+                className={isFavorite ? "stroke-rose-600" : "group-hover:stroke-rose-600"}
+                stroke={isFavorite ? "#e11d48" : "#212c3a"}
               >
                 <path
                   d="M17.725 2.193a5.204 5.204 0 00-2.593-.693c-1.66 0-3.148.785-4.13 2.016C10.015 2.286 8.529 1.5 6.866 1.5c-.94 0-1.82.253-2.591.693C2.62 3.143 1.5 4.97 1.5 7.07c0 .601.094 1.178.265 1.717.921 4.296 9.237 9.713 9.237 9.713s8.31-5.417 9.232-9.713c.17-.539.266-1.116.266-1.717 0-2.099-1.12-3.926-2.775-4.877z"
                   strokeWidth="1.5"
                 />
               </svg>
-              <p className="font-primary text-[14px] font-medium leading-[21px] text-[#212c3a] group-hover:text-rose-600  ">
-                Save to favorites
+              <p className={`font-primary text-[14px] font-medium leading-[21px] ${isFavorite ? "text-rose-600" : "text-[#212c3a] group-hover:text-rose-600"}`}>
+                {isFavorite ? "Saved to favorites" : "Save to favorites"}
               </p>
-            </Link>
+            </button>
 
             <Modal>
               <Modal.Open windowName="complain">
@@ -132,7 +170,7 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
             setShowFullSlider={setShowFullSlider}
             carImages={carImages}
           /> */}
-          <ul className=" pt-[20px] pb-[20px] picture-list pl-[20px] border-b border-solid border-[#E2E2E2]">
+          <ul className=" pt-[20px] pb-[20px] picture-list pl-[20px] border-b border-solid border-[#E2E2E2] text-[12px]">
             <li>Updated: {car.updated_date}</li>
           </ul>
           <CarDetailsCom car={car} />

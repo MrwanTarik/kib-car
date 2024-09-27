@@ -17,7 +17,7 @@ function DealershipCard({
   return (
     <Link
       to={`/dealership/${id}`}
-      className="dealership lg:col-span-6 col-span-12"
+      className="dealership lg:col-span-6 col-span-12 h-fit"
     >
       <div
         className="flex items-center bg-white text-gray-800 leading-6 transition-shadow duration-200 ease-in-out rounded-lg h-full lg:min-h-[152px] min-h-[115px] max-h-[115px]"

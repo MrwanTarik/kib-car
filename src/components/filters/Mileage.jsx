@@ -6,7 +6,7 @@ const Mileage = () => {
     useContext(FilterContext);
 
   return (
-    <div className="flex justify-between items-center rounded-lg shadow-md h-full bg-white">
+    <div className="flex justify-between items-center rounded-lg border border-gray-300 h-full bg-white">
       <div className="relative w-[58%]">
         <input
           type="number"
