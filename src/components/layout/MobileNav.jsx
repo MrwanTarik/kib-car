@@ -42,7 +42,7 @@ function MobileNav({ title }) {
         });
         console.log('Content shared successfully');
       } catch (err) {
-        console.error('Error sharing:', err);
+        console.error('Eror sharing:', err);
       }
     } else {
       console.log('Web Share API not supported');
