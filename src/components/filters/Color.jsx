@@ -3,12 +3,14 @@ import { useRef, useState, useEffect } from "react";
 import chivronBottom from "../../assets/icons/chivron-bottom-gray.svg";
 import { useContext } from "react";
 import FilterContext from "../../context/filterContext/FilterContext";
+
 function Color() {
   const { checkedColor, setCheckedColor, setCheckedColorIds } =
     useContext(FilterContext);
   const detailsRef = useRef(null);
   const [colors, setColors] = useState([]);
   const [isOpen, setIsOpen] = useState(false); // New state to track dropdown open status
+  const [searchTerm, setSearchTerm] = useState(""); // Add search term state
 
   const handleCheckboxChange = (event) => {
     const item = event.target.name;
@@ -25,6 +27,16 @@ function Color() {
       }
     });
   };
+
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+    setIsOpen(true);
+  };
+
+  const filteredColors = colors.filter((color) =>
+    color.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   useEffect(() => {
     async function getColors() {
       try {
@@ -38,6 +50,7 @@ function Color() {
     }
     getColors();
   }, []);
+
   const selectedOptions = Object.keys(checkedColor).filter(
     (item) => checkedColor[item]
   );
@@ -74,7 +87,17 @@ function Color() {
         </summary>
 
         <ul className="p-2 z-[1] shadow menu dropdown-content bg-base-100 flex flex-col flex-nowrap justify-start w-full mt-2 rounded-lg max-h-[210px] overflow-y-auto">
-          {colors.map((item) => (
+          <li className="sticky top-0 bg-white z-10">
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={handleInputChange}
+              onFocus={() => setIsOpen(true)}
+              placeholder="Search color"
+              className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none active:!bg-transparent mb-2"
+            />
+          </li>
+          {filteredColors.map((item) => (
             <li key={item.id} className="flex items-center">
               <label className="flex items-center w-full px-2 py-1 text-secondary font-primary">
                 <input

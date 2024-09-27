@@ -12,6 +12,7 @@ function Market() {
   } = useContext(FilterContext);
   const detailsRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false); // New state to track dropdown open status
+  const [searchTerm, setSearchTerm] = useState(""); // Add search term state
 
   const handleCheckboxChange = (event) => {
     const item = event.target.name;
@@ -28,6 +29,15 @@ function Market() {
       }
     });
   };
+
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+    setIsOpen(true);
+  };
+
+  const filteredMarkets = markets.filter((market) =>
+    market.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   useEffect(() => {
     async function getMarkets() {
@@ -81,7 +91,17 @@ function Market() {
         </summary>
 
         <ul className="p-2 z-[1] shadow menu dropdown-content bg-base-100 flex flex-col flex-nowrap justify-start w-full mt-2 rounded-lg max-h-[210px] overflow-y-auto">
-          {markets.map((item) => (
+          <li className="sticky top-0 bg-white z-10">
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={handleInputChange}
+              onFocus={() => setIsOpen(true)}
+              placeholder="Search market"
+              className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none active:!bg-transparent mb-2"
+            />
+          </li>
+          {filteredMarkets.map((item) => (
             <li key={item.id} className="flex items-center">
               <label className="flex items-center w-full px-2 py-1 text-secondary font-primary">
                 <input

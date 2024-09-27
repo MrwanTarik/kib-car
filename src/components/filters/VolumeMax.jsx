@@ -9,6 +9,8 @@ function VolumeMax() {
   const { selectedVolumeMax, setSelectedVolumeMax } = useContext(FilterContext);
   const detailsRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false); // New state to track dropdown open status
+  const [searchTerm, setSearchTerm] = useState(""); // Add search term state
+  const inputRef = useRef(null); // Add input ref
 
   const handleSelection = (item) => {
     setSelectedVolumeMax(item.name);
@@ -16,6 +18,11 @@ function VolumeMax() {
       detailsRef.current.removeAttribute("open");
       setIsOpen(false); // Close the dropdown
     }
+  };
+
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+    setIsOpen(true);
   };
 
   useEffect(() => {
@@ -31,6 +38,10 @@ function VolumeMax() {
     }
     getEngineVolumes();
   }, []);
+
+  const filteredEngineVolumes = engineVolumes.filter((volume) =>
+    volume.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="h-full">
@@ -59,7 +70,18 @@ function VolumeMax() {
           />
         </summary>
         <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 flex-col flex-nowrap w-full mt-2 rounded-none rounded-l-lg max-h-[210px] overflow-y-auto">
-          {engineVolumes.map((item) => (
+          <li className="sticky top-0 bg-white z-10">
+            <input
+              ref={inputRef}
+              type="text"
+              value={searchTerm}
+              onChange={handleInputChange}
+              onFocus={() => setIsOpen(true)}
+              placeholder="Search volume"
+              className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none active:!bg-transparent mb-2"
+            />
+          </li>
+          {filteredEngineVolumes.map((item) => (
             <li key={item.id} onClick={() => handleSelection(item)}>
               <a>{item.name}</a>
             </li>

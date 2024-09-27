@@ -30,7 +30,7 @@ function Brand() {
     setIsOpen(true);
   };
 
-  const filteredBrands = brands.filter(brand =>
+  const filteredBrands = brands.filter((brand) =>
     brand.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -83,7 +83,7 @@ function Brand() {
               onChange={handleInputChange}
               onFocus={() => setIsOpen(true)}
               placeholder="Search brand"
-              className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none active:!bg-transparent"
+              className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none active:!bg-transparent mb-2"
             />
           </li>
           {filteredBrands.map((brand) => (

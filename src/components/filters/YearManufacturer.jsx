@@ -7,17 +7,29 @@ function YearManufacturer() {
   const { selectedYearManufactured, setSelectedYearManufactured } =
     useContext(FilterContext);
   const [years, setYears] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState(""); // New state for search term
   const detailsRef = useRef(null);
-  const [isOpen, setIsOpen] = useState(false); // New state to track dropdown open status
+  const inputRef = useRef(null);
 
   const handleSelection = (item) => {
     setSelectedYearManufactured(item.name);
+    setSearchTerm(""); // Clear search term on selection
     if (detailsRef.current) {
       detailsRef.current.removeAttribute("open");
+      setIsOpen(false);
     }
   };
 
-  // get brands
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+    setIsOpen(true);
+  };
+
+  const filteredYears = years.filter((year) =>
+    year.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   useEffect(() => {
     async function getVehicleYears() {
       try {
@@ -37,7 +49,7 @@ function YearManufacturer() {
       <details
         ref={detailsRef}
         className="w-full h-full dropdown"
-        onToggle={(e) => setIsOpen(e.target.open)} // Update state on toggle
+        onToggle={(e) => setIsOpen(e.target.open)}
       >
         <summary className="flex items-center justify-between w-full h-full px-[10px] bg-white border border-gray-300 rounded-lg btn shadow-input hover:bg-stone-100">
           <div>
@@ -55,11 +67,22 @@ function YearManufacturer() {
             alt="chivron-Bottom"
             className={`transition-transform duration-300 ${
               isOpen ? "rotate-180" : ""
-            }`} // Apply rotation class based on state
+            }`}
           />
         </summary>
         <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 flex flex-col w-full flex-nowrap mt-2 rounded-none rounded-l-lg max-h-[210px] overflow-x-auto">
-          {years.map((item) => (
+          <li className="sticky top-0 bg-white z-10">
+            <input
+              ref={inputRef}
+              type="text"
+              value={searchTerm}
+              onChange={handleInputChange}
+              onFocus={() => setIsOpen(true)}
+              placeholder="Search year"
+              className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none active:!bg-transparent mb-2"
+            />
+          </li>
+          {filteredYears.map((item) => (
             <li key={item.id} onClick={() => handleSelection(item)}>
               <a>{item.name}</a>
             </li>

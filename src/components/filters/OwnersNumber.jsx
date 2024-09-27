@@ -12,6 +12,7 @@ function OwnersNumber() {
   } = useContext(FilterContext);
   const detailsRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false); // New state to track dropdown open status
+  const [searchTerm, setSearchTerm] = useState(""); // Add search term state
 
   const handleCheckboxChange = (event) => {
     const item = event.target.name;
@@ -28,6 +29,16 @@ function OwnersNumber() {
       }
     });
   };
+
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+    setIsOpen(true);
+  };
+
+  const filteredOwnersNumber = ownersNumber.filter((owner) =>
+    owner.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   useEffect(() => {
     async function getSeatsNumber() {
       try {
@@ -79,7 +90,17 @@ function OwnersNumber() {
         </summary>
 
         <ul className="p-2 z-[1] shadow menu dropdown-content bg-base-100 flex flex-col flex-nowrap justify-start w-full mt-2 rounded-lg max-h-[210px] overflow-y-auto">
-          {ownersNumber.map((item) => (
+          <li className="sticky top-0 bg-white z-10">
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={handleInputChange}
+              onFocus={() => setIsOpen(true)}
+              placeholder="Search number of owners"
+              className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none active:!bg-transparent mb-2"
+            />
+          </li>
+          {filteredOwnersNumber.map((item) => (
             <li key={item.id} className="flex items-center">
               <label className="flex items-center w-full px-2 py-1 text-secondary font-primary">
                 <input

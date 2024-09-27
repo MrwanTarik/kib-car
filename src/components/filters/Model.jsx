@@ -1,14 +1,14 @@
 import axios from "axios";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
 import chivronBottom from "../../assets/icons/chivron-bottom-gray.svg";
-import { useContext } from "react";
 import FilterContext from "../../context/filterContext/FilterContext";
 
 function Model() {
   const { checkedModels, setCheckedModels, brandId, setCheckedModelsIds } =
     useContext(FilterContext);
   const [models, setModels] = useState([]);
-  const [isOpen, setIsOpen] = useState(false); // New state to track dropdown open status
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   const detailsRef = useRef(null);
   const initialCheckedModelState = {};
 
@@ -29,6 +29,14 @@ function Model() {
     });
   };
 
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const filteredModels = models.filter((model) =>
+    model.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   const selectedOptions = Object.keys(checkedModels).filter(
     (item) => checkedModels[item]
   );
@@ -36,13 +44,11 @@ function Model() {
   const summaryText =
     selectedOptions.length === 0 ? "Model" : selectedOptions.join(", ");
 
-  // reseting checkedModels state when brandId changes
   useEffect(() => {
     setCheckedModels(initialCheckedModelState);
     setCheckedModels([]);
   }, [brandId]);
 
-  // get car models
   useEffect(() => {
     async function getModels() {
       try {
@@ -64,7 +70,7 @@ function Model() {
       <details
         ref={detailsRef}
         className={`w-full h-full dropdown ${!brandId && "cursor-not-allowed"}`}
-        onToggle={(e) => setIsOpen(e.target.open)} // Update state on toggle
+        onToggle={(e) => setIsOpen(e.target.open)}
       >
         <summary
           disabled={!brandId}
@@ -80,17 +86,25 @@ function Model() {
               {summaryText}
             </p>
           </div>
-
           <img
             src={chivronBottom}
             alt="chivron-Bottom"
             className={`transition-transform duration-300 ${
               isOpen ? "rotate-180" : ""
-            }`} // Apply rotation class based on state
+            }`}
           />
         </summary>
         <ul className="p-2 z-[1] shadow menu dropdown-content bg-base-100 flex flex-col flex-nowrap justify-start w-full mt-2 rounded-lg max-h-[210px] overflow-y-auto">
-          {models.map((model) => (
+          <li className="sticky top-0 bg-white z-10">
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={handleInputChange}
+              placeholder="Search model"
+              className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none active:!bg-transparent mb-2"
+            />
+          </li>
+          {filteredModels.map((model) => (
             <li key={model.id} className="flex items-center">
               <label className="flex items-center w-full px-2 py-1 text-secondary font-primary">
                 <input

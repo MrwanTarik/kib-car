@@ -9,6 +9,7 @@ function FuelType() {
     useContext(FilterContext);
   const detailsRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false); // New state to track dropdown open status
+  const [searchTerm, setSearchTerm] = useState(""); // Add search term state
 
   const handleCheckboxChange = (event) => {
     const item = event.target.name;
@@ -24,6 +25,11 @@ function FuelType() {
         return [...prevItems, itemId];
       }
     });
+  };
+
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+    setIsOpen(true);
   };
 
   useEffect(() => {
@@ -46,6 +52,10 @@ function FuelType() {
 
   const summaryText =
     selectedOptions.length === 0 ? "Fuel Type" : selectedOptions.join(", ");
+
+  const filteredFuelTypes = fuelTypes.filter((fuelType) =>
+    fuelType.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="h-full">
@@ -76,7 +86,17 @@ function FuelType() {
         </summary>
 
         <ul className="p-2 z-[1] shadow menu dropdown-content bg-base-100 flex flex-col flex-nowrap justify-start w-full mt-2 rounded-lg max-h-[210px] overflow-y-auto">
-          {fuelTypes.map((item) => (
+          <li className="sticky top-0 bg-white z-10">
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={handleInputChange}
+              onFocus={() => setIsOpen(true)}
+              placeholder="Search fuel type"
+              className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none active:!bg-transparent mb-2"
+            />
+          </li>
+          {filteredFuelTypes.map((item) => (
             <li key={item.id} className="flex items-center">
               <label className="flex items-center w-full px-2 py-1 text-secondary font-primary">
                 <input

@@ -3,12 +3,15 @@ import { useRef, useState, useEffect } from "react";
 import chivronBottom from "../../assets/icons/chivron-bottom-gray.svg";
 import { useContext } from "react";
 import FilterContext from "../../context/filterContext/FilterContext";
+
 function GearBox() {
   const [gearBoxs, setGearBoxs] = useState([]);
   const { checkedGearBox, setCheckedGearBox, setCheckedGearBoxIds } =
     useContext(FilterContext);
   const detailsRef = useRef(null);
-  const [isOpen, setIsOpen] = useState(false); // New state to track dropdown open status
+  const inputRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState(""); // New state for search term
 
   const handleCheckboxChange = (event) => {
     const item = event.target.name;
@@ -26,6 +29,16 @@ function GearBox() {
       }
     });
   };
+
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+    setIsOpen(true);
+  };
+
+  const filteredGearBoxs = gearBoxs.filter((gearBox) =>
+    gearBox.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   useEffect(() => {
     async function getGearBoxs() {
       try {
@@ -39,6 +52,7 @@ function GearBox() {
     }
     getGearBoxs();
   }, []);
+
   const selectedOptions = Object.keys(checkedGearBox).filter(
     (item) => checkedGearBox[item]
   );
@@ -51,7 +65,7 @@ function GearBox() {
       <details
         ref={detailsRef}
         className="w-full h-full dropdown"
-        onToggle={(e) => setIsOpen(e.target.open)} // Update state on toggle
+        onToggle={(e) => setIsOpen(e.target.open)}
       >
         <summary className="flex items-center justify-between w-full h-full px-[10px]  bg-white border border-gray-300 rounded-lg cursor-pointer btn shadow-input hover:bg-stone-50">
           <div className="max-w-[80%]">
@@ -70,12 +84,23 @@ function GearBox() {
             alt="chivron-Bottom"
             className={`transition-transform duration-300 ${
               isOpen ? "rotate-180" : ""
-            }`} // Apply rotation class based on state
+            }`}
           />
         </summary>
 
         <ul className="p-2 z-[1] shadow menu dropdown-content bg-base-100 flex flex-col flex-nowrap justify-start w-full mt-2 rounded-lg max-h-[210px] overflow-y-auto">
-          {gearBoxs.map((item) => (
+          <li className="sticky top-0 bg-white z-10">
+            <input
+              ref={inputRef}
+              type="text"
+              value={searchTerm}
+              onChange={handleInputChange}
+              onFocus={() => setIsOpen(true)}
+              placeholder="Search gear box"
+              className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none active:!bg-transparent mb-2"
+            />
+          </li>
+          {filteredGearBoxs.map((item) => (
             <li key={item.id} className="flex items-center">
               <label className="flex items-center w-full px-2 py-1 text-secondary font-primary">
                 <input
