@@ -1035,98 +1035,90 @@ function NewAdvertisement() {
                 </select>
               </div>
             </div>
+
             <div className="col-span-12 md:col-span-6">
-              <div className="flex space-y-2 md:space-y-0  justify-between md:gap-[10px] md:flex-row flex-col">
+              <div className="flex space-y-2 md:space-y-0  justify-between md:gap-[10px] md:flex-row flex-col mt-6">
                 <label className="font-primary text-[14px] font-normal min-w-[165px] max-w-[165px]">
                   The Situation
                 </label>
-                <div className="flex w-full md:max-w-[452px] gap-x-5 ">
-                  <div className="mt-[2px]">
-                    <label className="custom-checkbox">
-                      <input
-                        checked={formData.hasStroke}
-                        onChange={handleCheckboxChange}
-                        type="checkbox"
-                        name="hasStroke"
-                        id="hasStroke"
-                      />
-                      <span className="checkmark"></span>
-                    </label>
+                <div className="flex flex-col gap-[20px]">
+                  <div className="flex w-full md:max-w-[452px] gap-x-5 ">
+                    <div className="mt-[2px]">
+                      <label className="custom-checkbox">
+                        <input
+                          checked={formData.needRepair}
+                          onChange={handleCheckboxChange}
+                          type="checkbox"
+                          name="needRepair"
+                          id="needRepair"
+                        />
+                        <span className="checkmark"></span>
+                      </label>
+                    </div>
+                    <div>
+                      <label htmlFor="needRepair">
+                        <h3 className="font-primary text-[14px] font-normal text-primary ">
+                          For accident or spare parts
+                        </h3>
+                        <p className="pt-1 text-[14px] font-primary text-secondary">
+                          In need of repair or in general disrepair..
+                        </p>
+                      </label>
+                    </div>
                   </div>
-                  <div>
-                    <label htmlFor="hasStroke">
-                      <h3 className="font-primary text-[14px] font-normal text-primary ">
-                        It has a stroke
-                      </h3>
-                      <p className="pt-1 text-[14px] font-primary text-secondary">
-                        One or more parts have been replaced or repaired.
-                      </p>
-                    </label>
+                  <div className="flex w-full md:max-w-[452px] gap-x-5 ">
+                    <div className="mt-[2px]">
+                      <label className="custom-checkbox">
+                        <input
+                          checked={formData.hasStroke}
+                          onChange={handleCheckboxChange}
+                          type="checkbox"
+                          name="hasStroke"
+                          id="hasStroke"
+                        />
+                        <span className="checkmark"></span>
+                      </label>
+                    </div>
+                    <div>
+                      <label htmlFor="hasStroke">
+                        <h3 className="font-primary text-[14px] font-normal text-primary ">
+                          It has a stroke
+                        </h3>
+                        <p className="pt-1 text-[14px] font-primary text-secondary">
+                          One or more parts have been replaced or repaired.
+                        </p>
+                      </label>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div className="flex space-y-2 md:space-y-0  justify-between md:gap-[10px] md:flex-row flex-col mt-6">
-                <label className="font-primary text-[14px] font-normal invisible min-w-[165px] max-w-[165px]">
-                  The Situation
-                </label>
-                <div className="flex w-full md:max-w-[452px] gap-x-5 ">
-                  <div className="mt-[2px]">
-                    <label className="custom-checkbox">
-                      <input
-                        checked={formData.needRepair}
-                        onChange={handleCheckboxChange}
-                        type="checkbox"
-                        name="needRepair"
-                        id="needRepair"
-                      />
-                      <span className="checkmark"></span>
-                    </label>
-                  </div>
-                  <div>
-                    <label htmlFor="needRepair">
-                      <h3 className="font-primary text-[14px] font-normal text-primary ">
-                        For accident or spare parts
-                      </h3>
-                      <p className="pt-1 text-[14px] font-primary text-secondary">
-                        In need of repair or in general disrepair..
-                      </p>
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-span-12 md:col-span-6">
-              <div className="flex space-y-2 md:space-y-0  justify-between md:gap-[10px] md:flex-row flex-col ">
-                <div className="flex w-full md:max-w-[452px] gap-x-5 ">
-                  <div className="mt-[2px]">
-                    <label className="custom-checkbox">
-                      <input
-                        checked={formData.hasColor}
-                        onChange={handleCheckboxChange}
-                        type="checkbox"
-                        name="hasColor"
-                        id="hasColor"
-                      />
-                      <span className="checkmark"></span>
-                    </label>
-                  </div>
-                  <div>
-                    <label htmlFor="hasColor">
-                      <h3 className="font-primary text-[14px] font-normal text-primary ">
-                        It is colored
-                      </h3>
-                      <p className="pt-1 text-[14px] font-primary text-secondary">
-                        One or more details have been painted or cosmetic work
-                        has been done.
-                      </p>
-                    </label>
+                  <div className="flex w-full md:max-w-[452px] gap-x-5 ">
+                    <div className="mt-[2px]">
+                      <label className="custom-checkbox">
+                        <input
+                          checked={formData.hasColor}
+                          onChange={handleCheckboxChange}
+                          type="checkbox"
+                          name="hasColor"
+                          id="hasColor"
+                        />
+                        <span className="checkmark"></span>
+                      </label>
+                    </div>
+                    <div>
+                      <label htmlFor="hasColor">
+                        <h3 className="font-primary text-[14px] font-normal text-primary ">
+                          It is colored
+                        </h3>
+                        <p className="pt-1 text-[14px] font-primary text-secondary">
+                          One or more details have been painted or cosmetic work
+                          has been done.
+                        </p>
+                      </label>
+                    </div>
                   </div>
                 </div>
-                <label className="font-primary text-[14px] font-normal invisible min-w-[165px] max-w-[165px]">
-                  The Situation
-                </label>
               </div>
             </div>
+
             <div className="col-span-12">
               <div className="flex space-y-2 md:space-y-0  justify-between md:gap-[50px] md:flex-row flex-col ">
                 <label className="font-primary text-[14px] font-normal md:min-w-[12%]">
@@ -1384,7 +1376,7 @@ function NewAdvertisement() {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-12 gap-[30px] mt-[80px] md:ml-6">
+          <div className="grid grid-cols-12 gap-[30px] mt-[30px] md:ml-6">
             <div className="col-span-12 md:col-span-6">
               <div className="flex space-y-2 md:space-y-0 md:items-center justify-between md:gap-[10px] md:flex-row flex-col">
                 <label className="font-primary text-[14px] font-normal min-w-[165px] max-w-[165px]">
@@ -1423,7 +1415,7 @@ function NewAdvertisement() {
             </div>
           </div>
           <div className="mt-6 md:ml-6">
-            <h2 className="uppercase font-secondary text-[26px] font-bold leading-8 text-primary mb-4">
+            <h2 className="uppercase font-secondary text-[26px] font-bold leading-8 text-primary mt-[30px] mb-4">
               Vehicle supply
             </h2>
             <div className="grid grid-cols-12 gap-y-5">
@@ -1453,7 +1445,7 @@ function NewAdvertisement() {
             </div>
             <div id="picturesSection" className="grid grid-cols-12">
               <div className="col-span-12">
-                <h2 className="uppercase mt-6 mb-[30px] font-secondary text-[26px] font-bold leading-8 text-primary">
+                <h2 className="uppercase mb-4 mt-[30px] font-secondary text-[26px] font-bold leading-8 text-primary">
                   Pictures
                 </h2>
                 <div className="bg-[#f6f7fa] p-4 rounded-lg mb-6">

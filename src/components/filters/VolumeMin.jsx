@@ -8,26 +8,33 @@ function VolumeMin() {
   const [engineVolumes, setEngineVolumes] = useState([]);
   const { selectedVolumeMin, setSelectedVolumeMin } = useContext(FilterContext);
   const detailsRef = useRef(null);
-  const [isOpen, setIsOpen] = useState(false); // New state to track dropdown open status
-  const [searchTerm, setSearchTerm] = useState(""); // Add search term state
-  const inputRef = useRef(null); // Add input ref
+  const inputRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleSelection = (item) => {
     setSelectedVolumeMin(item.name);
+    setSearchTerm("");
     if (detailsRef.current) {
       detailsRef.current.removeAttribute("open");
-      setIsOpen(false); // Close the dropdown
+      setIsOpen(false);
+    }
+  };
+
+  const handleInputFocus = () => {
+    setIsOpen(true);
+    if (detailsRef.current) {
+      detailsRef.current.setAttribute("open", "true");
     }
   };
 
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
     setIsOpen(true);
+    if (detailsRef.current) {
+      detailsRef.current.setAttribute("open", "true");
+    }
   };
-
-  const filteredEngineVolumes = engineVolumes.filter((volume) =>
-    volume.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
 
   useEffect(() => {
     async function getEngineVolumes() {
@@ -43,44 +50,43 @@ function VolumeMin() {
     getEngineVolumes();
   }, []);
 
+  const filteredEngineVolumes = engineVolumes.filter((volume) =>
+    volume.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="h-full">
       <details
         ref={detailsRef}
         className="w-full h-full dropdown"
-        onToggle={(e) => setIsOpen(e.target.open)} // Update state on toggle
+        onToggle={(e) => setIsOpen(e.target.open)}
       >
         <summary className="flex items-center justify-between w-full h-full px-[10px] bg-white border border-gray-300 rounded-lg btn shadow-input hover:bg-stone-50">
-          <div className="text-start">
+          <div className="max-w-[80%]">
             {selectedVolumeMin && (
               <p className="font-primary mb-1 text-[12px] opacity-70 text-secondary text-start">
                 Volume (cm.3)
               </p>
             )}
-            <p className="font-primary text-[14px] font-normal">
-              {selectedVolumeMin || "Volume (cm.3)"}
-            </p>
+            <input
+              ref={inputRef}
+              type="text"
+              value={searchTerm}
+              onChange={handleInputChange}
+              onFocus={handleInputFocus}
+              placeholder={selectedVolumeMin || "Volume (cm.3)"}
+              className="font-primary text-[14px] font-normal w-full bg-transparent border-none focus:outline-none"
+            />
           </div>
           <img
             src={chivronBottom}
             alt="chivron-Bottom"
             className={`transition-transform duration-300 ${
               isOpen ? "rotate-180" : ""
-            }`} // Apply rotation class based on state
+            }`}
           />
         </summary>
-        <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 flex-col flex-nowrap w-full mt-2 rounded-none rounded-l-lg max-h-[210px] overflow-y-auto">
-          <li className="sticky top-0 bg-white z-10">
-            <input
-              ref={inputRef}
-              type="text"
-              value={searchTerm}
-              onChange={handleInputChange}
-              onFocus={() => setIsOpen(true)}
-              placeholder="Search volume"
-              className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none active:!bg-transparent mb-2"
-            />
-          </li>
+        <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 flex-col flex-nowrap w-full mt-1 rounded-none rounded-l-lg max-h-[210px] overflow-y-auto">
           {filteredEngineVolumes.map((item) => (
             <li key={item.id} onClick={() => handleSelection(item)}>
               <a>{item.name}</a>

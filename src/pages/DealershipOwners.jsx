@@ -45,7 +45,7 @@ function DealershipOwners() {
             className={`uppercase ${
               !showMobileCom
                 ? "text-[16px] font-bold leading-8 text-primary"
-                : "text-[14px] font-medium text-[#ca1016]"
+                : "text-[14px] font-medium text-[#B62C17]"
             } `}
           >
             OFFICIAL REPRESENTATIVES

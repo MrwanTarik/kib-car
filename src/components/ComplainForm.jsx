@@ -44,7 +44,7 @@ function ComplainForm({ onCloseModal }) {
           ref={detailsRef}
           className={`w-full h-full dropdown  px-[30px]`}
         >
-          <summary className="flex items-center justify-between w-full h-full !p-0 bg-white border-none rounded-lg cursor-pointer btn hover:bg-transparent">
+          <summary className="flex items-center justify-between w-full  !p-0 bg-white  cursor-pointer h-[3rem] min-h-[3rem] hover:bg-transparent border-b border-[#eaebf2]">
             <div className="max-w-[80%]">
               {complainName && (
                 <p className="font-primary mb-1 text-[12px] opacity-70 text-secondary text-start">

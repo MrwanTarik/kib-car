@@ -95,7 +95,9 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                 x="64"
                 y="413"
                 xmlns="http://www.w3.org/2000/svg"
-                className={isFavorite ? "stroke-rose-600" : "group-hover:stroke-rose-600"}
+                className={
+                  isFavorite ? "stroke-rose-600" : "group-hover:stroke-rose-600"
+                }
                 stroke={isFavorite ? "#e11d48" : "#212c3a"}
               >
                 <path
@@ -103,7 +105,13 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                   strokeWidth="1.5"
                 />
               </svg>
-              <p className={`font-primary text-[14px] font-medium leading-[21px] ${isFavorite ? "text-rose-600" : "text-[#212c3a] group-hover:text-rose-600"}`}>
+              <p
+                className={`font-primary text-[14px] font-medium leading-[21px] ${
+                  isFavorite
+                    ? "text-rose-600"
+                    : "text-[#212c3a] group-hover:text-rose-600"
+                }`}
+              >
                 {isFavorite ? "Saved to favorites" : "Save to favorites"}
               </p>
             </button>
@@ -293,7 +301,7 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                     fillRule="evenodd"
                     clipRule="evenodd"
                     d="M14.625 11.515l3.31 1.84c.476.263.684.823.497 1.333-.95 2.593-3.73 3.962-6.345 3.007C6.73 15.74 2.76 11.77.805 6.413-.15 3.797 1.219 1.017 3.812.068c.51-.187 1.07.021 1.334.496.612 1.104 1.226 2.208 1.839 3.31.287.518.22 1.133-.174 1.575L5.266 7.187c1.1 2.678 3.369 4.947 6.047 6.047l1.738-1.545a1.349 1.349 0 011.574-.174z"
-                    fill="#CA1016"
+                    fill="#B62C17"
                   />
                 </svg>
                 <div>
@@ -303,7 +311,7 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                         href={`tel:${clearFormatPhoneNumber(
                           car.car_dealership.phone1
                         )}`}
-                        className="hover:text-[#ca1016]"
+                        className="hover:text-[#B62C17]"
                       >
                         {formatPhoneNumber(car.car_dealership.phone1)}
                       </a>
@@ -311,7 +319,7 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                         href={`tel:${clearFormatPhoneNumber(
                           car.car_dealership.phone2
                         )}`}
-                        className="hover:text-[#ca1016]"
+                        className="hover:text-[#B62C17]"
                       >
                         {formatPhoneNumber(car.car_dealership.phone2)}
                       </a>
@@ -319,7 +327,7 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                         href={`tel:${clearFormatPhoneNumber(
                           car.car_dealership.phone3
                         )}`}
-                        className="hover:text-[#ca1016]"
+                        className="hover:text-[#B62C17]"
                       >
                         {formatPhoneNumber(car.car_dealership.phone3)}
                       </a>
@@ -329,7 +337,7 @@ function DetailsPC({ car, showFullSlider, setShowFullSlider, carImages, id }) {
                       href={`tel:${clearFormatPhoneNumber(
                         car.creator.guest_phone.phone
                       )}`}
-                      className="hover:text-[#ca1016]"
+                      className="hover:text-[#B62C17]"
                     >
                       {formatPhoneNumber(car.creator.guest_phone.phone)}
                     </a>

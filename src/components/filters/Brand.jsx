@@ -18,16 +18,26 @@ function Brand() {
       brand: item.id,
     });
     setBrandName(item.name);
-    setSearchTerm("");
+    setSearchTerm(""); // Clear the search term
     if (detailsRef.current) {
       detailsRef.current.removeAttribute("open");
       setIsOpen(false);
     }
   };
 
+  const handleInputFocus = () => {
+    setIsOpen(true);
+    if (detailsRef.current) {
+      detailsRef.current.setAttribute("open", "true");
+    }
+  };
+
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
     setIsOpen(true);
+    if (detailsRef.current) {
+      detailsRef.current.setAttribute("open", "true");
+    }
   };
 
   const filteredBrands = brands.filter((brand) =>
@@ -56,15 +66,21 @@ function Brand() {
         onToggle={(e) => setIsOpen(e.target.open)}
       >
         <summary className="flex items-center justify-between w-full h-full px-[10px] bg-white border border-gray-300 rounded-lg btn shadow-input hover:bg-stone-50">
-          <div>
+          <div className="max-w-[80%]">
             {brandName && (
               <p className="font-primary mb-1 text-[12px] opacity-70 text-secondary text-start">
                 Brand
               </p>
             )}
-            <p className="font-primary text-[14px] font-normal">
-              {brandName || "Brand"}
-            </p>
+            <input
+              ref={inputRef}
+              type="text"
+              value={searchTerm}
+              onChange={handleInputChange}
+              onFocus={handleInputFocus}
+              placeholder={brandName || "Brand"}
+              className="font-primary text-[14px] font-normal w-full bg-transparent border-none focus:outline-none"
+            />
           </div>
           <img
             src={chivronBottom}
@@ -74,18 +90,7 @@ function Brand() {
             }`}
           />
         </summary>
-        <ul className="p-2 z-[1] shadow menu dropdown-content bg-base-100 flex flex-col flex-nowrap justify-start w-full mt-2 rounded-lg max-h-[210px] overflow-y-auto">
-          <li className="sticky top-0 bg-white z-10">
-            <input
-              ref={inputRef}
-              type="text"
-              value={searchTerm}
-              onChange={handleInputChange}
-              onFocus={() => setIsOpen(true)}
-              placeholder="Search brand"
-              className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none active:!bg-transparent mb-2"
-            />
-          </li>
+        <ul className="p-2 z-[1] shadow menu dropdown-content bg-base-100 flex flex-col flex-nowrap justify-start w-full mt-1 rounded-lg max-h-[210px] overflow-y-auto">
           {filteredBrands.map((brand) => (
             <li key={brand.id} onClick={() => handleSelection(brand)}>
               <a>{brand.name}</a>

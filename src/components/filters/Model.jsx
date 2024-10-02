@@ -10,6 +10,7 @@ function Model() {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const detailsRef = useRef(null);
+  const inputRef = useRef(null);
   const initialCheckedModelState = {};
 
   const handleCheckboxChange = (event) => {
@@ -27,10 +28,22 @@ function Model() {
         return [...prevItems, modelId];
       }
     });
+    setSearchTerm(""); // Clear the search term after each selection
+  };
+
+  const handleInputFocus = () => {
+    setIsOpen(true);
+    if (detailsRef.current) {
+      detailsRef.current.setAttribute("open", "true");
+    }
   };
 
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
+    setIsOpen(true);
+    if (detailsRef.current) {
+      detailsRef.current.setAttribute("open", "true");
+    }
   };
 
   const filteredModels = models.filter((model) =>
@@ -82,9 +95,16 @@ function Model() {
                 Model
               </p>
             )}
-            <p className="font-primary text-[14px] font-normal text-start overflow-hidden whitespace-nowrap overflow-ellipsis">
-              {summaryText}
-            </p>
+            <input
+              ref={inputRef}
+              type="text"
+              value={searchTerm}
+              onChange={handleInputChange}
+              onFocus={handleInputFocus}
+              placeholder={summaryText}
+              className="font-primary text-[14px] font-normal w-full bg-transparent border-none focus:outline-none text-start overflow-hidden whitespace-nowrap overflow-ellipsis"
+              disabled={!brandId}
+            />
           </div>
           <img
             src={chivronBottom}
@@ -94,16 +114,7 @@ function Model() {
             }`}
           />
         </summary>
-        <ul className="p-2 z-[1] shadow menu dropdown-content bg-base-100 flex flex-col flex-nowrap justify-start w-full mt-2 rounded-lg max-h-[210px] overflow-y-auto">
-          <li className="sticky top-0 bg-white z-10">
-            <input
-              type="text"
-              value={searchTerm}
-              onChange={handleInputChange}
-              placeholder="Search model"
-              className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none active:!bg-transparent mb-2"
-            />
-          </li>
+        <ul className="p-2 z-[1] shadow menu dropdown-content bg-base-100 flex flex-col flex-nowrap justify-start w-full mt-1 rounded-lg max-h-[210px] overflow-y-auto">
           {filteredModels.map((model) => (
             <li key={model.id} className="flex items-center">
               <label className="flex items-center w-full px-2 py-1 text-secondary font-primary">

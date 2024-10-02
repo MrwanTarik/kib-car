@@ -3,13 +3,15 @@ import { useRef, useState, useEffect } from "react";
 import chivronBottom from "../../assets/icons/chivron-bottom-gray.svg";
 import { useContext } from "react";
 import FilterContext from "../../context/filterContext/FilterContext";
+
 function BanType() {
   const [banTypes, setBanTypes] = useState([]);
   const { checkedBanType, setCheckedBanType, setCheckedBanTypeIds } =
     useContext(FilterContext);
   const detailsRef = useRef(null);
-  const [isOpen, setIsOpen] = useState(false); // New state to track dropdown open status
-  const [searchTerm, setSearchTerm] = useState(""); // New state for search term
+  const inputRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleCheckboxChange = (event) => {
     const item = event.target.name;
@@ -25,11 +27,22 @@ function BanType() {
         return [...prevItems, banTypeId];
       }
     });
+    setSearchTerm(""); // Clear search term after selection
+  };
+
+  const handleInputFocus = () => {
+    setIsOpen(true);
+    if (detailsRef.current) {
+      detailsRef.current.setAttribute("open", "true");
+    }
   };
 
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
     setIsOpen(true);
+    if (detailsRef.current) {
+      detailsRef.current.setAttribute("open", "true");
+    }
   };
 
   const filteredBanTypes = banTypes.filter((banType) =>
@@ -62,7 +75,7 @@ function BanType() {
       <details
         ref={detailsRef}
         className="w-full h-full dropdown"
-        onToggle={(e) => setIsOpen(e.target.open)} // Update state on toggle
+        onToggle={(e) => setIsOpen(e.target.open)}
       >
         <summary className="flex items-center justify-between w-full h-full px-[10px] bg-white border border-gray-300 rounded-lg cursor-pointer btn shadow-input hover:bg-stone-100">
           <div className="max-w-[80%]">
@@ -71,31 +84,25 @@ function BanType() {
                 Ban Type
               </p>
             )}
-            <p className="font-primary text-[14px] font-normal text-secondary text-start overflow-hidden whitespace-nowrap overflow-ellipsis w-full">
-              {summaryText}
-            </p>
+            <input
+              ref={inputRef}
+              type="text"
+              value={searchTerm}
+              onChange={handleInputChange}
+              onFocus={handleInputFocus}
+              placeholder={summaryText}
+              className="font-primary text-[14px] font-normal w-full bg-transparent border-none focus:outline-none text-start overflow-hidden whitespace-nowrap overflow-ellipsis"
+            />
           </div>
-
           <img
             src={chivronBottom}
             alt="chivron-Bottom"
             className={`transition-transform duration-300 ${
               isOpen ? "rotate-180" : ""
-            }`} // Apply rotation class based on state
+            }`}
           />
         </summary>
-
-        <ul className="px-2 pb-2 z-[1] shadow menu dropdown-content bg-base-100 flex flex-col flex-nowrap justify-start w-full mt-2 rounded-lg max-h-[210px] overflow-y-auto">
-          <li className="sticky top-0 bg-white z-10">
-            <input
-              type="text"
-              value={searchTerm}
-              onChange={handleInputChange}
-              onFocus={() => setIsOpen(true)}
-              placeholder="Search ban type"
-              className="w-full px-2 py-1 border border-gray-300 rounded focus:outline-none active:!bg-transparent mb-2 mb-2"
-            />
-          </li>
+        <ul className="p-2 z-[1] shadow menu dropdown-content bg-base-100 flex flex-col flex-nowrap justify-start w-full mt-1 rounded-lg max-h-[210px] overflow-y-auto">
           {filteredBanTypes.map((item) => (
             <li key={item.id} className="flex items-center ">
               <label className="flex items-center w-full px-2 py-1 text-secondary font-primary">

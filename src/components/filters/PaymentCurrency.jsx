@@ -32,7 +32,7 @@ function PaymentCurrency() {
           </div>
           <img src={chivronBottom} alt="chivron-Bottom" />
         </summary>
-        <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 flex justify-start w-full mt-2 rounded-none rounded-l-lg">
+        <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 flex justify-start w-full mt-1 rounded-none rounded-l-lg">
           {currencies.map((item) => (
             <li key={item.id} onClick={() => handleSelection(item)}>
               <a>{item.name}</a>

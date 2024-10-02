@@ -15,7 +15,7 @@ function Accordion({ id, isOpen, onToggle, title, content }) {
         {title}
       </label>
       <div
-        className={`collapse-content border-l-[3px] border-[#ca1016] bg-[#f6f7fa] ${
+        className={`collapse-content border-l-[3px] border-[#B62C17] bg-[#f6f7fa] ${
           isOpen ? "py-[20px] px-[25px]" : ""
         }`}
       >

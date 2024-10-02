@@ -101,7 +101,7 @@ function MobileFixedFooter() {
                     viewBox="0 0 20 20"
                     width="20"
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="#ca1016"
+                    fill="#B62C17"
                   >
                     <g>
                       <path
@@ -162,7 +162,7 @@ function MobileFixedFooter() {
                         y1="0%"
                         y2="98.965%"
                       >
-                        <stop offset="0%" stopColor="#CA1016"></stop>
+                        <stop offset="0%" stopColor="#B62C17"></stop>
                         <stop offset="43.571%" stopColor="#C01817"></stop>
                         <stop offset="100%" stopColor="#B41312"></stop>
                       </linearGradient>

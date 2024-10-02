@@ -13,7 +13,7 @@ export default {
         primary: "#1D1A1A",
         secondary: "#8D94AD",
         link: "#4C88F9",
-        red: "#CA1016",
+        red: "#B62C17", //#B62C17
         green: "#7ED321",
       },
       boxShadow: {
