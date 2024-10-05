@@ -19,24 +19,36 @@ function Brand() {
     });
     setBrandName(item.name);
     setSearchTerm(""); // Clear the search term
-    if (detailsRef.current) {
-      detailsRef.current.removeAttribute("open");
-      setIsOpen(false);
-    }
-  };
-
-  const handleInputFocus = () => {
-    setIsOpen(true);
-    if (detailsRef.current) {
-      detailsRef.current.setAttribute("open", "true");
-    }
+    closeDropdown();
   };
 
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
-    setIsOpen(true);
+    if (!isOpen) {
+      setIsOpen(true);
+    }
+  };
+
+  const closeDropdown = () => {
+    setIsOpen(false);
     if (detailsRef.current) {
-      detailsRef.current.setAttribute("open", "true");
+      detailsRef.current.removeAttribute("open");
+    }
+    inputRef.current.blur();
+  };
+
+  const handleDetailsClick = (e) => {
+    e.preventDefault();
+    if (isOpen) {
+      closeDropdown();
+    } else {
+      setIsOpen(true);
+      if (detailsRef.current) {
+        detailsRef.current.setAttribute("open", "true");
+      }
+      setTimeout(() => {
+        inputRef.current.focus();
+      }, 0);
     }
   };
 
@@ -63,9 +75,14 @@ function Brand() {
       <details
         ref={detailsRef}
         className="w-full h-full dropdown"
-        onToggle={(e) => setIsOpen(e.target.open)}
+        open={isOpen}
+        onClick={handleDetailsClick}
       >
-        <summary className="flex items-center justify-between w-full h-full px-[10px] bg-white border border-gray-300 rounded-lg btn shadow-input hover:bg-stone-50">
+        <summary
+          className={`flex items-center justify-between w-full h-full px-[10px] bg-white border rounded-lg btn shadow-input hover:bg-white hover:!border-[#8F93AD] ${
+            isOpen ? "border-[#8F93AD]" : "border-gray-300"
+          }`}
+        >
           <div className="max-w-[80%]">
             {brandName && (
               <p className="font-primary mb-1 text-[12px] opacity-70 text-secondary text-start">
@@ -77,7 +94,6 @@ function Brand() {
               type="text"
               value={searchTerm}
               onChange={handleInputChange}
-              onFocus={handleInputFocus}
               placeholder={brandName || "Brand"}
               className="font-primary text-[14px] font-normal w-full bg-transparent border-none focus:outline-none"
             />

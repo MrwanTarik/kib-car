@@ -77,7 +77,13 @@ function Model() {
     }
     getModels();
   }, [brandId]);
-
+  useEffect(() => {
+    if (isOpen) {
+      inputRef.current.focus();
+    } else {
+      inputRef.current.blur();
+    }
+  }, [isOpen]);
   return (
     <div className="h-full">
       <details
@@ -87,7 +93,9 @@ function Model() {
       >
         <summary
           disabled={!brandId}
-          className="flex items-center justify-between w-full h-full px-[10px] bg-white border border-gray-300 rounded-lg cursor-pointer btn shadow-input hover:bg-stone-100"
+          className={`flex items-center justify-between w-full h-full px-[10px] bg-white border rounded-lg btn shadow-input hover:bg-white hover:!border-[#8F93AD] ${
+            isOpen ? "border-[#8F93AD]" : "border-gray-300"
+          }`}
         >
           <div className="max-w-[80%]">
             {selectedOptions.length > 0 && (

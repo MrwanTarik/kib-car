@@ -75,7 +75,13 @@ function SeatsNumber() {
     selectedOptions.length === 0
       ? "Number of Seats"
       : selectedOptions.join(", ");
-
+  useEffect(() => {
+    if (isOpen) {
+      inputRef.current.focus();
+    } else {
+      inputRef.current.blur();
+    }
+  }, [isOpen]);
   return (
     <div className="h-full">
       <details
@@ -83,7 +89,11 @@ function SeatsNumber() {
         className="w-full h-full dropdown"
         onToggle={(e) => setIsOpen(e.target.open)}
       >
-        <summary className="flex items-center justify-between w-full h-full px-[10px]  bg-white border border-gray-300 rounded-lg cursor-pointer btn shadow-input hover:bg-stone-50">
+        <summary
+          className={`flex items-center justify-between w-full h-full px-[10px] bg-white border rounded-lg btn shadow-input hover:bg-white hover:!border-[#8F93AD] ${
+            isOpen ? "border-[#8F93AD]" : "border-gray-300"
+          }`}
+        >
           <div className="max-w-[80%]">
             {selectedOptions.length !== 0 && (
               <p className="font-primary mb-1 text-[12px] opacity-70 text-secondary text-start">

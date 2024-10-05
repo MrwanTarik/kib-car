@@ -1,12 +1,10 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useContext } from "react";
 import axios from "axios";
 import chivronBottom from "../../assets/icons/chivron-bottom-gray.svg";
-import { useContext } from "react";
 import FilterContext from "../../context/filterContext/FilterContext";
 
 function YearManufacturer() {
-  const { selectedYearManufactured, setSelectedYearManufactured } =
-    useContext(FilterContext);
+  const { selectedYearManufactured, setSelectedYearManufactured } = useContext(FilterContext);
   const [years, setYears] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -16,24 +14,36 @@ function YearManufacturer() {
   const handleSelection = (item) => {
     setSelectedYearManufactured(item.name);
     setSearchTerm("");
-    if (detailsRef.current) {
-      detailsRef.current.removeAttribute("open");
-      setIsOpen(false);
-    }
-  };
-
-  const handleInputFocus = () => {
-    setIsOpen(true);
-    if (detailsRef.current) {
-      detailsRef.current.setAttribute("open", "true");
-    }
+    closeDropdown();
   };
 
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
-    setIsOpen(true);
+    if (!isOpen) {
+      setIsOpen(true);
+    }
+  };
+
+  const closeDropdown = () => {
+    setIsOpen(false);
     if (detailsRef.current) {
-      detailsRef.current.setAttribute("open", "true");
+      detailsRef.current.removeAttribute("open");
+    }
+    inputRef.current.blur();
+  };
+
+  const handleDetailsClick = (e) => {
+    e.preventDefault();
+    if (isOpen) {
+      closeDropdown();
+    } else {
+      setIsOpen(true);
+      if (detailsRef.current) {
+        detailsRef.current.setAttribute("open", "true");
+      }
+      setTimeout(() => {
+        inputRef.current.focus();
+      }, 0);
     }
   };
 
@@ -60,9 +70,12 @@ function YearManufacturer() {
       <details
         ref={detailsRef}
         className="w-full h-full dropdown"
-        onToggle={(e) => setIsOpen(e.target.open)}
+        open={isOpen}
+        onClick={handleDetailsClick}
       >
-        <summary className="flex items-center justify-between w-full h-full px-[10px] bg-white border border-gray-300 rounded-lg btn shadow-input hover:bg-stone-100">
+        <summary className={`flex items-center justify-between w-full h-full px-[10px] bg-white border rounded-lg btn shadow-input hover:bg-white hover:!border-[#8F93AD] ${
+          isOpen ? "border-[#8F93AD]" : "border-gray-300"
+        }`}>
           <div className="max-w-[64%]">
             {selectedYearManufactured && (
               <p className="font-primary mb-1 text-[12px] opacity-70 text-secondary text-start">
@@ -74,7 +87,6 @@ function YearManufacturer() {
               type="text"
               value={searchTerm}
               onChange={handleInputChange}
-              onFocus={handleInputFocus}
               placeholder={selectedYearManufactured || "Year"}
               className="font-primary text-[14px] font-normal w-full bg-transparent border-none focus:outline-none"
             />

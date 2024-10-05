@@ -346,7 +346,7 @@ function Homepage() {
                     </button>
                     <button
                       onClick={handleMoreFilters}
-                      className="text-red font-primary text-[14px] font-normal flex items-center"
+                      className="text-red hover:text:[#882111] font-primary text-[14px] font-normal flex items-center"
                     >
                       {moreFilters ? "Hide" : `More Filters `}
                       <img
@@ -360,7 +360,7 @@ function Homepage() {
                     <AnimatedButtonWrapper>
                       <button
                         onClick={showFilterPayload}
-                        className="text-white rounded-lg shadow-lg bg-[#B62C17e3] hover:bg-red shadow-none hover:shadow-none py-[14px] px-[35px] font-primary text-[14px] font-normal md:ml-14 ml-[20px] flex items-center"
+                        className="text-white rounded-lg shadow-lg bg-red hover:bg-[#882111] shadow-none hover:shadow-none py-[14px] px-[35px] font-primary text-[14px] font-normal md:ml-14 ml-[20px] flex items-center"
                       >
                         Shows ads
                       </button>
