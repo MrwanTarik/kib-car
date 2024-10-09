@@ -6,7 +6,7 @@ import {
   Route,
   Navigate,
   useLocation,
-} from "react-router-dom";
+} from "react-router-dom"; 
 import Nav from "./components/layout/Nav";
 // import Homepage from "./pages/Homepage";
 import { FilterProvider } from "./context/filterContext/FilterContext";
